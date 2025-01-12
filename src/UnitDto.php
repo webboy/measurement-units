@@ -37,6 +37,14 @@ abstract class UnitDto
     protected Closure $fromBase;
 
     /**
+     * Create a new unit DTO.
+     *
+     * @param int|string $id The ID of the unit.
+     * @param string $name The name of the unit.
+     * @param string $symbol The symbol of the unit.
+     * @param Closure $toBase The closure to convert to the base unit.
+     * @param Closure $fromBase The closure to convert from the base unit.
+     * @param array|null $validIds The valid IDs for the unit.
      * @throws UnitException
      */
     public function __construct(

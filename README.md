@@ -21,3 +21,7 @@ To install the DTOs, you can use the following command:
 ```shell
 composer require webboy/measurement-units
 ```
+
+## Usage
+
+The DTOs are designed to be easy to use and understand. Here is an example of how you can use the `Distance` DTO:

@@ -1,6 +1,6 @@
 <?php
 
-namespace Units;
+namespace Tests\Units;
 
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;

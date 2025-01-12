@@ -1,6 +1,6 @@
 <?php
 
-namespace Abstract;
+namespace Tests\Abstract;
 
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
@@ -53,5 +53,15 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     {
         $value = $this->measurementDto->createValue(10, $this->measurementDto->base_unit_id);
         $this->assertSame(10, $value->value);
+    }
+
+    /**
+     * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException
+     */
+    public function testFailValueCreation(): void
+    {
+        $this->expectException(InvalidUnitIdMeasurementException::class);
+        $value = $this->measurementDto->createValue(10, 'invalid');
     }
 }

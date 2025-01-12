@@ -1,8 +1,8 @@
 <?php
 
-namespace Measurements;
+namespace Tests\Measurements;
 
-use Abstract\AbstractMeasurementDtoBase;
+use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;

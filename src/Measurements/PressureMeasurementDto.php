@@ -8,10 +8,17 @@ use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\MeasurementDto;
 
-
+/**
+ * A pressure measurement DTO.
+ */
 class PressureMeasurementDto extends MeasurementDto
 {
     /**
+     * Create a new pressure measurement DTO.
+     *
+     * @param string $name The name of the measurement.
+     * @param int|string|null $base_unit_id The ID of the base unit.
+     * @param null $units The units of the measurement.
      * @throws MeasurementException
      */
     public function __construct($name = 'Pressure', int | string $base_unit_id = null, $units = null)

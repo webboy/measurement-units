@@ -3,7 +3,6 @@
 namespace Webboy\MeasurementUnits;
 
 use ReflectionClass;
-use Webboy\MeasurementUnits\Enums\MeasurementEnum;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidBaseUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
@@ -42,6 +41,13 @@ abstract class MeasurementDto
     protected UnitDto $base_unit;
 
     /**
+     * Create a new measurement DTO.
+     *
+     * @param int|string $id The ID of the measurement.
+     * @param string $name The name of the measurement.
+     * @param int|string $base_unit_id The ID of the base unit.
+     * @param array|null $units The units of the measurement.
+     * @param array|null $validIds The valid IDs of the measurement.
      * @throws MeasurementException
      */
     public function __construct(
@@ -66,8 +72,13 @@ abstract class MeasurementDto
     }
 
     /**
-     * @throws InvalidUnitIdMeasurementException
+     * Create a new measurement DTO from a factory.
+     *
+     * @param int|float $value
+     * @param int|string $unitId
+     * @return MeasurementValueDto
      * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException
      */
     public function createValue(int | float $value, int | string $unitId): MeasurementValueDto
     {
@@ -76,7 +87,10 @@ abstract class MeasurementDto
     }
 
     /**
-     * @throws MeasurementException
+     * Get the base unit of the measurement.
+     *
+     * @return UnitDto
+     * @throws InvalidBaseUnitIdMeasurementException
      */
     public function getBaseUnit(): UnitDto
     {
@@ -97,7 +111,10 @@ abstract class MeasurementDto
     }
 
     /**
-     * @throws MeasurementException
+     * Load the definitions for the measurement.
+     *
+     * @return UnitDto[]
+     * @throws InvalidUnitDefinitionsMeasurementException
      */
     protected function loadDefinitions(): array
     {
@@ -135,9 +152,13 @@ abstract class MeasurementDto
     }
 
     /**
+     * Get a unit by its ID.
+     *
+     * @param int|string $unitId
+     * @return UnitDto
      * @throws InvalidUnitIdMeasurementException
      */
-    public function getUnit(int|string $unitId)
+    public function getUnit(int|string $unitId): UnitDto
     {
         foreach ($this->units as $unit) {
             if ($unit->id === $unitId) {
