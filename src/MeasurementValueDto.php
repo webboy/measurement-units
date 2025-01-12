@@ -4,7 +4,6 @@ namespace Webboy\MeasurementUnits;
 
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
-use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\UnableToCreateConvertedValueUnitConverterException;
 
 /**
  * The base class for all measurement value DTOs.
