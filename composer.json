@@ -1,7 +1,6 @@
 {
     "name": "webboy/measurement-units",
     "description": "Set of DTOs to deal with various physical units and conversions.",
-    "version": "1.0.1",
     "type": "library",
     "require-dev": {
         "php": "^8.1",
