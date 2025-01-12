@@ -2,6 +2,7 @@
 
 namespace Webboy\MeasurementUnits;
 
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
 
@@ -63,7 +64,7 @@ class MeasurementValueDto
      *
      * @param int|string $unit_id The ID of the target unit.
      * @return MeasurementValueDto The new measurement value DTO.
-     * @throws InvalidTargetUnitIdUnitConverterException
+     * @throws InvalidTargetUnitIdUnitConverterException | IllegalInstantiationMeasurementValueException|InvalidUnitIdMeasurementException
      */
     public function to(int | string $unit_id): MeasurementValueDto
     {
