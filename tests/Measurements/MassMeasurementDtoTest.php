@@ -16,7 +16,7 @@ use Webboy\MeasurementUnits\Measurements\TemperatureMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\VolumeMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\MassMeasurementDto;
 
-class WeightMeasurementDtoTest extends AbstractMeasurementDtoBase
+class MassMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     protected function createMeasurementDto(): object
     {
