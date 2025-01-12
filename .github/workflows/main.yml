@@ -1,0 +1,28 @@
+name: PHP Composer CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: xdebug  # Enables coverage generation
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Run PHPUnit Tests
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload Coverage to Coveralls
+        uses: coverallsapp/github-action@v2.3.4
+        with:
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
+          file: coverage.xml
