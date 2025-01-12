@@ -6,9 +6,14 @@ use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
+use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
+use Webboy\MeasurementUnits\UnitConverter;
 
 abstract class AbstractMeasurementDtoBase extends TestCase
 {
+    /**
+     * @var object The measurement DTO.
+     */
     protected object $measurementDto;
 
     /**
@@ -16,15 +21,48 @@ abstract class AbstractMeasurementDtoBase extends TestCase
      */
     protected string $unitEnumClass;
 
+    /**
+     * @var array The conversion test parameters.
+     */
+    protected array $conversionTestParameters;
+
+    /**
+     * Create the measurement DTO.
+     *
+     * @return object The measurement DTO.
+     */
     abstract protected function createMeasurementDto(): object;
 
+    /**
+     * Create the unit enum class.
+     *
+     * @return class-string The class name of the unit enum.
+     */
     abstract protected function createUnitEnumClass(): string;
+
+    /**
+     * Create the conversion test parameters.
+     *
+     * @return array The conversion test parameters.
+     */
+    protected function createConversionTestParameters(): array
+    {
+        return [
+            [
+                'value' => $this->measurementDto->createValue(10, $this->measurementDto->base_unit_id),
+                'target_unit_id' => $this->measurementDto->base_unit_id,
+                'expected_value' => 10
+            ]
+        ];
+    }
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->measurementDto = $this->createMeasurementDto();
         $this->unitEnumClass = $this->createUnitEnumClass();
+        $this->conversionTestParameters = $this->createConversionTestParameters();
+
     }
 
     public function testThrowsExceptionForInvalidId(): void
@@ -63,5 +101,37 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     {
         $this->expectException(InvalidUnitIdMeasurementException::class);
         $value = $this->measurementDto->createValue(10, 'invalid');
+    }
+
+    /**
+     * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidTargetUnitIdUnitConverterException
+     * @throws InvalidUnitIdMeasurementException
+     */
+    public function testSuccessfulConversion(): void
+    {
+        foreach ($this->conversionTestParameters as $conversionTestParameter) {
+            // Assert using UnitConverter::convert
+            $this->assertSame(
+                $conversionTestParameter['expected_value'],
+                UnitConverter::convert($conversionTestParameter['value'], $conversionTestParameter['target_unit_id'])->value
+            );
+
+            // Assert using MeasurementValueDto->to()
+            $this->assertSame(
+                $conversionTestParameter['expected_value'],
+                $conversionTestParameter['value']->to($conversionTestParameter['target_unit_id'])->value
+            );
+        }
+    }
+
+    /**
+     * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException
+     */
+    public function testFailConversion(): void
+    {
+        $this->expectException(InvalidTargetUnitIdUnitConverterException::class);
+        UnitConverter::convert($this->measurementDto->createValue(10, $this->measurementDto->base_unit_id), 'invalid');
     }
 }

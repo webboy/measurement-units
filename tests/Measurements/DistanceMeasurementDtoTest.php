@@ -17,4 +17,17 @@ class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
     {
         return DistanceUnitEnum::class;
     }
+
+    protected function createConversionTestParameters(): array
+    {
+        $params =  [
+            [
+                'value' => $this->measurementDto->createValue(100, DistanceUnitEnum::KILOMETER->value),
+                'target_unit_id' => DistanceUnitEnum::METER->value,
+                'expected_value' => 100000
+            ]
+        ];
+
+        return array_merge($params, parent::createConversionTestParameters());
+    }
 }

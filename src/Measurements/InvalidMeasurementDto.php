@@ -1,0 +1,40 @@
+<?php
+
+namespace Webboy\MeasurementUnits\Measurements;
+
+use Webboy\MeasurementUnits\Enums\MeasurementEnum;
+use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
+use Webboy\MeasurementUnits\Exceptions\MeasurementException;
+use Webboy\MeasurementUnits\MeasurementDto;
+
+/**
+ * A custom measurement DTO. This class is used to test the MeasurementDto class. Do not use this class in production.
+ */
+class InvalidMeasurementDto extends MeasurementDto
+{
+    /**
+     * Create a new custom measurement DTO.
+     *
+     * @param int|string $id The ID of the measurement.
+     * @param string $name The name of the measurement.
+     * @param int|string $base_unit_id The ID of the base unit.
+     * @param array|null $units The units of the measurement.
+     * @param array $validIds
+     * @throws MeasurementException
+     */
+    public function __construct(
+        int | string $id = 'invalid',
+        string $name = 'Invalid Measurement',
+        int | string $base_unit_id = 'invalid',
+        array $units = null,
+        array $validIds = []
+    ){
+        parent::__construct(
+            id: $id,
+            name: $name,
+            base_unit_id: $base_unit_id,
+            units: $units,
+            validIds: $validIds
+        );
+    }
+}
