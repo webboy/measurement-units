@@ -37,11 +37,6 @@ abstract class UnitDto
     protected Closure $fromBase;
 
     /**
-     * @var class-string The class name of the unit enum.
-     */
-    protected string $unitEnumClass;
-
-    /**
      * @throws UnitException
      */
     public function __construct(
@@ -49,10 +44,11 @@ abstract class UnitDto
         string $name,
         string $symbol,
         Closure $toBase,
-        Closure $fromBase
+        Closure $fromBase,
+        protected readonly ?array $validIds = null
     ) {
         //Validate ID
-        if ($this->unitEnumClass::tryFrom($id) === null) {
+        if ($this->validIds !== null && !in_array($id, $this->validIds)) {
             throw new InvalidUnitIdUnitException($id);
         }
 

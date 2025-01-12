@@ -8,6 +8,8 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidBaseUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
 
 /**
  * The base class for all measurement DTOs.
@@ -35,11 +37,6 @@ abstract class MeasurementDto
     public array $units;
 
     /**
-     * @var class-string The class name of the unit enum.
-     */
-    protected string $unit_enum_class;
-
-    /**
      * @var UnitDto The base unit of the measurement.
      */
     protected UnitDto $base_unit;
@@ -52,18 +49,11 @@ abstract class MeasurementDto
         string $name,
         int | string $base_unit_id,
         ?array $units = null,
-        private readonly bool $validateId = true
+        private readonly ?array $validIds = null,
     ){
         //Validate ID
-        if ($this->validateId) {
-            if (MeasurementEnum::tryFrom($id) === null) {
-                throw new InvalidMeasurementIdMeasurementException($id);
-            }
-        }
-
-        //Validate base unit ID
-        if($this->unit_enum_class::tryFrom($base_unit_id) === null) {
-            throw new InvalidBaseUnitIdMeasurementException($base_unit_id);
+        if ($this->validIds !== null && !in_array($id, $this->validIds)) {
+            throw new InvalidMeasurementIdMeasurementException($id);
         }
 
         $this->id = $id;
@@ -73,6 +63,16 @@ abstract class MeasurementDto
 
         //Set base unit
         $this->base_unit = $this->getBaseUnit();
+    }
+
+    /**
+     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException
+     */
+    public function createValue(int | float $value, int | string $unitId): MeasurementValueDto
+    {
+        $unit = $this->getUnit($unitId);
+        return MeasurementValueDto::createFromFactory($value, $unit, $this, $this::class);
     }
 
     /**
@@ -132,5 +132,19 @@ abstract class MeasurementDto
 
         return $definitions;
 
+    }
+
+    /**
+     * @throws InvalidUnitIdMeasurementException
+     */
+    public function getUnit(int|string $unitId)
+    {
+        foreach ($this->units as $unit) {
+            if ($unit->id === $unitId) {
+                return $unit;
+            }
+        }
+
+        throw new InvalidUnitIdMeasurementException($unitId);
     }
 }

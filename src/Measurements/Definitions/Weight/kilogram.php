@@ -1,6 +1,6 @@
 <?php
 
-use Webboy\MeasurementUnits\Enums\WeightUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\WeightUnitEnum;
 use Webboy\MeasurementUnits\Units\WeightUnitDto;
 
 return new WeightUnitDto(

@@ -1,6 +1,6 @@
 <?php
 
-use Webboy\MeasurementUnits\Enums\TemperatureUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\TemperatureUnitEnum;
 use Webboy\MeasurementUnits\Units\TemperatureUnitDto;
 
 return new TemperatureUnitDto(

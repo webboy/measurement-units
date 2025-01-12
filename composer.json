@@ -9,7 +9,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Webboy\\MeasurementUnits\\": "src/"
+            "Webboy\\MeasurementUnits\\": "src/",
+            "Abstract\\": "tests/Abstract/"
         }
     },
     "authors": [

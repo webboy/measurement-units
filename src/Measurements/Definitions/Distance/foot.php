@@ -1,6 +1,6 @@
 <?php
 
-use Webboy\MeasurementUnits\Enums\DistanceUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Units\DistanceUnitDto;
 
 return new DistanceUnitDto(

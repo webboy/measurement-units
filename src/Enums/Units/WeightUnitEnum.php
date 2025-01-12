@@ -1,6 +1,6 @@
 <?php
 
-namespace Webboy\MeasurementUnits\Enums;
+namespace Webboy\MeasurementUnits\Enums\Units;
 
 enum WeightUnitEnum: string
 {

@@ -2,10 +2,20 @@
 
 namespace Webboy\MeasurementUnits\Units;
 
-use Webboy\MeasurementUnits\Enums\DistanceUnitEnum;
-use Webboy\MeasurementUnits\Enums\WeightUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\WeightUnitEnum;
 use Webboy\MeasurementUnits\UnitDto;
+
 class WeightUnitDto extends UnitDto
 {
-    protected string $unitEnumClass = WeightUnitEnum::class;
+    public function __construct(int | string $id, string $name, string $symbol, callable $toBase, callable $fromBase)
+    {
+        parent::__construct(
+            id: $id,
+            name: $name,
+            symbol: $symbol,
+            toBase: $toBase,
+            fromBase: $fromBase,
+            validIds: array_map(fn($unit) => $unit->value, WeightUnitEnum::cases())
+        );
+    }
 }

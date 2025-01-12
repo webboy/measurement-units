@@ -2,12 +2,11 @@
 
 namespace Units;
 
-use Closure;
-use Webboy\MeasurementUnits\Enums\DistanceUnitEnum;
+use PHPUnit\Framework\TestCase;
+use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\UnitException;
 use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
 use Webboy\MeasurementUnits\Units\DistanceUnitDto;
-use PHPUnit\Framework\TestCase;
 
 class DistanceUnitDtoTest extends TestCase
 {

@@ -2,47 +2,19 @@
 
 namespace Measurements;
 
-use PHPUnit\Framework\MockObject\Exception;
-use Webboy\MeasurementUnits\Enums\DistanceUnitEnum;
-use Webboy\MeasurementUnits\Enums\MeasurementEnum;
-use Webboy\MeasurementUnits\Exceptions\MeasurementException;
+use Abstract\AbstractMeasurementDtoBase;
+use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
-use PHPUnit\Framework\TestCase;
-use Webboy\MeasurementUnits\Units\DistanceUnitDto;
 
-class DistanceMeasurementDtoTest extends TestCase
+class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    /**
-     * @throws Exception
-     */
-    public function testThrowsExceptionForInvalidId(): void
+    protected function createMeasurementDto(): object
     {
-        // Arrange: Invalid base unit ID and valid mock units
-        $invalidBaseUnitId = 'invalid'; // Example invalid ID
-        $mockUnits = [
-            $this->createMock(DistanceUnitDto::class),
-        ];
-
-        // Expect: Exception due to invalid base unit ID
-        $this->expectException(MeasurementException::class);
-
-        // Act: Attempt to create an instance of DistanceMeasurementDto
-        new DistanceMeasurementDto(
-            name: 'Distance',
-            base_unit_id: $invalidBaseUnitId,
-            units: $mockUnits
-        );
+        return new DistanceMeasurementDto();
     }
 
-    public function testSuccessfulDefaultConstruction()
+    protected function createUnitEnumClass(): string
     {
-        // Act: Create an instance of DistanceMeasurementDto
-        $dto = new DistanceMeasurementDto();
-
-        $validBaseUnitId = DistanceUnitEnum::METER->value;
-
-        // Assert: Check assigned properties
-        $this->assertSame(MeasurementEnum::DISTANCE->value, $dto->id);
-        $this->assertSame($validBaseUnitId, $dto->base_unit_id);
+        return DistanceUnitEnum::class;
     }
 }
