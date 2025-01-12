@@ -1,9 +1,10 @@
 {
     "name": "webboy/measurement-units",
     "description": "Set of DTOs to deal with various physical units and conversions.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "require-dev": {
+        "php": "^8.1",
         "phpunit/phpunit": "^11.5"
     },
     "license": "MIT",
@@ -19,5 +20,8 @@
             "email": "extramedia.nemanja@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
 }
