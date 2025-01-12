@@ -7,6 +7,7 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidBaseUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto;
 
 class MeasurementDtoTest extends TestCase
@@ -26,7 +27,7 @@ class MeasurementDtoTest extends TestCase
     public function testInvalidMeasurementDtoInvalidBaseUnitIdMeasurementException()
     {
         //Expect an exception
-        $this->expectException(InvalidBaseUnitIdMeasurementException::class);
+        $this->expectException(InvalidUnitIdMeasurementException::class);
 
         //Act
         $dto = new InvalidMeasurementDto(

@@ -27,7 +27,7 @@ class TemperatureMeasurementDto extends MeasurementDto
         parent::__construct(
             id: MeasurementEnum::TEMPERATURE->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? TemperatureUnitEnum::CELSIUS->value,
+            base_unit_id: $base_unit_id ?? TemperatureUnitEnum::KELVIN->value,
             units: $units,
             validIds: $validIds
         );

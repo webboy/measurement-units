@@ -25,3 +25,40 @@ composer require webboy/measurement-units
 ## Usage
 
 The DTOs are designed to be easy to use and understand. Here is an example of how you can use the `Distance` DTO:
+
+```php
+
+use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
+
+// Create a new distance measurement.
+$measurement = new DistanceMeasurementDto();
+
+// Set the value of the measurement.
+$distance_value = $measurement->createValue(100, 'km');
+
+// Print the distance value.
+echo ("My distance in km is: " . $distance_value . PHP_EOL);
+
+// Convert the distance value to meters.
+$converted_distance_value = $distance_value->to('mi');
+
+// Print the converted distance value.
+echo ("My distance in miles is: " . $converted_distance_value . PHP_EOL);
+```    
+   
+## Available DTOs 
+
+The following DTOs are available in this package:
+
+- `AreaMeasurementDto`
+- `DistanceMeasurementDto`
+- `MassMeasurementDto`
+- `SpeedMeasurementDto`
+- `TemperatureMeasurementDto`
+- `TimeMeasurementDto`
+- `VolumeMeasurementDto`
+- `PressureMeasurementDto`
+- `EnergyMeasurementDto`
+- `PowerMeasurementDto`
+- `ForceMeasurementDto`
+- `TorqueMeasurementDto`

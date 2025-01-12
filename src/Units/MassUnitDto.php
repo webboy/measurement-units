@@ -2,14 +2,14 @@
 
 namespace Webboy\MeasurementUnits\Units;
 
-use Webboy\MeasurementUnits\Enums\Units\WeightUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\MassUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\UnitException;
 use Webboy\MeasurementUnits\UnitDto;
 
 /**
  * A weight unit DTO.
  */
-class WeightUnitDto extends UnitDto
+class MassUnitDto extends UnitDto
 {
     /**
      * Create a new weight unit DTO.
@@ -29,7 +29,7 @@ class WeightUnitDto extends UnitDto
             symbol: $symbol,
             toBase: $toBase,
             fromBase: $fromBase,
-            validIds: array_map(fn($unit) => $unit->value, WeightUnitEnum::cases())
+            validIds: array_map(fn($unit) => $unit->value, MassUnitEnum::cases())
         );
     }
 }

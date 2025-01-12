@@ -64,10 +64,21 @@ class MeasurementValueDto
      *
      * @param int|string $unit_id The ID of the target unit.
      * @return MeasurementValueDto The new measurement value DTO.
-     * @throws InvalidTargetUnitIdUnitConverterException | IllegalInstantiationMeasurementValueException|InvalidUnitIdMeasurementException
+     * @throws InvalidTargetUnitIdUnitConverterException
+     * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException
      */
     public function to(int | string $unit_id): MeasurementValueDto
     {
         return UnitConverter::convert($this, $unit_id);
+    }
+
+    /**
+     * Convert the measurement value to a new unit.
+     * @return string The string representation of the measurement value.
+     */
+    public function __toString(): string
+    {
+        return $this->value . ' ' . $this->unit->symbol;
     }
 }

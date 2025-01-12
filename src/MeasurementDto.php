@@ -65,7 +65,9 @@ abstract class MeasurementDto
         $this->id = $id;
         $this->name = $name;
         $this->base_unit_id = $base_unit_id;
-        $this->units = $units ?? $this->loadDefinitions();
+
+        //Add units
+        $this->addUnits($units ?? $this->loadDefinitions());
 
         //Set base unit
         $this->base_unit = $this->getBaseUnit();
@@ -90,24 +92,11 @@ abstract class MeasurementDto
      * Get the base unit of the measurement.
      *
      * @return UnitDto
-     * @throws InvalidBaseUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException
      */
     public function getBaseUnit(): UnitDto
     {
-        $baseUnit = array_filter(
-            $this->units,
-            function(UnitDto $unit) {
-                return $unit->id === $this->base_unit_id;
-            }
-        );
-
-        $baseUnit = reset($baseUnit);
-
-        if (empty($baseUnit)) {
-            throw new InvalidBaseUnitIdMeasurementException($this->base_unit_id);
-        }
-
-        return $baseUnit;
+        return $this->getUnit($this->base_unit_id);
     }
 
     /**
@@ -135,12 +124,24 @@ abstract class MeasurementDto
             // Include the file and add the returned UnitDto object to the array
             $unitDefinition = include $definitionFile;
 
-            if (!$unitDefinition instanceof UnitDto) {
-                // Skip or handle improperly formatted files
-                continue;
-            }
+            if (is_object($unitDefinition)) {
 
-            $definitions[] = $unitDefinition;
+                if (!$unitDefinition instanceof UnitDto) {
+                    // Skip or handle improperly formatted files
+                    continue;
+                }
+
+                $definitions[$unitDefinition->id] = $unitDefinition;
+            } elseif (is_array($unitDefinition)) {
+                foreach ($unitDefinition as $unit) {
+                    if (!$unit instanceof UnitDto) {
+                        // Skip or handle improperly formatted files
+                        continue;
+                    }
+
+                    $definitions[$unit->id] = $unit;
+                }
+            }
         }
 
         if (empty($definitions)) {
@@ -152,6 +153,27 @@ abstract class MeasurementDto
     }
 
     /**
+     * Add a unit to the measurement.
+     *
+     * @param UnitDto $unit
+     */
+    private function addUnit(UnitDto $unit): void
+    {
+        $this->units[$unit->id] = $unit;
+    }
+
+    /**
+     * @param UnitDto[] $units
+     * @return void
+     */
+    private function addUnits(array $units): void
+    {
+        foreach ($units as $unit) {
+            $this->addUnit($unit);
+        }
+    }
+
+    /**
      * Get a unit by its ID.
      *
      * @param int|string $unitId
@@ -160,10 +182,8 @@ abstract class MeasurementDto
      */
     public function getUnit(int|string $unitId): UnitDto
     {
-        foreach ($this->units as $unit) {
-            if ($unit->id === $unitId) {
-                return $unit;
-            }
+        if (isset($this->units[$unitId]) && $this->units[$unitId] instanceof UnitDto) {
+            return $this->units[$unitId];
         }
 
         throw new InvalidUnitIdMeasurementException($unitId);

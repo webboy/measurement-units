@@ -91,6 +91,10 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     {
         $value = $this->measurementDto->createValue(10, $this->measurementDto->base_unit_id);
         $this->assertSame(10, $value->value);
+
+        // To string assertion
+        $string = "Measurement value: " . $value->value . " " . $value->unit->symbol;
+        $this->assertSame($string, "Measurement value: " . $value);
     }
 
     /**

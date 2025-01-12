@@ -3,7 +3,7 @@
 namespace Webboy\MeasurementUnits\Measurements;
 
 use Webboy\MeasurementUnits\Enums\MeasurementEnum;
-use Webboy\MeasurementUnits\Enums\Units\WeightUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\MassUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\MeasurementDto;
 
@@ -11,7 +11,7 @@ use Webboy\MeasurementUnits\MeasurementDto;
 /**
  * A weight measurement DTO.
  */
-class WeightMeasurementDto extends MeasurementDto
+class MassMeasurementDto extends MeasurementDto
 {
     /**
      * Create a new weight measurement DTO.
@@ -21,14 +21,14 @@ class WeightMeasurementDto extends MeasurementDto
      * @param null $units The units of the measurement.
      * @throws MeasurementException
      */
-    public function __construct($name = 'Weight', int | string $base_unit_id = null, $units = null)
+    public function __construct($name = 'Mass', int | string $base_unit_id = null, $units = null)
     {
         $validIds = array_map(fn($unit) => $unit->value, MeasurementEnum::cases());
 
         parent::__construct(
             id: MeasurementEnum::WEIGHT->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? WeightUnitEnum::KILOGRAM->value,
+            base_unit_id: $base_unit_id ?? MassUnitEnum::KILOGRAM->value,
             units: $units,
             validIds: $validIds
         );
