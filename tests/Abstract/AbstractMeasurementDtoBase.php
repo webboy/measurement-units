@@ -49,8 +49,8 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     {
         return [
             [
-                'value' => $this->measurementDto->createValue(10, $this->measurementDto->base_unit_id),
-                'target_unit_id' => $this->measurementDto->base_unit_id,
+                'value' => $this->measurementDto->createValue(10, $this->measurementDto->getBaseUnit()->id),
+                'target_unit_id' => $this->measurementDto->getBaseUnit()->id,
                 'expected_value' => 10
             ]
         ];
@@ -73,10 +73,10 @@ abstract class AbstractMeasurementDtoBase extends TestCase
 
     public function testSuccessfulDefaultConstruction(): void
     {
-        $validBaseUnitId = $this->measurementDto->base_unit_id;
+        $validBaseUnitId = $this->measurementDto->getBaseUnit()->id;
 
         $this->assertSame($this->measurementDto->id, $this->measurementDto->id);
-        $this->assertSame($validBaseUnitId, $this->measurementDto->base_unit_id);
+        $this->assertSame($validBaseUnitId, $this->measurementDto->getBaseUnit()->id);
 
         foreach ($this->unitEnumClass::cases() as $case) {
             $this->assertSame($case->value, $this->measurementDto->getUnit($case->value)->id);
@@ -89,7 +89,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
      */
     public function testSuccessfulValueCreation(): void
     {
-        $value = $this->measurementDto->createValue(10, $this->measurementDto->base_unit_id);
+        $value = $this->measurementDto->createValue(10, $this->measurementDto->getBaseUnit()->id);
         $this->assertSame(10, $value->value);
 
         // To string assertion
@@ -136,6 +136,6 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     public function testFailConversion(): void
     {
         $this->expectException(InvalidTargetUnitIdUnitConverterException::class);
-        UnitConverter::convert($this->measurementDto->createValue(10, $this->measurementDto->base_unit_id), 'invalid');
+        UnitConverter::convert($this->measurementDto->createValue(10, $this->measurementDto->getBaseUnit()->id), 'invalid');
     }
 }

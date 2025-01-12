@@ -2,17 +2,17 @@
 
 namespace Webboy\MeasurementUnits\Units;
 
-use Webboy\MeasurementUnits\Enums\Units\TemperatureUnitEnum;
+use Webboy\MeasurementUnits\Enums\Units\AreaUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\UnitException;
 use Webboy\MeasurementUnits\UnitDto;
 
 /**
- * A temperature unit DTO.
+ * An area unit DTO.
  */
-class TemperatureUnitDto extends UnitDto
+class AreaUnitDto extends UnitDto
 {
     /**
-     * Create a new temperature unit DTO.
+     * Create a new area unit DTO.
      *
      * @param int|string $id The ID of the unit.
      * @param string $name The name of the unit.
@@ -39,7 +39,7 @@ class TemperatureUnitDto extends UnitDto
             toBase: $toBase,
             fromBase: $fromBase,
             isBase: $isBase,
-            validIds: $validIds ?? array_map(fn($unit) => $unit->value, TemperatureUnitEnum::cases())
+            validIds: $validIds ?? array_map(fn($unit) => $unit->value, AreaUnitEnum::cases())
         );
     }
 }

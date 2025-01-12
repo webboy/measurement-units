@@ -3,6 +3,9 @@
 namespace Webboy\MeasurementUnits\Measurements;
 
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\MeasurementDto;
 
 /**
@@ -15,15 +18,17 @@ class CustomMeasurementDto extends MeasurementDto
      *
      * @param int|string $id The ID of the measurement.
      * @param string $name The name of the measurement.
-     * @param int|string $base_unit_id The ID of the base unit.
-     * @param array $units The units of the measurement.
-     * @throws MeasurementException
+     * @param int|string|null $base_unit_id The ID of the base unit.
+     * @param array|null $units The units of the measurement.
+     * @throws InvalidMeasurementIdMeasurementException
+     * @throws InvalidUnitDefinitionsMeasurementException
+     * @throws InvalidUnitIdMeasurementException
      */
     public function __construct(
         int | string $id,
         string $name,
-        int | string $base_unit_id,
-        array $units
+        int | string $base_unit_id = null,
+        ?array $units = null
     ){
         parent::__construct(
             id: $id,

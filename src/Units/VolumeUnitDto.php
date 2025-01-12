@@ -19,9 +19,18 @@ class VolumeUnitDto extends UnitDto
      * @param string $symbol The symbol of the unit.
      * @param callable $toBase The function to convert to the base unit.
      * @param callable $fromBase The function to convert from the base unit.
+     * @param bool $isBase Whether the unit is the base unit.
      * @throws UnitException
      */
-    public function __construct(int | string $id, string $name, string $symbol, callable $toBase, callable $fromBase)
+    public function __construct(
+        int | string $id,
+        string $name,
+        string $symbol,
+        callable $toBase,
+        callable $fromBase,
+        bool $isBase = false,
+        array | null | false $validIds = null
+    )
     {
         parent::__construct(
             id: $id,
@@ -29,7 +38,8 @@ class VolumeUnitDto extends UnitDto
             symbol: $symbol,
             toBase: $toBase,
             fromBase: $fromBase,
-            validIds: array_map(fn($unit) => $unit->value, VolumeUnitEnum::cases())
+            isBase: $isBase,
+            validIds: $validIds ?? array_map(fn($unit) => $unit->value, VolumeUnitEnum::cases())
         );
     }
 }

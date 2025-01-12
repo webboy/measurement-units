@@ -3,7 +3,6 @@
 namespace Webboy\MeasurementUnits\Measurements;
 
 use Webboy\MeasurementUnits\Enums\MeasurementEnum;
-use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\MeasurementDto;
@@ -28,9 +27,14 @@ class PressureMeasurementDto extends MeasurementDto
         parent::__construct(
             id: MeasurementEnum::PRESSURE->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? PressureUnitEnum::PASCAL->value,
+            base_unit_id: $base_unit_id,
             units: $units,
             validIds: $validIds
         );
+
+        // If the base unit is not set, set it to the default base unit.
+        if (empty($this->base_unit_id)) {
+            $this->setBaseUnit(PressureUnitEnum::PASCAL->value);
+        }
     }
 }

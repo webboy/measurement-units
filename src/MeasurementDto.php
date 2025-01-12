@@ -3,7 +3,6 @@
 namespace Webboy\MeasurementUnits;
 
 use ReflectionClass;
-use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
@@ -27,7 +26,7 @@ abstract class MeasurementDto
     /**
      * @var int|string The base unit of the measurement.
      */
-    public int | string $base_unit_id;
+    protected int | string $base_unit_id;
 
     /**
      * @var UnitDto[] The units of the measurement.
@@ -44,15 +43,17 @@ abstract class MeasurementDto
      *
      * @param int|string $id The ID of the measurement.
      * @param string $name The name of the measurement.
-     * @param int|string $base_unit_id The ID of the base unit.
+     * @param int|string|null $base_unit_id The ID of the base unit.
      * @param array|null $units The units of the measurement.
      * @param array|null $validIds The valid IDs of the measurement.
-     * @throws MeasurementException
+     * @throws InvalidMeasurementIdMeasurementException
+     * @throws InvalidUnitDefinitionsMeasurementException
+     * @throws InvalidUnitIdMeasurementException
      */
     public function __construct(
         int | string $id,
         string $name,
-        int | string $base_unit_id,
+        int | string $base_unit_id = null,
         ?array $units = null,
         private readonly ?array $validIds = null,
     ){
@@ -63,13 +64,12 @@ abstract class MeasurementDto
 
         $this->id = $id;
         $this->name = $name;
-        $this->base_unit_id = $base_unit_id;
 
         //Add units
         $this->addUnits($units ?? $this->loadDefinitions());
 
         //Set base unit
-        $this->base_unit = $this->getBaseUnit();
+        $this->setBaseUnit($base_unit_id);
     }
 
     /**
@@ -96,6 +96,17 @@ abstract class MeasurementDto
     public function getBaseUnit(): UnitDto
     {
         return $this->getUnit($this->base_unit_id);
+    }
+
+    /**
+     * @throws InvalidUnitIdMeasurementException
+     */
+    public function setBaseUnit($unitId = null): void
+    {
+        if ($unitId !== null) {
+            $this->base_unit_id = $unitId;
+            $this->base_unit = $this->getBaseUnit();
+        }
     }
 
     /**
@@ -155,15 +166,22 @@ abstract class MeasurementDto
      * Add a unit to the measurement.
      *
      * @param UnitDto $unit
+     * @throws InvalidUnitIdMeasurementException
      */
     private function addUnit(UnitDto $unit): void
     {
         $this->units[$unit->id] = $unit;
+
+        // Set the base unit if it is not already set
+        if ($unit->isBase) {
+            $this->setBaseUnit($unit->id);
+        }
     }
 
     /**
      * @param UnitDto[] $units
      * @return void
+     * @throws InvalidUnitIdMeasurementException
      */
     private function addUnits(array $units): void
     {

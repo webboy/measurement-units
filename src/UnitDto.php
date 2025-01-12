@@ -27,6 +27,11 @@ abstract class UnitDto
     public string $symbol;
 
     /**
+     * @var bool Whether the unit is the base unit.
+     */
+    public bool $isBase = false;
+
+    /**
      * @var Closure The closure to convert the unit to the base unit.
      */
     protected Closure $toBase;
@@ -44,8 +49,9 @@ abstract class UnitDto
      * @param string $symbol The symbol of the unit.
      * @param Closure $toBase The closure to convert to the base unit.
      * @param Closure $fromBase The closure to convert from the base unit.
-     * @param array|null $validIds The valid IDs for the unit.
-     * @throws UnitException
+     * @param bool $isBase Whether the unit is the base unit.
+     * @param array|false|null $validIds The valid IDs for the unit.
+     * @throws InvalidUnitIdUnitException
      */
     public function __construct(
         int | string $id,
@@ -53,10 +59,11 @@ abstract class UnitDto
         string $symbol,
         Closure $toBase,
         Closure $fromBase,
-        protected readonly ?array $validIds = null
+        bool $isBase = false,
+        protected readonly array | null | false $validIds = null
     ) {
         //Validate ID
-        if ($this->validIds !== null && !in_array($id, $this->validIds)) {
+        if (is_array($this->validIds) && !in_array($id, $this->validIds)) {
             throw new InvalidUnitIdUnitException($id);
         }
 
@@ -65,6 +72,7 @@ abstract class UnitDto
         $this->symbol = $symbol;
         $this->toBase = $toBase;
         $this->fromBase = $fromBase;
+        $this->isBase = $isBase;
     }
 
     /**

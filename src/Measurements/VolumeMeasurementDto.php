@@ -20,16 +20,21 @@ class VolumeMeasurementDto extends MeasurementDto
      * @param null $units The units of the measurement.
      * @throws MeasurementException
      */
-    public function __construct($name = 'Volume', int | string $base_unit_id = null, $units = null)
+    public function __construct(string $name = 'Volume', int | string $base_unit_id = null, $units = null)
     {
         $validIds = array_map(fn($unit) => $unit->value, MeasurementEnum::cases());
 
         parent::__construct(
             id: MeasurementEnum::VOLUME->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? VolumeUnitEnum::LITRE->value,
+            base_unit_id: $base_unit_id,
             units: $units,
             validIds: $validIds
         );
+
+        // If the base unit is not set, set it to the default base unit.
+        if (empty($this->base_unit_id)) {
+            $this->setBaseUnit(VolumeUnitEnum::LITRE->value);
+        }
     }
 }

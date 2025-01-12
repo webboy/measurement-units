@@ -28,9 +28,14 @@ class MassMeasurementDto extends MeasurementDto
         parent::__construct(
             id: MeasurementEnum::WEIGHT->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? MassUnitEnum::KILOGRAM->value,
+            base_unit_id: $base_unit_id,
             units: $units,
             validIds: $validIds
         );
+
+        // If the base unit is not set, set it to the default base unit.
+        if (empty($this->base_unit_id)) {
+            $this->setBaseUnit(MassUnitEnum::KILOGRAM->value);
+        }
     }
 }

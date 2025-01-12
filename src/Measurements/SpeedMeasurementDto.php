@@ -27,9 +27,14 @@ class SpeedMeasurementDto extends MeasurementDto
         parent::__construct(
             id: MeasurementEnum::SPEED->value,
             name: $name,
-            base_unit_id: $base_unit_id ?? SpeedUnitEnum::METER_PER_SECOND->value,
+            base_unit_id: $base_unit_id,
             units: $units,
             validIds: $validIds
         );
+
+        // If the base unit is not set, set it to the default base unit.
+        if (empty($this->base_unit_id)) {
+            $this->setBaseUnit(SpeedUnitEnum::METER_PER_SECOND->value);
+        }
     }
 }

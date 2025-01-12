@@ -7,21 +7,30 @@ use Webboy\MeasurementUnits\Exceptions\UnitException;
 use Webboy\MeasurementUnits\UnitDto;
 
 /**
- * A weight unit DTO.
+ * A mass unit DTO.
  */
 class MassUnitDto extends UnitDto
 {
     /**
-     * Create a new weight unit DTO.
+     * Create a new mass unit DTO.
      *
      * @param int|string $id The ID of the unit.
      * @param string $name The name of the unit.
      * @param string $symbol The symbol of the unit.
      * @param callable $toBase The function to convert to the base unit.
      * @param callable $fromBase The function to convert from the base unit.
+     * @param bool $isBase Whether the unit is the base unit.
      * @throws UnitException
      */
-    public function __construct(int | string $id, string $name, string $symbol, callable $toBase, callable $fromBase)
+    public function __construct(
+        int | string $id,
+        string $name,
+        string $symbol,
+        callable $toBase,
+        callable $fromBase,
+        bool $isBase = false,
+        array | null | false $validIds = null
+    )
     {
         parent::__construct(
             id: $id,
@@ -29,7 +38,8 @@ class MassUnitDto extends UnitDto
             symbol: $symbol,
             toBase: $toBase,
             fromBase: $fromBase,
-            validIds: array_map(fn($unit) => $unit->value, MassUnitEnum::cases())
+            isBase: $isBase,
+            validIds: $validIds ?? array_map(fn($unit) => $unit->value, MassUnitEnum::cases())
         );
     }
 }
