@@ -1,0 +1,50 @@
+            - name: Coveralls GitHub Action
+  # You may pin to the exact commit or the version.
+  # uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8
+  uses: coverallsapp/github-action@v2.3.4
+  with:
+    # Put secrets.GITHUB_TOKEN here
+    github-token: bE2qyPBzR9S28v4LRot7lgL10bVqW2ZhI # optional, default is ${{ github.token }}
+    # Path to lcov file [DEPRECATED]
+    path-to-lcov: # optional
+    # Coverage file
+    file: # optional
+    # Space-separated list of coverage files
+    files: # optional
+    # Force coverage format, supported formats: lcov, simplecov, cobertura, jacoco, gcov, golang, python
+    format: # optional
+    # Job flag name, e.g. "Unit", "Functional", or "Integration". Will be shown in the Coveralls UI.
+    flag-name: # optional
+    # Override the build number autodetected from CI. This is useful if your CI tool assigns a different build number per each parallel build.
+    build-number: # optional
+    # Set to true if you are running parallel jobs, then use "parallel-finished: true" for the last action.
+    parallel: # optional
+    # Set to true for the last action when using "parallel: true".
+    parallel-finished: # optional
+    # Comma separated flags used to carryforward results from previous builds if some of the parallel jobs are missing.
+    carryforward: # optional
+    # Coveralls Enterprise server (more info: https://enterprise.coveralls.io)
+    coveralls-endpoint: # optional, default is https://coveralls.io
+    # Don't fail when coverage report file is empty or contains no data
+    allow-empty: # optional, default is false
+    # The root folder of the project that originally ran the tests
+    base-path: # optional
+    # Override the branch name
+    git-branch: # optional
+    # Override the commit sha
+    git-commit: # optional
+    # Branch name to use as the base for coverage results
+    compare-ref: # optional
+    # Commit SHA to use as the base for coverage results
+    compare-sha: # optional
+    # Enable debug output
+    debug: # optional, default is false
+    # Show execution time of parsing and reporting
+    measure: # optional, default is false
+    # Whether to fail (exit code 1) on any issues while uploading the coverage
+    fail-on-error: # optional, default is true
+    # Version of coverage-reporter to use. Make sure to prefix the version number with 'v'. For example: v0.6.9
+    coverage-reporter-version: # optional, default is latest
+    # Platform of coverage-reporter to use on Linux runners. Supported values: x86_64 (default) and aarch64 (or arm64)
+    coverage-reporter-platform: # optional, default is x86_64
+          
