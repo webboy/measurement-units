@@ -58,6 +58,7 @@ The following DTOs are available in this package:
 - `VolumeMeasurementDto`
 - `PressureMeasurementDto`
 - `TorqueMeasurementDto`
+- `PowerMeasurementDto`
 
 ## Customizing the DTOs
 
