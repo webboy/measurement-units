@@ -12,4 +12,6 @@ enum MeasurementEnum: string
     case PRESSURE = 'pressure';
     case AREA = 'area';
     case TORQUE = 'torque';
+
+    case POWER = 'power';
 }
