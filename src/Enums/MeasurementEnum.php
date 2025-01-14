@@ -14,4 +14,6 @@ enum MeasurementEnum: string
     case TORQUE = 'torque';
 
     case POWER = 'power';
+
+    case FUEL_CONSUMPTION = 'fuel_consumption';
 }

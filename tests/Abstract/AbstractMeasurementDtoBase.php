@@ -116,15 +116,17 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     {
         foreach ($this->conversionTestParameters as $conversionTestParameter) {
             // Assert using UnitConverter::convert
-            $this->assertSame(
+            $this->assertEqualsWithDelta(
                 $conversionTestParameter['expected_value'],
-                UnitConverter::convert($conversionTestParameter['value'], $conversionTestParameter['target_unit_id'])->value
+                UnitConverter::convert($conversionTestParameter['value'], $conversionTestParameter['target_unit_id'])->value,
+                $conversionTestParameter['delta'] ?? 0
             );
 
             // Assert using MeasurementValueDto->to()
-            $this->assertSame(
+            $this->assertEqualsWithDelta(
                 $conversionTestParameter['expected_value'],
-                $conversionTestParameter['value']->to($conversionTestParameter['target_unit_id'])->value
+                $conversionTestParameter['value']->to($conversionTestParameter['target_unit_id'])->value,
+                $conversionTestParameter['delta'] ?? 0
             );
         }
     }
