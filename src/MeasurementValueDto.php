@@ -4,6 +4,7 @@ namespace Webboy\MeasurementUnits;
 
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
+use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidConversionParameterConverterException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
 
 /**
@@ -63,14 +64,16 @@ class MeasurementValueDto
      * Convert the measurement value to a new unit.
      *
      * @param int|string $unit_id The ID of the target unit.
+     * @param mixed ...$args The arguments to pass to the conversion functions.
      * @return MeasurementValueDto The new measurement value DTO.
      * @throws InvalidTargetUnitIdUnitConverterException
      * @throws IllegalInstantiationMeasurementValueException
      * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidConversionParameterConverterException
      */
-    public function to(int | string $unit_id): MeasurementValueDto
+    public function to(int | string $unit_id, ...$args): MeasurementValueDto
     {
-        return UnitConverter::convert($this, $unit_id);
+        return UnitConverter::convert($this, $unit_id, ...$args);
     }
 
     /**
