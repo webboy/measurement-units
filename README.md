@@ -203,6 +203,74 @@ $converted_fuel_capacity = $fuel_capacity->to(VolumeUnitEnum::LITRE->value);
 echo ("My fuel capacity in liters is: " . $converted_fuel_capacity . PHP_EOL);
 ```
 
+## Even more fancy extensions
+
+You can also extend the existing units, or extend the basic units to create new ones. You can also create new DTOs that
+extend the existing ones. Here is an example of how you can create your own measurements and units
+
+```php
+class MyVolumeUnit extends VolumeUnitDto
+{
+    public function __construct()
+    {
+        parent::__construct(
+            id:'my-volume-unit',
+            name: 'My Volume Unit',
+            symbol: 'mvu',
+            toBase: fn($value) => $value,
+            fromBase: fn($value) => $value,
+            isBase: true,
+            validIds: false
+        );
+    }
+}
+
+class MyKiloVolumeUnit extends CustomUnitDto
+{
+    public function __construct()
+    {
+        parent::__construct(
+            id:'my-kilo-volume-unit',
+            name: 'My Kilo Volume Unit',
+            symbol: 'Kmvu',
+            toBase: fn($value) => $value * 1000,
+            fromBase: fn($value) => $value / 1000,
+        );
+    }
+}
+
+class ImaginaryMeasurement extends MeasurementDto
+{
+    // It will load unit definitions from a Definitions/FuelCapacity/FuelCapacityDefinitions.php file.
+    public function __construct()
+    {
+        parent::__construct(
+            id: 'imaginary-measurement',
+            name: 'ImaginaryMeasurement',
+            units:[
+                new MyVolumeUnit(),
+                new MyKiloVolumeUnit()
+            ]
+        );
+    }
+}
+
+// Create a new value with a custom measurement.
+$measurement = new ImaginaryMeasurement();
+
+$value = $measurement->createValue(100, 'my-volume-unit');
+
+// Print the value.
+echo ("My value in {$value->unit->symbol} is: " . $value . PHP_EOL);
+
+// Convert the fuel capacity value to liters.
+$converted_value = $value->to('my-kilo-volume-unit');
+
+// Print the converted fuel capacity value.
+echo ("My fuel value in {$converted_value->unit->symbol} is: " . $converted_value . PHP_EOL);
+```
+
+
 ## Testing
 
 To run the tests, you can use the following command:
