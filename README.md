@@ -60,6 +60,7 @@ The following DTOs are available in this package:
 - `TorqueMeasurementDto`
 - `PowerMeasurementDto`
 - `FuelConsumptionMeasurementDto`
+- `BatteryCapacityMeasurementDto`
 
 ## Customizing the DTOs
 
