@@ -72,28 +72,13 @@ use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 
 // Create a new CUSTOM distance measurement with a custom base unit.
-$measurement = new DistanceMeasurementDto(
+$measurement = new CustomMeasurementDto(
+    'custom',
     'Length',
     'ft',
     [
         // You can use a DistanceUnitEnum value as the ID.
-        new Webboy\MeasurementUnits\Units\DistanceUnitDto(
-            id: DistanceUnitEnum::FOOT->value,
-            name: 'Feet',
-            symbol: 'ft',
-            toBase: fn($value) => $value,
-            fromBase: fn($value) => $value,
-        ),
-
-        // You can use a custom ID, but then you must set validIds to false.
-        new Webboy\MeasurementUnits\Units\DistanceUnitDto(
-            id: 'meters',
-            name: 'Meters',
-            symbol: 'm',
-            toBase: fn($value) => $value * 3.28084,
-            fromBase: fn($value) => $value / 3.28084,
-            validIds: false
-        ),
+        new Webboy\MeasurementUnits\Units\DistanceUnitDto(DistanceUnitEnum::FOOT),
 
         // You can use a CustomUnitDto to create a completely custom unit.
         new Webboy\MeasurementUnits\Units\CustomUnitDto(
@@ -102,20 +87,21 @@ $measurement = new DistanceMeasurementDto(
             symbol: 'mi',
             toBase: fn($value) => $value * 5280,
             fromBase: fn($value) => $value / 5280,
+            validIds: false
         )
     ]
 );
 
 // Set the value of the measurement.
-$distance_value = $measurement->createValue(1000, 'meters');
+$distance_value = $measurement->createValue(1000, DistanceUnitEnum::FOOT->value);
 
-// Print the distance value.
-echo ("My distance in meters is: " . $distance_value . PHP_EOL);
+// Print the value.
+echo ("My distance in feet is: " . $distance_value . PHP_EOL);
 
-// Convert the distance value to meters.
+// Convert the value.
 $converted_distance_value = $distance_value->to('miles');
 
-// Print the converted distance value.
+// Print the converted value.
 echo ("My distance in miles is: " . $converted_distance_value . PHP_EOL);
 ```
 
@@ -183,8 +169,14 @@ class FuelCapacity extends CustomMeasurementDto
     public function __construct()
     {
         parent::__construct(
-            'fuel-capacity',
-            'Fuel Capacity',
+            id:'fuel-capacity',
+            name:'Fuel Capacity',
+            base_unit_id:VolumeUnitEnum::LITRE->value,
+            units: [
+                new Webboy\MeasurementUnits\Units\VolumeUnitDto(VolumeUnitEnum::LITRE),
+                new Webboy\MeasurementUnits\Units\VolumeUnitDto(VolumeUnitEnum::GALLON),
+            ]
+
         );
     }
 }
@@ -210,7 +202,7 @@ You can also extend the existing units, or extend the basic units to create new 
 extend the existing ones. Here is an example of how you can create your own measurements and units
 
 ```php
-class MyVolumeUnit extends VolumeUnitDto
+class MyVolumeUnit extends UnitDto
 {
     public function __construct()
     {
@@ -226,7 +218,7 @@ class MyVolumeUnit extends VolumeUnitDto
     }
 }
 
-class MyKiloVolumeUnit extends CustomUnitDto
+class MyKiloVolumeUnit extends UnitDto
 {
     public function __construct()
     {
@@ -264,10 +256,10 @@ $value = $measurement->createValue(100, 'my-volume-unit');
 // Print the value.
 echo ("My value in {$value->unit->symbol} is: " . $value . PHP_EOL);
 
-// Convert the fuel capacity value to liters.
+// Convert value to my-kilo-volume-unit.
 $converted_value = $value->to('my-kilo-volume-unit');
 
-// Print the converted fuel capacity value.
+// Print the converted value.
 echo ("My fuel value in {$converted_value->unit->symbol} is: " . $converted_value . PHP_EOL);
 ```
 

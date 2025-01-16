@@ -65,12 +65,6 @@ abstract class AbstractMeasurementDtoBase extends TestCase
 
     }
 
-    public function testThrowsExceptionForInvalidId(): void
-    {
-        $this->expectException(MeasurementException::class);
-        new ($this->measurementDto::class)(base_unit_id: 'invalid');
-    }
-
     public function testSuccessfulDefaultConstruction(): void
     {
         $validBaseUnitId = $this->measurementDto->getBaseUnit()->id;

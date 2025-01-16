@@ -2,41 +2,26 @@
 
 namespace Webboy\MeasurementUnits\Measurements;
 
+use Webboy\MeasurementUnits\EnumeratableMeasurementDto;
 use Webboy\MeasurementUnits\Enums\MeasurementEnum;
-use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
-use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
-use Webboy\MeasurementUnits\Enums\Units\PowerUnitEnum;
-use Webboy\MeasurementUnits\Exceptions\MeasurementException;
-use Webboy\MeasurementUnits\MeasurementDto;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
+use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 
 /**
- * A power measurement DTO.
+ * A battery capacity measurement DTO.
  */
-class BatteryCapacityMeasurementDto extends MeasurementDto
+class BatteryCapacityMeasurementDto extends EnumeratableMeasurementDto
 {
     /**
      * Create a new battery capacity measurement DTO.
      *
-     * @param string $name The name of the measurement.
-     * @param int|string|null $base_unit_id The ID of the base unit.
-     * @param null $units The units of the measurement.
-     * @throws MeasurementException
+     * @throws InvalidMeasurementIdMeasurementException
+     * @throws InvalidUnitDefinitionsMeasurementException
+     * @throws InvalidUnitIdMeasurementException
      */
-    public function __construct($name = 'Distance', int | string $base_unit_id = null, $units = null)
+    public function __construct()
     {
-        $validIds = array_map(fn($unit) => $unit->value, MeasurementEnum::cases());
-
-        parent::__construct(
-            id: MeasurementEnum::BATTERY_CAPACITY->value,
-            name: $name,
-            base_unit_id: $base_unit_id,
-            units: $units,
-            validIds: $validIds
-        );
-
-        // If the base unit is not set, set it to the default base unit.
-        if (empty($this->base_unit_id)) {
-            $this->setBaseUnit(BatteryCapacityUnitEnum::KILOWATT_HOUR->value);
-        }
+        parent::__construct(MeasurementEnum::BATTERY_CAPACITY);
     }
 }

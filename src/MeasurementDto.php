@@ -66,7 +66,10 @@ abstract class MeasurementDto
         $this->name = $name;
 
         //Add units
-        $this->addUnits($units ?? $this->loadDefinitions());
+        if ($units === null) {
+            throw new InvalidUnitDefinitionsMeasurementException();
+        }
+        $this->addUnits($units);
 
         //Set base unit
         $this->setBaseUnit($base_unit_id);
@@ -107,59 +110,6 @@ abstract class MeasurementDto
             $this->base_unit_id = $unitId;
             $this->base_unit = $this->getBaseUnit();
         }
-    }
-
-    /**
-     * Load the definitions for the measurement.
-     *
-     * @return UnitDto[]
-     * @throws InvalidUnitDefinitionsMeasurementException
-     */
-    protected function loadDefinitions(): array
-    {
-        $definitions = [];
-
-        // Path to the definitions directory (adjust as needed if relative paths differ)
-        $calledClass = new ReflectionClass(static::class);
-        $definitionsPath = dirname($calledClass->getFileName())
-            . '/Definitions/'
-            . str_replace(
-                'MeasurementDto',
-                '',
-                $calledClass->getShortName()
-            );
-
-        // Search for all PHP files in the directory
-        foreach (glob($definitionsPath . '/*.php') as $definitionFile) {
-            // Include the file and add the returned UnitDto object to the array
-            $unitDefinition = include $definitionFile;
-
-            if (is_object($unitDefinition)) {
-
-                if (!$unitDefinition instanceof UnitDto) {
-                    // Skip or handle improperly formatted files
-                    continue;
-                }
-
-                $definitions[$unitDefinition->id] = $unitDefinition;
-            } elseif (is_array($unitDefinition)) {
-                foreach ($unitDefinition as $unit) {
-                    if (!$unit instanceof UnitDto) {
-                        // Skip or handle improperly formatted files
-                        continue;
-                    }
-
-                    $definitions[$unit->id] = $unit;
-                }
-            }
-        }
-
-        if (empty($definitions)) {
-            throw new InvalidUnitDefinitionsMeasurementException();
-        }
-
-        return $definitions;
-
     }
 
     /**

@@ -2,35 +2,45 @@
 
 namespace Webboy\MeasurementUnits\Units;
 
-use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
-use Webboy\MeasurementUnits\Exceptions\UnitException;
+use Closure;
+use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
 use Webboy\MeasurementUnits\UnitDto;
 
 /**
- * A custom unit DTO.
+ * Class CustomUnitDto
+ * @package Webboy\MeasurementUnits\Units
  */
 class CustomUnitDto extends UnitDto
 {
     /**
-     * Create a new custom unit DTO.
-     *
-     * @param int|string $id The ID of the unit.
-     * @param string $name The name of the unit.
-     * @param string $symbol The symbol of the unit.
-     * @param callable $toBase The function to convert to the base unit.
-     * @param callable $fromBase The function to convert from the base unit.
-     * @param bool $isBase Whether the unit is the base unit.
-     * @throws UnitException
+     * CustomUnitDto constructor.
+     * @param int|string $id
+     * @param string $name
+     * @param string $symbol
+     * @param Closure $toBase
+     * @param Closure $fromBase
+     * @param bool $isBase
+     * @param false|array|null $validIds
+     * @throws InvalidUnitIdUnitException
      */
-    public function __construct(int | string $id, string $name, string $symbol, callable $toBase, callable $fromBase, bool $isBase = false)
+    public function __construct(
+        int|string $id,
+        string $name,
+        string $symbol,
+        Closure $toBase,
+        Closure $fromBase,
+        bool $isBase = false,
+        false|array|null $validIds = null
+    )
     {
         parent::__construct(
-            id: $id,
-            name: $name,
-            symbol: $symbol,
-            toBase: $toBase,
-            fromBase: $fromBase,
-            isBase: $isBase
+            $id,
+            $name,
+            $symbol,
+            $toBase,
+            $fromBase,
+            $isBase,
+            $validIds
         );
     }
 }

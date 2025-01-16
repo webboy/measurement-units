@@ -11,8 +11,14 @@ class FuelCapacity extends CustomMeasurementDto
     public function __construct()
     {
         parent::__construct(
-            'fuel-capacity',
-            'Fuel Capacity',
+            id:'fuel-capacity',
+            name:'Fuel Capacity',
+            base_unit_id:VolumeUnitEnum::LITRE->value,
+            units: [
+                new Webboy\MeasurementUnits\Units\VolumeUnitDto(VolumeUnitEnum::LITRE),
+                new Webboy\MeasurementUnits\Units\VolumeUnitDto(VolumeUnitEnum::GALLON),
+            ]
+
         );
     }
 }
