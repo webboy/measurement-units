@@ -44,4 +44,11 @@ abstract class AbstractUnitDtoBase extends TestCase
         $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0]);
         $this->assertInstanceOf($this->unit_class, $unitDto);
     }
+
+    public function testSuccessfulCreationWithCustomName()
+    {
+        $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0], 'Custom Name');
+        $this->assertInstanceOf($this->unit_class, $unitDto);
+        $this->assertEquals('Custom Name', $unitDto->name);
+    }
 }

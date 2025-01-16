@@ -16,13 +16,14 @@ class TemperatureUnitDto extends UnitDto
      * Create a new temperature unit DTO.
      *
      * @param TemperatureUnitEnum $enum
+     * @param null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(TemperatureUnitEnum $enum)
+    public function __construct(TemperatureUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),

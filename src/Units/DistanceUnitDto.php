@@ -16,13 +16,14 @@ class DistanceUnitDto extends UnitDto
      * Create a new distance unit DTO.
      *
      * @param DistanceUnitEnum $enum
+     * @param null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(DistanceUnitEnum $enum)
+    public function __construct(DistanceUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),

@@ -16,13 +16,14 @@ class SpeedUnitDto extends UnitDto
      * Create a new speed unit DTO.
      *
      * @param SpeedUnitEnum $enum
+     * @param null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(SpeedUnitEnum $enum)
+    public function __construct(SpeedUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),

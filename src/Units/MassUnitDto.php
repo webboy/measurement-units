@@ -18,11 +18,11 @@ class MassUnitDto extends UnitDto
      * @param MassUnitEnum $enum
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(MassUnitEnum $enum)
+    public function __construct(MassUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),

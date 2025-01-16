@@ -16,13 +16,14 @@ class TorqueUnitDto extends UnitDto
      * Create a new torque unit DTO.
      *
      * @param TorqueUnitEnum $enum
+     * @param null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(TorqueUnitEnum $enum)
+    public function __construct(TorqueUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),

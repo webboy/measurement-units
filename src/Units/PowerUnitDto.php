@@ -16,13 +16,14 @@ class PowerUnitDto extends UnitDto
      * Create a new power unit DTO.
      *
      * @param PowerUnitEnum $enum
+     * @param null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(PowerUnitEnum $enum)
+    public function __construct(PowerUnitEnum $enum, $label = null)
     {
         parent::__construct(
             id: $enum->value,
-            name: $enum->label(),
+            name: $label ?? $enum->label(),
             symbol: $enum->symbol(),
             toBase: $enum->toBase(),
             fromBase: $enum->fromBase(),
