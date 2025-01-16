@@ -15,4 +15,5 @@ enum MeasurementEnum: string
     case POWER = 'power';
     case FUEL_CONSUMPTION = 'fuel_consumption';
     case BATTERY_CAPACITY = 'battery_capacity';
+    case VOLTAGE = 'voltage';
 }

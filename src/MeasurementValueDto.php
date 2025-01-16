@@ -34,18 +34,13 @@ class MeasurementValueDto
      * @param int | float $value The value of the measurement.
      * @param UnitDto $unit The unit of the measurement.
      * @param MeasurementDto $measurement The measurement of the value.
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitIdMeasurementException
      */
     protected function __construct(int | float $value, UnitDto $unit, MeasurementDto $measurement)
     {
         $this->value = $value;
-        $this->unit = $unit;
+        $this->unit = $measurement->getUnit($unit->id);
         $this->measurement = $measurement;
-
-        //Validate unit
-        if (!key_exists($unit->id, $measurement->units)) {
-            throw new InvalidUnitIdUnitException($unit->id);
-        }
     }
 
     /**
@@ -57,7 +52,7 @@ class MeasurementValueDto
      * @param string $caller The class that called the factory.
      * @return static The new measurement value DTO.
      * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitIdMeasurementException
      */
     public static function createFromFactory(int | float $value, UnitDto $unit, MeasurementDto $measurement, string $caller): self
     {
