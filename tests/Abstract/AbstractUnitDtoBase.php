@@ -41,27 +41,7 @@ abstract class AbstractUnitDtoBase extends TestCase
      */
     public function testSuccessfulCreation(): void
     {
-        $unitDto = new $this->unit_class(
-            id: $this->unit_enum_class::cases()[0]->value,
-            name: $this->unit_enum_class::cases()[0]->name,
-            symbol: 'symbol',
-            toBase: fn($value) => $value,
-            fromBase: fn($value) => $value
-        );
-
+        $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0]);
         $this->assertInstanceOf($this->unit_class, $unitDto);
-    }
-
-    public function testFailCreationInvalidUnitId()
-    {
-        $this->expectException(InvalidUnitIdUnitException::class);
-
-        $unitDto = new $this->unit_class(
-            id: 'invalid',
-            name: $this->unit_enum_class::cases()[0]->name,
-            symbol: 'symbol',
-            toBase: fn($value) => $value,
-            fromBase: fn($value) => $value
-        );
     }
 }

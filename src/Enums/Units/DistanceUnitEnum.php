@@ -2,6 +2,8 @@
 
 namespace Webboy\MeasurementUnits\Enums\Units;
 
+use Closure;
+
 /**
  * Enum representing common distance units across various measurement systems.
  */
@@ -31,4 +33,92 @@ enum DistanceUnitEnum: string
     // **Other Traditional Units**
     case LEAGUE = 'lea';      // ~3 miles (historical unit)
     case HAND = 'hh';         // 4 inches (used for measuring horses)
+
+    // Labels
+    public function label(): string
+    {
+        return match ($this) {
+            self::MILLIMETER => 'Millimeter',
+            self::CENTIMETER => 'Centimeter',
+            self::METER => 'Meter',
+            self::KILOMETER => 'Kilometer',
+            self::INCH => 'Inch',
+            self::FOOT => 'Foot',
+            self::YARD => 'Yard',
+            self::MILE => 'Mile',
+            self::NAUTICAL_MILE => 'Nautical Mile',
+            self::FATHOM => 'Fathom',
+            self::ROD => 'Rod',
+            self::CHAIN => 'Chain',
+            self::FURLONG => 'Furlong',
+            self::LEAGUE => 'League',
+            self::HAND => 'Hand',
+        };
+    }
+
+    // Symbols
+    public function symbol(): string
+    {
+        return match ($this) {
+            self::MILLIMETER => 'mm',
+            self::CENTIMETER => 'cm',
+            self::METER => 'm',
+            self::KILOMETER => 'km',
+            self::INCH => 'in',
+            self::FOOT => 'ft',
+            self::YARD => 'yd',
+            self::MILE => 'mi',
+            self::NAUTICAL_MILE => 'nmi',
+            self::FATHOM => 'ftm',
+            self::ROD => 'rd',
+            self::CHAIN => 'ch',
+            self::FURLONG => 'fur',
+            self::LEAGUE => 'lea',
+            self::HAND => 'hh',
+        };
+    }
+
+    // To base
+    public function toBase(): Closure
+    {
+        return match ($this) {
+            self::MILLIMETER => fn($value) => $value / 1_000,
+            self::CENTIMETER => fn($value) => $value / 100,
+            self::METER => fn($value) => $value,
+            self::KILOMETER => fn($value) => $value * 1_000,
+            self::INCH => fn($value) => $value / 39.3701,
+            self::FOOT => fn($value) => $value / 3.28084,
+            self::YARD => fn($value) => $value / 1.09361,
+            self::MILE => fn($value) => $value / 0.000621371,
+            self::NAUTICAL_MILE => fn($value) => $value / 0.000539957,
+            self::FATHOM => fn($value) => $value / 1.8288,
+            self::ROD => fn($value) => $value / 5.0292,
+            self::CHAIN => fn($value) => $value / 20.1168,
+            self::FURLONG => fn($value) => $value / 201.168,
+            self::LEAGUE => fn($value) => $value / 0.000179986,
+            self::HAND => fn($value) => $value / 0.1016,
+        };
+    }
+
+    // From base
+    public function fromBase(): Closure
+    {
+        return match ($this) {
+            self::MILLIMETER => fn($value) => $value * 1_000,
+            self::CENTIMETER => fn($value) => $value * 100,
+            self::METER => fn($value) => $value,
+            self::KILOMETER => fn($value) => $value / 1_000,
+            self::INCH => fn($value) => $value * 39.3701,
+            self::FOOT => fn($value) => $value * 3.28084,
+            self::YARD => fn($value) => $value * 1.09361,
+            self::MILE => fn($value) => $value * 0.000621371,
+            self::NAUTICAL_MILE => fn($value) => $value * 0.000539957,
+            self::FATHOM => fn($value) => $value * 1.8288,
+            self::ROD => fn($value) => $value * 5.0292,
+            self::CHAIN => fn($value) => $value * 20.1168,
+            self::FURLONG => fn($value) => $value * 201.168,
+            self::LEAGUE => fn($value) => $value * 0.000179986,
+            self::HAND => fn($value) => $value * 0.1016,
+        };
+    }
 }
