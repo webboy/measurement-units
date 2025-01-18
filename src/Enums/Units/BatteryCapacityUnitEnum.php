@@ -7,15 +7,13 @@ use Closure;
 /**
  * Enum representing common battery capacity units.
  */
-enum BatteryCapacityUnitEnum: string
+enum BatteryCapacityUnitEnum: int
 {
     // 🔋 **Standard Units**
-    case MILLIAMPERE_HOUR = 'mAh';   // 1/1000 Ampere-hour
-    case AMPERE_HOUR = 'Ah';         // Ampere-hour
-
-    // ⚡ **Energy-Based Units**
-    case WATT_HOUR = 'Wh';           // Depends on voltage (Wh = Ah × V)
-    case KILOWATT_HOUR = 'kWh';      // 1,000 Wh // Base unit
+    case MILLIAMPERE_HOUR = 100;   // 1/1000 Ampere-hour
+    case AMPERE_HOUR = 110;        // Ampere-hour
+    case WATT_HOUR = 150;          // Depends on voltage (Wh = Ah × V)
+    case KILOWATT_HOUR = 200;      // 1,000 Wh // Base unit
 
     // Labels
     public function label(): string

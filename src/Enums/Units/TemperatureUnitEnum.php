@@ -7,14 +7,13 @@ use Closure;
 /**
  * Enum representing common temperature units.
  */
-enum TemperatureUnitEnum: string
+enum TemperatureUnitEnum: int
 {
     // 🌡️ **Metric System (SI Units)**
-    case KELVIN = 'k';     // Base unit in thermodynamics
-
+    case KELVIN = 100;     // Base unit in thermodynamics
     // 🌍 **Commonly Used Units**
-    case CELSIUS = 'c';    // Standard in most countries
-    case FAHRENHEIT = 'f'; // Used primarily in the USA
+    case CELSIUS = 150;    // Standard in most countries
+    case FAHRENHEIT = 200; // Used primarily in the USA
 
     // Labels
     public function label(): string

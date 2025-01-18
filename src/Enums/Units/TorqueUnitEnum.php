@@ -7,21 +7,19 @@ use Closure;
 /**
  * Enum representing common torque units with conversion methods.
  */
-enum TorqueUnitEnum: string
+enum TorqueUnitEnum: int
 {
     // 🌍 **Metric System (SI Units)**
-    case NEWTON_METER = 'N·m';             // Base unit
-    case KILONEWTON_METER = 'kN·m';       // 1 kN·m = 1,000 N·m
-    case NEWTON_CENTIMETER = 'N·cm';      // 1 N·cm = 1/100 N·m
-
-    // 🇺🇸 **Imperial/US Customary Units**
-    case POUND_FOOT = 'lb·ft';            // 1 lb·ft ≈ 1.35582 N·m
-    case POUND_INCH = 'lb·in';            // 1 lb·in ≈ 0.112985 N·m
-    case OUNCE_INCH = 'oz·in';            // 1 oz·in ≈ 0.00706155 N·m
-
-    // ⚙️ **Other Units**
-    case KILOGRAM_FORCE_METER = 'kgf·m';  // 1 kgf·m ≈ 9.80665 N·m
-    case KILOGRAM_FORCE_CENTIMETER = 'kgf·cm'; // 1 kgf·cm ≈ 0.0980665 N·m
+    case NEWTON_METER = 100;             // Base unit
+    case KILONEWTON_METER = 110;       // 1 kN·m = 1,000 N·m
+    case NEWTON_CENTIMETER = 120;      // 1 N·cm = 1/100 N·m
+// 🇺🇸 **Imperial/US Customary Units**
+    case POUND_FOOT = 130;            // 1 lb·ft ≈ 1.35582 N·m
+    case POUND_INCH = 140;            // 1 lb·in ≈ 0.112985 N·m
+    case OUNCE_INCH = 150;            // 1 oz·in ≈ 0.00706155 N·m
+// ⚙️ **Other Units**
+    case KILOGRAM_FORCE_METER = 160;  // 1 kgf·m ≈ 9.80665 N·m
+    case KILOGRAM_FORCE_CENTIMETER = 170; // 1 kgf·cm ≈ 0.0980665 N·m
 
     /**
      * Human-readable label for each unit.

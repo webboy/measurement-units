@@ -4,11 +4,11 @@ namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
 
-enum VoltageUnitEnum: string
+enum VoltageUnitEnum: int
 {
-    case VOLT = 'V';
-    case MILLIVOLT = 'mV';
-    case KILOVOLT = 'kV';
+    case VOLT = 100;
+    case MILLIVOLT = 101;
+    case KILOVOLT = 102;
 
     // Labels
     public function label(): string
