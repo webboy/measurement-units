@@ -4,15 +4,15 @@ namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
 
-enum FuelConsumptionUnitEnum: string
+enum FuelConsumptionUnitEnum: int
 {
     // 🌍 **SI/Metric Units**
-    case LITERS_PER_100KM = 'L/100km';   // Liters per 100 kilometers - Base unit
-    case KILOMETERS_PER_LITER = 'km/L';  // Kilometers per liter
+    case LITERS_PER_100KM = 100;   // Liters per 100 kilometers - Base unit
+    case KILOMETERS_PER_LITER = 101;  // Kilometers per liter
 
     // 🇺🇸 **Imperial/US Customary Units**
-    case MILES_PER_GALLON_US = 'mpg_us'; // Miles per gallon (US)
-    case MILES_PER_GALLON_UK = 'mpg_uk'; // Miles per gallon (UK)
+    case MILES_PER_GALLON_US = 102; // Miles per gallon (US)
+    case MILES_PER_GALLON_UK = 103; // Miles per gallon (UK)
 
     // Labels
 

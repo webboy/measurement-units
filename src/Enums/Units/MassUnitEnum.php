@@ -7,24 +7,22 @@ use Closure;
 /**
  * Enum representing common mass units across various measurement systems.
  */
-enum MassUnitEnum: string
+enum MassUnitEnum: int
 {
     // ⚖️ **Metric System (SI Units)**
-    case MILLIGRAM = 'mg';     // 1/1,000,000 kilogram
-    case GRAM = 'g';           // 1/1,000 kilogram
-    case KILOGRAM = 'kg';      // Base unit
-    case TONNE = 't';          // 1,000 kilograms
-
-    // 🇺🇸 **Imperial/US Customary Units**
-    case OUNCE = 'oz';         // 1/16 pound
-    case POUND = 'lb';         // 16 ounces
-    case STONE = 'st';         // 14 pounds
-    case SHORT_TON = 'ton';    // 2,000 pounds (US ton)
-    case LONG_TON = 'lt';      // 2,240 pounds (UK ton)
-
-    // ⚗️ **Other Units**
-    case CARAT = 'ct';         // 0.2 grams (used for gemstones)
-    case GRAIN = 'gr';         // 1/7000 pound
+    case MILLIGRAM = 100;     // 1/1,000,000 kilogram
+    case GRAM = 110;          // 1/1,000 kilogram
+    case KILOGRAM = 120;      // Base unit
+    case TONNE = 130;         // 1,000 kilograms
+// 🇺🇸 **Imperial/US Customary Units**
+    case OUNCE = 140;         // 1/16 pound
+    case POUND = 150;         // 16 ounces
+    case STONE = 160;         // 14 pounds
+    case SHORT_TON = 170;     // 2,000 pounds (US ton)
+    case LONG_TON = 180;      // 2,240 pounds (UK ton)
+// ⚗️ **Other Units**
+    case CARAT = 190;         // 0.2 grams (used for gemstones)
+    case GRAIN = 200;         // 1/7000 pound
 
     // Labels
     /**

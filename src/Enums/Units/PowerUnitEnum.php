@@ -4,18 +4,18 @@ namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
 
-enum PowerUnitEnum: string
+enum PowerUnitEnum: int
 {
     // 🌍 **SI Units (International System of Units)**
-    case WATT = 'W';            // 1 Watt (Base SI unit)
-    case KILOWATT = 'kW';       // 1,000 Watts
-    case MEGAWATT = 'MW';       // 1,000,000 Watts
+    case WATT = 100;            // 1 Watt (Base SI unit)
+    case KILOWATT = 101;        // 1,000 Watts
+    case MEGAWATT = 102;        // 1,000,000 Watts
 
     // ⚙️ **Metric Units**
-    case HORSEPOWER = 'HP';     // ~745.7 Watts
+    case HORSEPOWER = 103;      // ~745.7 Watts
 
     // 🇺🇸 **Imperial/US Customary Units**
-    case BTU_PER_HOUR = 'BTU/h'; // ~0.000293071 kW
+    case BTU_PER_HOUR = 104;    // ~0.000293071 kW
 
     // Labels
     public function label(): string
