@@ -1,6 +1,6 @@
 <?php
 
-namespace Units;
+namespace Tests\Units;
 
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\PowerUnitEnum;
