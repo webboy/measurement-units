@@ -2,6 +2,7 @@
 
 namespace Webboy\MeasurementUnits\Enums;
 
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 use Webboy\MeasurementUnits\Enums\Units\AreaUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
@@ -44,6 +45,12 @@ enum MeasurementEnum: string
     case BATTERY_CAPACITY = 'battery_capacity';
     case VOLTAGE = 'voltage';
 
+    // Values
+    public function value(): string
+    {
+        return $this->value;
+    }
+
 
     // Labels
     public function label(): string
@@ -65,7 +72,7 @@ enum MeasurementEnum: string
     }
 
     // Base Unit Ids
-    public function baseUnit(): object
+    public function baseUnit(): UnitEnumInterface
     {
         return match ($this) {
             self::DISTANCE => DistanceUnitEnum::METER,

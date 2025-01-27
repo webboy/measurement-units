@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common mass units across various measurement systems.
  */
-enum MassUnitEnum: int
+enum MassUnitEnum: int implements UnitEnumInterface
 {
     // ⚖️ **Metric System (SI Units)**
     case MILLIGRAM = 100;     // 1/1,000,000 kilogram
@@ -110,5 +111,10 @@ enum MassUnitEnum: int
             self::CARAT => fn ($value) => $value * 5000,
             self::GRAIN => fn ($value) => $value * 15432.358,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

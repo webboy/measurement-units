@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common temperature units.
  */
-enum TemperatureUnitEnum: int
+enum TemperatureUnitEnum: int implements UnitEnumInterface
 {
     // 🌡️ **Metric System (SI Units)**
     case KELVIN = 100;     // Base unit in thermodynamics
@@ -54,5 +55,10 @@ enum TemperatureUnitEnum: int
             self::CELSIUS => fn ($value) => $value - 273.15,
             self::FAHRENHEIT => fn ($value) => ($value - 273.15) * 9 / 5 + 32,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

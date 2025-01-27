@@ -16,7 +16,7 @@ use Webboy\MeasurementUnits\Measurements\VolumeMeasurementDto;
 
 class VolumeMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): VolumeMeasurementDto
     {
         return new VolumeMeasurementDto();
     }

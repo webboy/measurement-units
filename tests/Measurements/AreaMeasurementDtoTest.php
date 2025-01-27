@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\AreaMeasurementDto;
 
 class AreaMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): AreaMeasurementDto
     {
         return new AreaMeasurementDto();
     }

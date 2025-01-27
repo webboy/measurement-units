@@ -13,7 +13,7 @@ use Webboy\MeasurementUnits\UnitConverter;
 
 class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): BatteryCapacityMeasurementDto
     {
         return new BatteryCapacityMeasurementDto();
     }

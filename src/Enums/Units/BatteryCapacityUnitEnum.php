@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common battery capacity units.
  */
-enum BatteryCapacityUnitEnum: int
+enum BatteryCapacityUnitEnum: int implements UnitEnumInterface
 {
     // 🔋 **Standard Units**
     case MILLIAMPERE_HOUR = 100;   // 1/1000 Ampere-hour
@@ -62,4 +63,8 @@ enum BatteryCapacityUnitEnum: int
         };
     }
 
+    public function value(): int
+    {
+        return $this->value;
+    }
 }

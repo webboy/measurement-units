@@ -3,8 +3,9 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
-enum VoltageUnitEnum: int
+enum VoltageUnitEnum: int implements UnitEnumInterface
 {
     case VOLT = 100;
     case MILLIVOLT = 101;
@@ -48,5 +49,10 @@ enum VoltageUnitEnum: int
             self::MILLIVOLT => fn ($value) => $value * 1000,
             self::KILOVOLT => fn ($value) => $value / 1000,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

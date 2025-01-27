@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common distance units across various measurement systems.
  */
-enum DistanceUnitEnum: int
+enum DistanceUnitEnum: int implements UnitEnumInterface
 {
     // **Metric System (SI Units)**
     case MILLIMETER = 100;   // 1/1,000 meter
@@ -120,5 +121,11 @@ enum DistanceUnitEnum: int
             self::LEAGUE => fn ($value) => $value * 0.000179986,
             self::HAND => fn ($value) => $value * 0.1016,
         };
+    }
+
+    // Values
+    public function value(): int
+    {
+        return $this->value;
     }
 }

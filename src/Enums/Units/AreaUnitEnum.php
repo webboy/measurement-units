@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common area units across various measurement systems.
  */
-enum AreaUnitEnum: int
+enum AreaUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **Metric System (SI Units)**
     case SQUARE_MILLIMETER = 100;       // 1/1,000,000 m²
@@ -108,5 +109,10 @@ enum AreaUnitEnum: int
             self::SQUARE_MILE => fn ($value) => $value / 640,
             self::ARE => fn ($value) => $value / 100,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

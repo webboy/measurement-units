@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common speed units across various measurement systems.
  */
-enum SpeedUnitEnum: int
+enum SpeedUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **SI Units (International System of Units)**
     case METER_PER_SECOND = 100;   // Base unit
@@ -70,4 +71,8 @@ enum SpeedUnitEnum: int
         };
     }
 
+    public function value(): int
+    {
+        return $this->value;
+    }
 }

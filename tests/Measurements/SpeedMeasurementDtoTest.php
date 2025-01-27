@@ -12,7 +12,7 @@ use Webboy\MeasurementUnits\Measurements\SpeedMeasurementDto;
 
 class SpeedMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): SpeedMeasurementDto
     {
         return new SpeedMeasurementDto();
     }

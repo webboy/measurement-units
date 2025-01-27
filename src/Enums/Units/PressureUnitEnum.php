@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common pressure units across various measurement systems.
  */
-enum PressureUnitEnum: int
+enum PressureUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **SI Units (International System of Units)**
     case PASCAL = 100;          // 1 N/m² (Base unit)
@@ -96,5 +97,10 @@ enum PressureUnitEnum: int
             self::INHG => fn ($value) => $value / 3_386.39,
             self::MMHG => fn ($value) => $value / 133.322,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

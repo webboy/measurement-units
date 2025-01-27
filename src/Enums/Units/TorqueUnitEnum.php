@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common torque units with conversion methods.
  */
-enum TorqueUnitEnum: int
+enum TorqueUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **Metric System (SI Units)**
     case NEWTON_METER = 100;             // Base unit
@@ -87,5 +88,10 @@ enum TorqueUnitEnum: int
             self::KILOGRAM_FORCE_METER => fn ($value) => $value / 9.80665,
             self::KILOGRAM_FORCE_CENTIMETER => fn ($value) => $value / 0.0980665,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

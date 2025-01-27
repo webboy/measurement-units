@@ -6,6 +6,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/webboy/measurement-units/badge.svg?branch=main)](https://coveralls.io/github/webboy/measurement-units?branch=main)
 [![PHP Version](https://img.shields.io/packagist/php-v/webboy/measurement-units.svg)](https://packagist.org/packages/webboy/measurement-units)
 [![License](https://img.shields.io/packagist/l/webboy/measurement-units.svg)](https://packagist.org/packages/webboy/measurement-units)
+![PHPStan Level](https://img.shields.io/badge/PHPStan-level%208-success?style=flat)
+
 
 Set of DTOs to deal with various physical units and conversions.
 

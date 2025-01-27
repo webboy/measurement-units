@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\TorqueMeasurementDto;
 
 class TorqueMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): TorqueMeasurementDto
     {
         return new TorqueMeasurementDto();
     }

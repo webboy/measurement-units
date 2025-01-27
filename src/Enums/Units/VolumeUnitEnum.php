@@ -3,11 +3,12 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Enum representing common volume units across various measurement systems with conversion capabilities.
  */
-enum VolumeUnitEnum: int
+enum VolumeUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **Metric System (SI Units)**
     case MILLILITER = 100;   // 1/1,000 Liter
@@ -144,5 +145,10 @@ enum VolumeUnitEnum: int
             self::CUBIC_FOOT => fn ($value) => $value / 28.3168,
             self::CUBIC_YARD => fn ($value) => $value / 764.555,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

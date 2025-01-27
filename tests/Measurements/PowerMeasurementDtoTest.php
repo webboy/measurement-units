@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\PowerMeasurementDto;
 
 class PowerMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): PowerMeasurementDto
     {
         return new PowerMeasurementDto();
     }

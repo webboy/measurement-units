@@ -18,7 +18,7 @@ use Webboy\MeasurementUnits\Measurements\VolumeMeasurementDto;
 
 class VoltageMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): VoltageMeasurementDto
     {
         return new VoltageMeasurementDto();
     }

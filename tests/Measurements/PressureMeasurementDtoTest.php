@@ -10,7 +10,7 @@ use Webboy\MeasurementUnits\Measurements\PressureMeasurementDto;
 
 class PressureMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): PressureMeasurementDto
     {
         return new PressureMeasurementDto();
     }

@@ -14,7 +14,7 @@ use Webboy\MeasurementUnits\Measurements\TemperatureMeasurementDto;
 
 class TemperatureMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): TemperatureMeasurementDto
     {
         return new TemperatureMeasurementDto();
     }

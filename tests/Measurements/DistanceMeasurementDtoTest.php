@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 
 class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): DistanceMeasurementDto
     {
         return new DistanceMeasurementDto();
     }

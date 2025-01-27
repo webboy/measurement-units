@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\FuelConsumptionMeasurementDto;
 
 class FuelConsumptionMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): FuelConsumptionMeasurementDto
     {
         return new FuelConsumptionMeasurementDto();
     }

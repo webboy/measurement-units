@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Measurements\MassMeasurementDto;
 
 class MassMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
-    protected function createMeasurementDto(): object
+    protected function createMeasurementDto(): MassMeasurementDto
     {
         return new MassMeasurementDto();
     }

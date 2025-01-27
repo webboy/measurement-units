@@ -3,8 +3,9 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
-enum FuelConsumptionUnitEnum: int
+enum FuelConsumptionUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **SI/Metric Units**
     case LITERS_PER_100KM = 100;   // Liters per 100 kilometers - Base unit
@@ -60,5 +61,10 @@ enum FuelConsumptionUnitEnum: int
             self::MILES_PER_GALLON_US => fn ($value) => 235.214583 / $value,
             self::MILES_PER_GALLON_UK => fn ($value) => 282.481 / $value,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }

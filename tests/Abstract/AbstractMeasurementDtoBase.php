@@ -8,14 +8,15 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasur
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidConversionParameterConverterException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
+use Webboy\MeasurementUnits\MeasurementDto;
 use Webboy\MeasurementUnits\UnitConverter;
 
 abstract class AbstractMeasurementDtoBase extends TestCase
 {
     /**
-     * @var object The measurement DTO.
+     * @var MeasurementDto The measurement DTO.
      */
-    protected object $measurementDto;
+    protected MeasurementDto $measurementDto;
 
     /**
      * @var class-string The class name of the unit enum.
@@ -30,9 +31,9 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     /**
      * Create the measurement DTO.
      *
-     * @return object The measurement DTO.
+     * @return MeasurementDto The measurement DTO.
      */
-    abstract protected function createMeasurementDto(): object;
+    abstract protected function createMeasurementDto(): MeasurementDto;
 
     /**
      * Create the unit enum class.
@@ -45,6 +46,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
      * Create the conversion test parameters.
      *
      * @return array<int,array<string,mixed>> The conversion test parameters.
+     * @throws InvalidUnitIdMeasurementException|IllegalInstantiationMeasurementValueException
      */
     protected function createConversionTestParameters(): array
     {
@@ -57,6 +59,10 @@ abstract class AbstractMeasurementDtoBase extends TestCase
         ];
     }
 
+    /**
+     * @throws IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException
+     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -66,6 +72,9 @@ abstract class AbstractMeasurementDtoBase extends TestCase
 
     }
 
+    /**
+     * @throws InvalidUnitIdMeasurementException
+     */
     public function testSuccessfulDefaultConstruction(): void
     {
         $validBaseUnitId = $this->measurementDto->getBaseUnit()->id;

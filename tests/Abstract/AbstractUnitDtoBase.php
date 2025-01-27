@@ -19,12 +19,12 @@ abstract class AbstractUnitDtoBase extends TestCase
     protected string $unit_enum_class;
 
     /**
-     * @return string The class name of the unit DTO.
+     * @return class-string The class name of the unit DTO.
      */
     abstract protected function createUnitClass(): string;
 
     /**
-     * @return string The class name of the unit enum.
+     * @return class-string The class name of the unit enum.
      */
 
     abstract protected function createUnitEnumClass(): string;
@@ -47,6 +47,9 @@ abstract class AbstractUnitDtoBase extends TestCase
 
     public function testSuccessfulCreationWithCustomName(): void
     {
+        /**
+         * @var UnitDto $unitDto
+         */
         $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0], 'Custom Name');
         $this->assertInstanceOf($this->unit_class, $unitDto);
         $this->assertEquals('Custom Name', $unitDto->name);

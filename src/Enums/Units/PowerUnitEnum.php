@@ -3,8 +3,9 @@
 namespace Webboy\MeasurementUnits\Enums\Units;
 
 use Closure;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
-enum PowerUnitEnum: int
+enum PowerUnitEnum: int implements UnitEnumInterface
 {
     // 🌍 **SI Units (International System of Units)**
     case WATT = 100;            // 1 Watt (Base SI unit)
@@ -63,5 +64,10 @@ enum PowerUnitEnum: int
             self::HORSEPOWER => fn ($value) => $value / 745.7,
             self::BTU_PER_HOUR => fn ($value) => $value / 0.000293071,
         };
+    }
+
+    public function value(): int
+    {
+        return $this->value;
     }
 }
