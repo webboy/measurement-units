@@ -23,12 +23,12 @@ enum VolumeUnitEnum: int
     case PINT = 109;         // ~473.176 mL
     case QUART = 110;        // ~946.353 mL
     case GALLON = 111;      // ~3.78541 L
-// 🇬🇧 **Imperial (UK) Units**
+    // 🇬🇧 **Imperial (UK) Units**
     case GILL_UK = 112;   // ~142.065 mL
     case PINT_UK = 113;   // ~568.261 mL
     case QUART_UK = 114;  // ~1.13652 L
     case GALLON_UK = 115; // ~4.54609 L
-// 🏗️ **Other Units**
+    // 🏗️ **Other Units**
     case CUBIC_INCH = 116;  // ~16.3871 mL
     case CUBIC_FOOT = 117;  // ~28.3168 L
     case CUBIC_YARD = 118;  // ~764.555 L
@@ -96,25 +96,25 @@ enum VolumeUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::MILLILITER => fn($value) => $value / 1000,
-            self::CENTILITER => fn($value) => $value / 100,
-            self::DECILITER => fn($value) => $value / 10,
-            self::LITRE => fn($value) => $value,
-            self::CUBIC_METER => fn($value) => $value * 1000,
-            self::TEASPOON => fn($value) => $value * 0.00492892,
-            self::TABLESPOON => fn($value) => $value * 0.0147868,
-            self::FLUID_OUNCE => fn($value) => $value * 0.0295735,
-            self::CUP => fn($value) => $value * 0.236588,
-            self::PINT => fn($value) => $value * 0.473176,
-            self::QUART => fn($value) => $value * 0.946353,
-            self::GALLON => fn($value) => $value * 3.78541,
-            self::GILL_UK => fn($value) => $value * 0.142065,
-            self::PINT_UK => fn($value) => $value * 0.568261,
-            self::QUART_UK => fn($value) => $value * 1.13652,
-            self::GALLON_UK => fn($value) => $value * 4.54609,
-            self::CUBIC_INCH => fn($value) => $value * 0.0163871,
-            self::CUBIC_FOOT => fn($value) => $value * 28.3168,
-            self::CUBIC_YARD => fn($value) => $value * 764.555,
+            self::MILLILITER => fn ($value) => $value / 1000,
+            self::CENTILITER => fn ($value) => $value / 100,
+            self::DECILITER => fn ($value) => $value / 10,
+            self::LITRE => fn ($value) => $value,
+            self::CUBIC_METER => fn ($value) => $value * 1000,
+            self::TEASPOON => fn ($value) => $value * 0.00492892,
+            self::TABLESPOON => fn ($value) => $value * 0.0147868,
+            self::FLUID_OUNCE => fn ($value) => $value * 0.0295735,
+            self::CUP => fn ($value) => $value * 0.236588,
+            self::PINT => fn ($value) => $value * 0.473176,
+            self::QUART => fn ($value) => $value * 0.946353,
+            self::GALLON => fn ($value) => $value * 3.78541,
+            self::GILL_UK => fn ($value) => $value * 0.142065,
+            self::PINT_UK => fn ($value) => $value * 0.568261,
+            self::QUART_UK => fn ($value) => $value * 1.13652,
+            self::GALLON_UK => fn ($value) => $value * 4.54609,
+            self::CUBIC_INCH => fn ($value) => $value * 0.0163871,
+            self::CUBIC_FOOT => fn ($value) => $value * 28.3168,
+            self::CUBIC_YARD => fn ($value) => $value * 764.555,
         };
     }
 
@@ -124,25 +124,25 @@ enum VolumeUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::MILLILITER => fn($value) => $value * 1000,
-            self::CENTILITER => fn($value) => $value * 100,
-            self::DECILITER => fn($value) => $value * 10,
-            self::LITRE => fn($value) => $value,
-            self::CUBIC_METER => fn($value) => $value / 1000,
-            self::TEASPOON => fn($value) => $value / 0.00492892,
-            self::TABLESPOON => fn($value) => $value / 0.0147868,
-            self::FLUID_OUNCE => fn($value) => $value / 0.0295735,
-            self::CUP => fn($value) => $value / 0.236588,
-            self::PINT => fn($value) => $value / 0.473176,
-            self::QUART => fn($value) => $value / 0.946353,
-            self::GALLON => fn($value) => $value / 3.78541,
-            self::GILL_UK => fn($value) => $value / 0.142065,
-            self::PINT_UK => fn($value) => $value / 0.568261,
-            self::QUART_UK => fn($value) => $value / 1.13652,
-            self::GALLON_UK => fn($value) => $value / 4.54609,
-            self::CUBIC_INCH => fn($value) => $value / 0.0163871,
-            self::CUBIC_FOOT => fn($value) => $value / 28.3168,
-            self::CUBIC_YARD => fn($value) => $value / 764.555,
+            self::MILLILITER => fn ($value) => $value * 1000,
+            self::CENTILITER => fn ($value) => $value * 100,
+            self::DECILITER => fn ($value) => $value * 10,
+            self::LITRE => fn ($value) => $value,
+            self::CUBIC_METER => fn ($value) => $value / 1000,
+            self::TEASPOON => fn ($value) => $value / 0.00492892,
+            self::TABLESPOON => fn ($value) => $value / 0.0147868,
+            self::FLUID_OUNCE => fn ($value) => $value / 0.0295735,
+            self::CUP => fn ($value) => $value / 0.236588,
+            self::PINT => fn ($value) => $value / 0.473176,
+            self::QUART => fn ($value) => $value / 0.946353,
+            self::GALLON => fn ($value) => $value / 3.78541,
+            self::GILL_UK => fn ($value) => $value / 0.142065,
+            self::PINT_UK => fn ($value) => $value / 0.568261,
+            self::QUART_UK => fn ($value) => $value / 1.13652,
+            self::GALLON_UK => fn ($value) => $value / 4.54609,
+            self::CUBIC_INCH => fn ($value) => $value / 0.0163871,
+            self::CUBIC_FOOT => fn ($value) => $value / 28.3168,
+            self::CUBIC_YARD => fn ($value) => $value / 764.555,
         };
     }
 }

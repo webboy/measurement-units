@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto;
 
 class BatteryCapacityUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

@@ -56,9 +56,9 @@ abstract class MeasurementDto
         int | string $base_unit_id = null,
         ?array $units = null,
         private readonly ?array $validIds = null,
-    ){
+    ) {
         //Validate ID
-        if ($this->validIds !== null && !in_array($id, $this->validIds)) {
+        if ($this->validIds !== null && !in_array($id, $this->validIds, true)) {
             throw new InvalidMeasurementIdMeasurementException($id);
         }
 

@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\PowerUnitDto;
 
 class PowerUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

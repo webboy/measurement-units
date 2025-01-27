@@ -43,10 +43,10 @@ enum FuelConsumptionUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::LITERS_PER_100KM => fn($value) => $value,
-            self::KILOMETERS_PER_LITER => fn($value) => 100 / $value,
-            self::MILES_PER_GALLON_US => fn($value) => 235.214583 / $value,
-            self::MILES_PER_GALLON_UK => fn($value) => 282.481 / $value,
+            self::LITERS_PER_100KM => fn ($value) => $value,
+            self::KILOMETERS_PER_LITER => fn ($value) => 100 / $value,
+            self::MILES_PER_GALLON_US => fn ($value) => 235.214583 / $value,
+            self::MILES_PER_GALLON_UK => fn ($value) => 282.481 / $value,
         };
     }
 
@@ -55,10 +55,10 @@ enum FuelConsumptionUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::LITERS_PER_100KM => fn($value) => $value,
-            self::KILOMETERS_PER_LITER => fn($value) => 100 / $value,
-            self::MILES_PER_GALLON_US => fn($value) => 235.214583 / $value,
-            self::MILES_PER_GALLON_UK => fn($value) => 282.481 / $value,
+            self::LITERS_PER_100KM => fn ($value) => $value,
+            self::KILOMETERS_PER_LITER => fn ($value) => 100 / $value,
+            self::MILES_PER_GALLON_US => fn ($value) => 235.214583 / $value,
+            self::MILES_PER_GALLON_UK => fn ($value) => 282.481 / $value,
         };
     }
 }

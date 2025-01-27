@@ -31,8 +31,7 @@ class CustomUnitDto extends UnitDto
         Closure $fromBase,
         bool $isBase = false,
         false|array|null $validIds = null
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $name,

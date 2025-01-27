@@ -74,17 +74,17 @@ enum AreaUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::SQUARE_MILLIMETER => fn($value) => $value / 1_000_000,
-            self::SQUARE_CENTIMETER => fn($value) => $value / 10_000,
-            self::SQUARE_METER => fn($value) => $value,
-            self::SQUARE_KILOMETER => fn($value) => $value * 1_000_000,
-            self::HECTARE => fn($value) => $value * 10_000,
-            self::SQUARE_INCH => fn($value) => $value / 144,
-            self::SQUARE_FOOT => fn($value) => $value / 9,
-            self::SQUARE_YARD => fn($value) => $value * 9,
-            self::ACRE => fn($value) => $value * 4_046.8564224,
-            self::SQUARE_MILE => fn($value) => $value * 640,
-            self::ARE => fn($value) => $value * 100,
+            self::SQUARE_MILLIMETER => fn ($value) => $value / 1_000_000,
+            self::SQUARE_CENTIMETER => fn ($value) => $value / 10_000,
+            self::SQUARE_METER => fn ($value) => $value,
+            self::SQUARE_KILOMETER => fn ($value) => $value * 1_000_000,
+            self::HECTARE => fn ($value) => $value * 10_000,
+            self::SQUARE_INCH => fn ($value) => $value / 144,
+            self::SQUARE_FOOT => fn ($value) => $value / 9,
+            self::SQUARE_YARD => fn ($value) => $value * 9,
+            self::ACRE => fn ($value) => $value * 4_046.8564224,
+            self::SQUARE_MILE => fn ($value) => $value * 640,
+            self::ARE => fn ($value) => $value * 100,
         };
     }
 
@@ -96,17 +96,17 @@ enum AreaUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::SQUARE_MILLIMETER => fn($value) => $value * 1_000_000,
-            self::SQUARE_CENTIMETER => fn($value) => $value * 10_000,
-            self::SQUARE_METER => fn($value) => $value,
-            self::SQUARE_KILOMETER => fn($value) => $value / 1_000_000,
-            self::HECTARE => fn($value) => $value / 10_000,
-            self::SQUARE_INCH => fn($value) => $value * 144,
-            self::SQUARE_FOOT => fn($value) => $value * 9,
-            self::SQUARE_YARD => fn($value) => $value / 9,
-            self::ACRE => fn($value) => $value / 4_046.8564224,
-            self::SQUARE_MILE => fn($value) => $value / 640,
-            self::ARE => fn($value) => $value / 100,
+            self::SQUARE_MILLIMETER => fn ($value) => $value * 1_000_000,
+            self::SQUARE_CENTIMETER => fn ($value) => $value * 10_000,
+            self::SQUARE_METER => fn ($value) => $value,
+            self::SQUARE_KILOMETER => fn ($value) => $value / 1_000_000,
+            self::HECTARE => fn ($value) => $value / 10_000,
+            self::SQUARE_INCH => fn ($value) => $value * 144,
+            self::SQUARE_FOOT => fn ($value) => $value * 9,
+            self::SQUARE_YARD => fn ($value) => $value / 9,
+            self::ACRE => fn ($value) => $value / 4_046.8564224,
+            self::SQUARE_MILE => fn ($value) => $value / 640,
+            self::ARE => fn ($value) => $value / 100,
         };
     }
 }

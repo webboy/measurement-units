@@ -13,11 +13,11 @@ enum TorqueUnitEnum: int
     case NEWTON_METER = 100;             // Base unit
     case KILONEWTON_METER = 110;       // 1 kN·m = 1,000 N·m
     case NEWTON_CENTIMETER = 120;      // 1 N·cm = 1/100 N·m
-// 🇺🇸 **Imperial/US Customary Units**
+    // 🇺🇸 **Imperial/US Customary Units**
     case POUND_FOOT = 130;            // 1 lb·ft ≈ 1.35582 N·m
     case POUND_INCH = 140;            // 1 lb·in ≈ 0.112985 N·m
     case OUNCE_INCH = 150;            // 1 oz·in ≈ 0.00706155 N·m
-// ⚙️ **Other Units**
+    // ⚙️ **Other Units**
     case KILOGRAM_FORCE_METER = 160;  // 1 kgf·m ≈ 9.80665 N·m
     case KILOGRAM_FORCE_CENTIMETER = 170; // 1 kgf·cm ≈ 0.0980665 N·m
 
@@ -61,14 +61,14 @@ enum TorqueUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::NEWTON_METER => fn($value) => $value,
-            self::KILONEWTON_METER => fn($value) => $value * 1000,
-            self::NEWTON_CENTIMETER => fn($value) => $value / 100,
-            self::POUND_FOOT => fn($value) => $value * 1.3558179483314,
-            self::POUND_INCH => fn($value) => $value * 0.1129848290276167,
-            self::OUNCE_INCH => fn($value) => $value * 0.00706155183333,
-            self::KILOGRAM_FORCE_METER => fn($value) => $value * 9.80665,
-            self::KILOGRAM_FORCE_CENTIMETER => fn($value) => $value * 0.0980665,
+            self::NEWTON_METER => fn ($value) => $value,
+            self::KILONEWTON_METER => fn ($value) => $value * 1000,
+            self::NEWTON_CENTIMETER => fn ($value) => $value / 100,
+            self::POUND_FOOT => fn ($value) => $value * 1.3558179483314,
+            self::POUND_INCH => fn ($value) => $value * 0.1129848290276167,
+            self::OUNCE_INCH => fn ($value) => $value * 0.00706155183333,
+            self::KILOGRAM_FORCE_METER => fn ($value) => $value * 9.80665,
+            self::KILOGRAM_FORCE_CENTIMETER => fn ($value) => $value * 0.0980665,
         };
     }
 
@@ -78,14 +78,14 @@ enum TorqueUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::NEWTON_METER => fn($value) => $value,
-            self::KILONEWTON_METER => fn($value) => $value / 1000,
-            self::NEWTON_CENTIMETER => fn($value) => $value * 100,
-            self::POUND_FOOT => fn($value) => $value / 1.3558179483314,
-            self::POUND_INCH => fn($value) => $value / 0.1129848290276167,
-            self::OUNCE_INCH => fn($value) => $value / 0.00706155183333,
-            self::KILOGRAM_FORCE_METER => fn($value) => $value / 9.80665,
-            self::KILOGRAM_FORCE_CENTIMETER => fn($value) => $value / 0.0980665,
+            self::NEWTON_METER => fn ($value) => $value,
+            self::KILONEWTON_METER => fn ($value) => $value / 1000,
+            self::NEWTON_CENTIMETER => fn ($value) => $value * 100,
+            self::POUND_FOOT => fn ($value) => $value / 1.3558179483314,
+            self::POUND_INCH => fn ($value) => $value / 0.1129848290276167,
+            self::OUNCE_INCH => fn ($value) => $value / 0.00706155183333,
+            self::KILOGRAM_FORCE_METER => fn ($value) => $value / 9.80665,
+            self::KILOGRAM_FORCE_CENTIMETER => fn ($value) => $value / 0.0980665,
         };
     }
 }

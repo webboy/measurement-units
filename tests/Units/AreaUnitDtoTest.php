@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\AreaUnitDto;
 
 class AreaUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

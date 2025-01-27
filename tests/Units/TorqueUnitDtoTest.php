@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\TorqueUnitDto;
 
 class TorqueUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

@@ -29,7 +29,7 @@ class CustomMeasurementDto extends MeasurementDto
         string $name,
         int | string $base_unit_id = null,
         ?array $units = null
-    ){
+    ) {
         parent::__construct(
             id: $id,
             name: $name,

@@ -10,7 +10,6 @@ use Webboy\MeasurementUnits\Units\VolumeUnitDto;
 
 class VoltageUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

@@ -28,7 +28,7 @@ class UnitConverter
     public static function convert(MeasurementValueDto $value, int | string $target_unit_id, ...$args): MeasurementValueDto
     {
         // Check if the $target_unit_id is in the list of measurement units.
-        try{
+        try {
             $target_unit = $value->measurement->getUnit($target_unit_id);
         } catch (InvalidUnitIdMeasurementException $e) {
             throw new InvalidTargetUnitIdUnitConverterException($e);

@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\SpeedUnitDto;
 
 class SpeedUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

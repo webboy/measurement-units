@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\PressureUnitDto;
 
 class PressureUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

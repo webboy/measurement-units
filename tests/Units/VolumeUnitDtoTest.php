@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\VolumeUnitDto;
 
 class VolumeUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\DistanceUnitDto;
 
 class DistanceUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

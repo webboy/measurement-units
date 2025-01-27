@@ -26,7 +26,7 @@ class InvalidMeasurementDto extends MeasurementDto
         int | string $base_unit_id = 'invalid',
         array $units = null,
         array $validIds = []
-    ){
+    ) {
         parent::__construct(
             id: $id,
             name: $name,

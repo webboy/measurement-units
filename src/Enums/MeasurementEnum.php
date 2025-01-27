@@ -93,7 +93,8 @@ enum MeasurementEnum: string
                  */
                 function (DistanceUnitEnum $unit) {
                     return new DistanceUnitDto($unit);
-                }, DistanceUnitEnum::cases()
+                },
+                DistanceUnitEnum::cases()
             ),
             self::MASS => array_map(
                 /**
@@ -101,7 +102,8 @@ enum MeasurementEnum: string
                  */
                 function (MassUnitEnum $unit) {
                     return new MassUnitDto($unit);
-                }, MassUnitEnum::cases()
+                },
+                MassUnitEnum::cases()
             ),
             self::VOLUME => array_map(
                 /**
@@ -109,7 +111,8 @@ enum MeasurementEnum: string
                  */
                 function (VolumeUnitEnum $unit) {
                     return new VolumeUnitDto($unit);
-                }, VolumeUnitEnum::cases()
+                },
+                VolumeUnitEnum::cases()
             ),
             self::TEMPERATURE => array_map(
                 /**
@@ -117,7 +120,8 @@ enum MeasurementEnum: string
                  */
                 function (TemperatureUnitEnum $unit) {
                     return new TemperatureUnitDto($unit);
-                }, TemperatureUnitEnum::cases()
+                },
+                TemperatureUnitEnum::cases()
             ),
             self::SPEED => array_map(
                 /**
@@ -125,7 +129,8 @@ enum MeasurementEnum: string
                  */
                 function (SpeedUnitEnum $unit) {
                     return new SpeedUnitDto($unit);
-                }, SpeedUnitEnum::cases()
+                },
+                SpeedUnitEnum::cases()
             ),
             self::PRESSURE => array_map(
                 /**
@@ -133,7 +138,8 @@ enum MeasurementEnum: string
                  */
                 function (PressureUnitEnum $unit) {
                     return new PressureUnitDto($unit);
-                }, PressureUnitEnum::cases()
+                },
+                PressureUnitEnum::cases()
             ),
             self::AREA => array_map(
                 /**
@@ -141,7 +147,8 @@ enum MeasurementEnum: string
                  */
                 function (AreaUnitEnum $unit) {
                     return new AreaUnitDto($unit);
-                }, AreaUnitEnum::cases()
+                },
+                AreaUnitEnum::cases()
             ),
             self::TORQUE => array_map(
                 /**
@@ -149,7 +156,8 @@ enum MeasurementEnum: string
                  */
                 function (TorqueUnitEnum $unit) {
                     return new TorqueUnitDto($unit);
-                }, TorqueUnitEnum::cases()
+                },
+                TorqueUnitEnum::cases()
             ),
             self::POWER => array_map(
                 /**
@@ -157,7 +165,8 @@ enum MeasurementEnum: string
                  */
                 function (PowerUnitEnum $unit) {
                     return new PowerUnitDto($unit);
-                }, PowerUnitEnum::cases()
+                },
+                PowerUnitEnum::cases()
             ),
             self::FUEL_CONSUMPTION => array_map(
                 /**
@@ -165,7 +174,8 @@ enum MeasurementEnum: string
                  */
                 function (FuelConsumptionUnitEnum $unit) {
                     return new FuelConsumptionUnitDto($unit);
-                }, FuelConsumptionUnitEnum::cases()
+                },
+                FuelConsumptionUnitEnum::cases()
             ),
             self::BATTERY_CAPACITY => array_map(
                 /**
@@ -173,7 +183,8 @@ enum MeasurementEnum: string
                  */
                 function (BatteryCapacityUnitEnum $unit) {
                     return new BatteryCapacityUnitDto($unit);
-                }, BatteryCapacityUnitEnum::cases()
+                },
+                BatteryCapacityUnitEnum::cases()
             ),
             self::VOLTAGE => array_map(
                 /**
@@ -181,7 +192,8 @@ enum MeasurementEnum: string
                  */
                 function (VoltageUnitEnum $unit) {
                     return new VoltageUnitDto($unit);
-                }, VoltageUnitEnum::cases()
+                },
+                VoltageUnitEnum::cases()
             ),
         };
     }

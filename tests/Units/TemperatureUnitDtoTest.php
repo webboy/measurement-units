@@ -8,7 +8,6 @@ use Webboy\MeasurementUnits\Units\TemperatureUnitDto;
 
 class TemperatureUnitDtoTest extends AbstractUnitDtoBase
 {
-
     /**
      * @inheritDoc
      */

@@ -14,13 +14,13 @@ enum PressureUnitEnum: int
     case KILOPASCAL = 101;      // 1,000 Pascals
     case MEGAPASCAL = 102;      // 1,000,000 Pascals
 
-// ⚙️ **Metric Units**
+    // ⚙️ **Metric Units**
     case BAR = 103;             // 100,000 Pascals
     case MILLIBAR = 104;        // 1/1,000 Bar
     case ATMOSPHERE = 105;      // 101,325 Pascals (Standard atmosphere)
     case TORR = 106;            // 1/760 atm (~133.322 Pa)
 
-// 🇺🇸 **Imperial/US Customary Units**
+    // 🇺🇸 **Imperial/US Customary Units**
     case PSI = 107;             // Pounds per square inch
     case PSF = 108;             // Pounds per square foot
     case INHG = 109;            // Inches of mercury (used in aviation)
@@ -66,17 +66,17 @@ enum PressureUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::PASCAL => fn($value) => $value,
-            self::KILOPASCAL => fn($value) => $value * 1_000,
-            self::MEGAPASCAL => fn($value) => $value * 1_000_000,
-            self::BAR => fn($value) => $value * 100_000,
-            self::MILLIBAR => fn($value) => $value * 100,
-            self::ATMOSPHERE => fn($value) => $value * 101_325,
-            self::TORR => fn($value) => $value * 133.322,
-            self::PSI => fn($value) => $value * 6_894.76,
-            self::PSF => fn($value) => $value * 47.8803,
-            self::INHG => fn($value) => $value * 3_386.39,
-            self::MMHG => fn($value) => $value * 133.322,
+            self::PASCAL => fn ($value) => $value,
+            self::KILOPASCAL => fn ($value) => $value * 1_000,
+            self::MEGAPASCAL => fn ($value) => $value * 1_000_000,
+            self::BAR => fn ($value) => $value * 100_000,
+            self::MILLIBAR => fn ($value) => $value * 100,
+            self::ATMOSPHERE => fn ($value) => $value * 101_325,
+            self::TORR => fn ($value) => $value * 133.322,
+            self::PSI => fn ($value) => $value * 6_894.76,
+            self::PSF => fn ($value) => $value * 47.8803,
+            self::INHG => fn ($value) => $value * 3_386.39,
+            self::MMHG => fn ($value) => $value * 133.322,
         };
     }
 
@@ -84,17 +84,17 @@ enum PressureUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::PASCAL => fn($value) => $value,
-            self::KILOPASCAL => fn($value) => $value / 1_000,
-            self::MEGAPASCAL => fn($value) => $value / 1_000_000,
-            self::BAR => fn($value) => $value / 100_000,
-            self::MILLIBAR => fn($value) => $value / 100,
-            self::ATMOSPHERE => fn($value) => $value / 101_325,
-            self::TORR => fn($value) => $value / 133.322,
-            self::PSI => fn($value) => $value / 6_894.76,
-            self::PSF => fn($value) => $value / 47.8803,
-            self::INHG => fn($value) => $value / 3_386.39,
-            self::MMHG => fn($value) => $value / 133.322,
+            self::PASCAL => fn ($value) => $value,
+            self::KILOPASCAL => fn ($value) => $value / 1_000,
+            self::MEGAPASCAL => fn ($value) => $value / 1_000_000,
+            self::BAR => fn ($value) => $value / 100_000,
+            self::MILLIBAR => fn ($value) => $value / 100,
+            self::ATMOSPHERE => fn ($value) => $value / 101_325,
+            self::TORR => fn ($value) => $value / 133.322,
+            self::PSI => fn ($value) => $value / 6_894.76,
+            self::PSF => fn ($value) => $value / 47.8803,
+            self::INHG => fn ($value) => $value / 3_386.39,
+            self::MMHG => fn ($value) => $value / 133.322,
         };
     }
 }

@@ -16,8 +16,8 @@ class CustomUnitDtoTest extends TestCase
             id: 'invalid',
             name: 'Invalid Unit',
             symbol: 'IU',
-            toBase: fn($value) => $value,
-            fromBase: fn($value) => $value,
+            toBase: fn ($value) => $value,
+            fromBase: fn ($value) => $value,
             validIds: ['valid'],
         );
     }

@@ -29,15 +29,15 @@ class CustomMeasurementTest extends TestCase
                     id: 'fu',
                     name: 'Fubar',
                     symbol: 'fu',
-                    toBase: fn($x) => $x,
-                    fromBase: fn($x) => $x,
+                    toBase: fn ($x) => $x,
+                    fromBase: fn ($x) => $x,
                 ),
                 new CustomUnitDto(
                     id: 'zig',
                     name: 'Zigzag',
                     symbol: 'zig',
-                    toBase: fn($x) => $x * 0.75,
-                    fromBase: fn($x) => $x / 0.75,
+                    toBase: fn ($x) => $x * 0.75,
+                    fromBase: fn ($x) => $x / 0.75,
                 )
             ]
         );
@@ -61,16 +61,16 @@ class CustomMeasurementTest extends TestCase
                     id: 'fu',
                     name: 'Fubar',
                     symbol: 'fu',
-                    toBase: fn($x) => $x,
-                    fromBase: fn($x) => $x,
+                    toBase: fn ($x) => $x,
+                    fromBase: fn ($x) => $x,
                     isBase: true,
                 ),
                 new CustomUnitDto(
                     id: 'zig',
                     name: 'Zigzag',
                     symbol: 'zig',
-                    toBase: fn($x) => $x * 0.75,
-                    fromBase: fn($x) => $x / 0.75,
+                    toBase: fn ($x) => $x * 0.75,
+                    fromBase: fn ($x) => $x / 0.75,
                 )
             ]
         );

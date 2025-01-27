@@ -63,7 +63,7 @@ abstract class UnitDto
         protected readonly array | null | false $validIds = null
     ) {
         //Validate ID
-        if (is_array($this->validIds) && !in_array($id, $this->validIds)) {
+        if (is_array($this->validIds) && !in_array($id, $this->validIds, true)) {
             throw new InvalidUnitIdUnitException($id);
         }
 

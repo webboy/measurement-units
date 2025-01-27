@@ -45,11 +45,11 @@ enum PowerUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::WATT => fn($value) => $value,
-            self::KILOWATT => fn($value) => $value * 1000,
-            self::MEGAWATT => fn($value) => $value * 1000000,
-            self::HORSEPOWER => fn($value) => $value * 745.7,
-            self::BTU_PER_HOUR => fn($value) => $value * 0.000293071,
+            self::WATT => fn ($value) => $value,
+            self::KILOWATT => fn ($value) => $value * 1000,
+            self::MEGAWATT => fn ($value) => $value * 1000000,
+            self::HORSEPOWER => fn ($value) => $value * 745.7,
+            self::BTU_PER_HOUR => fn ($value) => $value * 0.000293071,
         };
     }
 
@@ -57,11 +57,11 @@ enum PowerUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::WATT => fn($value) => $value,
-            self::KILOWATT => fn($value) => $value / 1000,
-            self::MEGAWATT => fn($value) => $value / 1000000,
-            self::HORSEPOWER => fn($value) => $value / 745.7,
-            self::BTU_PER_HOUR => fn($value) => $value / 0.000293071,
+            self::WATT => fn ($value) => $value,
+            self::KILOWATT => fn ($value) => $value / 1000,
+            self::MEGAWATT => fn ($value) => $value / 1000000,
+            self::HORSEPOWER => fn ($value) => $value / 745.7,
+            self::BTU_PER_HOUR => fn ($value) => $value / 0.000293071,
         };
     }
 }

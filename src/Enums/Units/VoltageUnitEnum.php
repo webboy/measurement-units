@@ -34,9 +34,9 @@ enum VoltageUnitEnum: int
     public function toBase(): Closure
     {
         return match ($this) {
-            self::VOLT => fn($value) => $value,
-            self::MILLIVOLT => fn($value) => $value / 1000,
-            self::KILOVOLT => fn($value) => $value * 1000,
+            self::VOLT => fn ($value) => $value,
+            self::MILLIVOLT => fn ($value) => $value / 1000,
+            self::KILOVOLT => fn ($value) => $value * 1000,
         };
     }
 
@@ -44,9 +44,9 @@ enum VoltageUnitEnum: int
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::VOLT => fn($value) => $value,
-            self::MILLIVOLT => fn($value) => $value * 1000,
-            self::KILOVOLT => fn($value) => $value / 1000,
+            self::VOLT => fn ($value) => $value,
+            self::MILLIVOLT => fn ($value) => $value * 1000,
+            self::KILOVOLT => fn ($value) => $value / 1000,
         };
     }
 }
