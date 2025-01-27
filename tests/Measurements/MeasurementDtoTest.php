@@ -1,6 +1,6 @@
 <?php
 
-namespace Measurements;
+namespace Tests\Measurements;
 
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
