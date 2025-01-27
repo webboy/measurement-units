@@ -9,6 +9,5 @@ coverage/
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 composer.lock
 .phpunit.result.cache
-phpstan.neon
 .php-cs-fixer.dist.php
 .php-cs-fixer.cache
