@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstantiationMeasurementValueException;
+use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidConversionParameterConverterException;
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
 use Webboy\MeasurementUnits\UnitConverter;
 
@@ -22,7 +23,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     protected string $unitEnumClass;
 
     /**
-     * @var array The conversion test parameters.
+     * @var array<int,array<string,mixed>> The conversion test parameters.
      */
     protected array $conversionTestParameters;
 
@@ -43,7 +44,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     /**
      * Create the conversion test parameters.
      *
-     * @return array The conversion test parameters.
+     * @return array<int,array<string,mixed>> The conversion test parameters.
      */
     protected function createConversionTestParameters(): array
     {
@@ -104,7 +105,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     /**
      * @throws IllegalInstantiationMeasurementValueException
      * @throws InvalidTargetUnitIdUnitConverterException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException|InvalidConversionParameterConverterException
      */
     public function testSuccessfulConversion(): void
     {
@@ -134,7 +135,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
 
     /**
      * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException|InvalidConversionParameterConverterException
      */
     public function testFailConversion(): void
     {

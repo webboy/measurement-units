@@ -18,6 +18,9 @@ class FuelConsumptionMeasurementDtoTest extends AbstractMeasurementDtoBase
         return FuelConsumptionUnitEnum::class;
     }
 
+    /**
+     * @return array<int,array<string,mixed>>
+     */
     protected function createConversionTestParameters(): array
     {
         $params =  [

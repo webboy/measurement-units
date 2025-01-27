@@ -11,7 +11,7 @@ use Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto;
 
 class MeasurementDtoTest extends TestCase
 {
-    public function testInvalidMeasurementDtoInvalidMeasurementId()
+    public function testInvalidMeasurementDtoInvalidMeasurementId(): void
     {
         //Expect an exception
         $this->expectException(InvalidMeasurementIdMeasurementException::class);
@@ -23,7 +23,7 @@ class MeasurementDtoTest extends TestCase
     /**
      * @throws MeasurementException
      */
-    public function testInvalidMeasurementDtoInvalidBaseUnitIdMeasurementException()
+    public function testInvalidMeasurementDtoInvalidBaseUnitIdMeasurementException(): void
     {
         //Expect an exception
         $this->expectException(InvalidUnitIdMeasurementException::class);
@@ -41,7 +41,7 @@ class MeasurementDtoTest extends TestCase
     /**
      * @throws MeasurementException
      */
-    public function testInvalidMeasurementDtoInvalidUnitDefinitionsMeasurementException()
+    public function testInvalidMeasurementDtoInvalidUnitDefinitionsMeasurementException(): void
     {
         //Expect an exception
         $this->expectException(InvalidUnitDefinitionsMeasurementException::class);

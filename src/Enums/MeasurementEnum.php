@@ -15,6 +15,7 @@ use Webboy\MeasurementUnits\Enums\Units\TorqueUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\VoltageUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\VolumeUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
+use Webboy\MeasurementUnits\UnitDto;
 use Webboy\MeasurementUnits\Units\AreaUnitDto;
 use Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto;
 use Webboy\MeasurementUnits\Units\DistanceUnitDto;
@@ -84,6 +85,10 @@ enum MeasurementEnum: string
 
     // Units
 
+    /**
+     * @return UnitDto[]
+     * @throws InvalidUnitIdUnitException
+     */
     public function units(): array
     {
         return match ($this) {

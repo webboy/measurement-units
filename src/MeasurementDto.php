@@ -44,8 +44,8 @@ abstract class MeasurementDto
      * @param int|string $id The ID of the measurement.
      * @param string $name The name of the measurement.
      * @param int|string|null $base_unit_id The ID of the base unit.
-     * @param array|null $units The units of the measurement.
-     * @param array|null $validIds The valid IDs of the measurement.
+     * @param array<int|string,UnitDto>|null $units The units of the measurement.
+     * @param array<int|string>|null $validIds The valid IDs of the measurement.
      * @throws InvalidMeasurementIdMeasurementException
      * @throws InvalidUnitDefinitionsMeasurementException
      * @throws InvalidUnitIdMeasurementException
@@ -102,9 +102,11 @@ abstract class MeasurementDto
     }
 
     /**
+     * @param string|int|null $unitId
+     * @return void
      * @throws InvalidUnitIdMeasurementException
      */
-    public function setBaseUnit($unitId = null): void
+    public function setBaseUnit(string|int|null $unitId = null): void
     {
         if ($unitId !== null) {
             $this->base_unit_id = $unitId;
@@ -149,7 +151,7 @@ abstract class MeasurementDto
      */
     public function getUnit(int|string $unitId): UnitDto
     {
-        if (isset($this->units[$unitId]) && $this->units[$unitId] instanceof UnitDto) {
+        if (isset($this->units[$unitId])) {
             return $this->units[$unitId];
         }
 

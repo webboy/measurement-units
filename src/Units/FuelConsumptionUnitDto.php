@@ -16,10 +16,10 @@ class FuelConsumptionUnitDto extends UnitDto
      * Create a new fuel consumption unit DTO.
      *
      * @param FuelConsumptionUnitEnum $enum
-     * @param null $label
+     * @param string|null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(FuelConsumptionUnitEnum $enum, $label = null)
+    public function __construct(FuelConsumptionUnitEnum $enum, ?string $label = null)
     {
         parent::__construct(
             id: $enum->value,

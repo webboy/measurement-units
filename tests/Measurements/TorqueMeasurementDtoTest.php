@@ -1,6 +1,6 @@
 <?php
 
-namespace Measurements;
+namespace Tests\Measurements;
 
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\TorqueUnitEnum;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Measurements;
+namespace Tests\Measurements;
 
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
@@ -23,6 +23,9 @@ class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
         return BatteryCapacityUnitEnum::class;
     }
 
+    /**
+     * @return array<int,array<string,mixed>>
+     */
     protected function createConversionTestParameters(): array
     {
         $params =  [

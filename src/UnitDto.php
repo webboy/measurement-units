@@ -50,7 +50,7 @@ abstract class UnitDto
      * @param Closure $toBase The closure to convert to the base unit.
      * @param Closure $fromBase The closure to convert from the base unit.
      * @param bool $isBase Whether the unit is the base unit.
-     * @param array|false|null $validIds The valid IDs for the unit.
+     * @param array<int|string>|false|null $validIds The valid IDs for the unit.
      * @throws InvalidUnitIdUnitException
      */
     public function __construct(

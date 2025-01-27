@@ -7,6 +7,7 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementI
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\MeasurementDto;
+use Webboy\MeasurementUnits\UnitDto;
 
 /**
  * A custom measurement DTO.
@@ -19,7 +20,7 @@ class CustomMeasurementDto extends MeasurementDto
      * @param int|string $id The ID of the measurement.
      * @param string $name The name of the measurement.
      * @param int|string|null $base_unit_id The ID of the base unit.
-     * @param array|null $units The units of the measurement.
+     * @param UnitDto[]|null $units The units of the measurement.
      * @throws InvalidMeasurementIdMeasurementException
      * @throws InvalidUnitDefinitionsMeasurementException
      * @throws InvalidUnitIdMeasurementException

@@ -50,11 +50,11 @@ class MeasurementValueDto
      * @param UnitDto $unit The unit of the measurement.
      * @param MeasurementDto $measurement The measurement of the value.
      * @param string $caller The class that called the factory.
-     * @return static The new measurement value DTO.
+     * @return MeasurementValueDto The new measurement value DTO.
      * @throws IllegalInstantiationMeasurementValueException
      * @throws InvalidUnitIdMeasurementException
      */
-    public static function createFromFactory(int | float $value, UnitDto $unit, MeasurementDto $measurement, string $caller): self
+    public static function createFromFactory(int | float $value, UnitDto $unit, MeasurementDto $measurement, string $caller): MeasurementValueDto
     {
         if ($caller !== get_class($measurement)) {
             throw new IllegalInstantiationMeasurementValueException();

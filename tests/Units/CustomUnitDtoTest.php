@@ -8,7 +8,7 @@ use Webboy\MeasurementUnits\Units\CustomUnitDto;
 
 class CustomUnitDtoTest extends TestCase
 {
-    public function testFailsOnInvalidUnitId()
+    public function testFailsOnInvalidUnitId(): void
     {
         $this->expectException(InvalidUnitIdUnitException::class);
 

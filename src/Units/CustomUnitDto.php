@@ -20,7 +20,7 @@ class CustomUnitDto extends UnitDto
      * @param Closure $toBase
      * @param Closure $fromBase
      * @param bool $isBase
-     * @param false|array|null $validIds
+     * @param false|array<int|string>|null $validIds
      * @throws InvalidUnitIdUnitException
      */
     public function __construct(

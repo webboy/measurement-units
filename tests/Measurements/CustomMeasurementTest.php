@@ -18,7 +18,7 @@ class CustomMeasurementTest extends TestCase
      * @throws UnitException
      * @throws MeasurementException
      */
-    public function testCustomMeasurement()
+    public function testCustomMeasurement(): void
     {
         $customDistanceMeasurement = new CustomMeasurementDto(
             id: 'fubar',
@@ -51,7 +51,7 @@ class CustomMeasurementTest extends TestCase
      * @throws InvalidMeasurementIdMeasurementException
      * @throws InvalidUnitIdUnitException
      */
-    public function testSettingBaseUnitIdFromUnitArray()
+    public function testSettingBaseUnitIdFromUnitArray(): void
     {
         $customDistanceMeasurement = new CustomMeasurementDto(
             id: 'fubar',

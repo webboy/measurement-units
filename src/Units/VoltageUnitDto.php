@@ -15,10 +15,10 @@ class VoltageUnitDto extends UnitDto
      * Create a new voltage unit DTO.
      *
      * @param VoltageUnitEnum $enum
-     * @param null $label
+     * @param string|null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(VoltageUnitEnum $enum, $label = null)
+    public function __construct(VoltageUnitEnum $enum, ?string $label = null)
     {
         parent::__construct(
             id: $enum->value,

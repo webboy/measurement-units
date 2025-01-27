@@ -7,7 +7,7 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 
 class InvalidUnitDefinitionsMeasurementException extends MeasurementException
 {
-    public function __construct($message = null)
+    public function __construct(?string $message = null)
     {
         $message = $message ?? "The unit definitions are invalid.";
         parent::__construct($message);

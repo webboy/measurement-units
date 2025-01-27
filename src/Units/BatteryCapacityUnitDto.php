@@ -16,10 +16,10 @@ class BatteryCapacityUnitDto extends UnitDto
      * Create a new battery capacity unit DTO.
      *
      * @param BatteryCapacityUnitEnum $enum
-     * @param null $label
+     * @param string|null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(BatteryCapacityUnitEnum $enum, $label = null)
+    public function __construct(BatteryCapacityUnitEnum $enum, ?string $label = null)
     {
         parent::__construct(
             id: $enum->value,

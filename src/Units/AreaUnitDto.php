@@ -16,10 +16,10 @@ class AreaUnitDto extends UnitDto
      * Create a new area unit DTO.
      *
      * @param AreaUnitEnum $enum
-     * @param null $label
+     * @param string|null $label
      * @throws InvalidUnitIdUnitException
      */
-    public function __construct(AreaUnitEnum $enum, $label = null)
+    public function __construct(AreaUnitEnum $enum, ?string $label = null)
     {
         parent::__construct(
             id: $enum->value,

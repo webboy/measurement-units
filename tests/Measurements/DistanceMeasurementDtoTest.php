@@ -18,6 +18,9 @@ class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
         return DistanceUnitEnum::class;
     }
 
+    /**
+     * @return array<int,array<string,mixed>>
+     */
     protected function createConversionTestParameters(): array
     {
         $params =  [

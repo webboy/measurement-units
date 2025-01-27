@@ -7,7 +7,7 @@ use Webboy\MeasurementUnits\Exceptions\UnitException;
 
 class InvalidUnitIdUnitException extends UnitException
 {
-    public function __construct(mixed $id, $message = null)
+    public function __construct(mixed $id, ?string $message = null)
     {
         $message = $message ?? "The unit ID '{$id}' is invalid.";
         parent::__construct($message);
