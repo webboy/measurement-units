@@ -36,13 +36,13 @@ use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 $measurement = new DistanceMeasurementDto();
 
 // Set the value of the measurement.
-$distance_value = $measurement->createValue(100, 'km');
+$distance_value = $measurement->createValue(100, DistanceUnitEnum::KILOMETER->value);
 
 // Print the distance value.
 echo ("My distance in km is: " . $distance_value . PHP_EOL);
 
 // Convert the distance value to meters.
-$converted_distance_value = $distance_value->to('mi');
+$converted_distance_value = $distance_value->to(DistanceUnitEnum::MILE->value);
 
 // Print the converted distance value.
 echo ("My distance in miles is: " . $converted_distance_value . PHP_EOL);
