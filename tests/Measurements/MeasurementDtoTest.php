@@ -2,20 +2,23 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
+use Webboy\MeasurementUnits\MeasurementDto;
 use Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Measurements\MeasurementDto
- * @covers \Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto
- * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException
- * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException
- * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException
+ * Tests for MeasurementDto and related exceptions/invalid DTOs.
  */
+#[CoversClass(MeasurementDto::class)]
+#[CoversClass(InvalidMeasurementDto::class)]
+#[CoversClass(InvalidMeasurementIdMeasurementException::class)]
+#[CoversClass(InvalidUnitIdMeasurementException::class)]
+#[CoversClass(InvalidUnitDefinitionsMeasurementException::class)]
 class MeasurementDtoTest extends TestCase
 {
     /**

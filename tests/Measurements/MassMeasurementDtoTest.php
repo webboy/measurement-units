@@ -2,13 +2,15 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\MassUnitEnum;
 use Webboy\MeasurementUnits\Measurements\MassMeasurementDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Measurements\MassMeasurementDto
+ * Tests for MassMeasurementDto.
  */
+#[CoversClass(MassMeasurementDto::class)]
 class MassMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

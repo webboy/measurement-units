@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
 use Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum
+ * Tests for BatteryCapacityUnitDto and BatteryCapacityUnitEnum.
  */
+#[CoversClass(BatteryCapacityUnitDto::class)]
+#[CoversClass(BatteryCapacityUnitEnum::class)]
 class BatteryCapacityUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

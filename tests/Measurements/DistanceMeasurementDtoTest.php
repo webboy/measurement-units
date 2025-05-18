@@ -2,15 +2,15 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

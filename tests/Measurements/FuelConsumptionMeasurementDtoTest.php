@@ -2,15 +2,15 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\FuelConsumptionUnitEnum;
 use Webboy\MeasurementUnits\Measurements\FuelConsumptionMeasurementDto;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class FuelConsumptionMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

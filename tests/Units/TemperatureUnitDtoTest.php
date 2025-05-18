@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\TemperatureUnitEnum;
 use Webboy\MeasurementUnits\Units\TemperatureUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\TemperatureUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\TemperatureUnitEnum
+ * Tests for TemperatureUnitDto and TemperatureUnitEnum.
  */
+#[CoversClass(TemperatureUnitDto::class)]
+#[CoversClass(TemperatureUnitEnum::class)]
 class TemperatureUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

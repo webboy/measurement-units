@@ -2,6 +2,7 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\VoltageUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\VolumeUnitEnum;
@@ -9,9 +10,10 @@ use Webboy\MeasurementUnits\Units\VoltageUnitDto;
 use Webboy\MeasurementUnits\Units\VolumeUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\VoltageUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\VoltageUnitEnum
+ * Tests for VoltageUnitDto and VoltageUnitEnum.
  */
+#[CoversClass(VoltageUnitDto::class)]
+#[CoversClass(VoltageUnitEnum::class)]
 class VoltageUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

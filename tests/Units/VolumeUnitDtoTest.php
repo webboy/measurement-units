@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\VolumeUnitEnum;
 use Webboy\MeasurementUnits\Units\VolumeUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\VolumeUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\VolumeUnitEnum
+ * Tests for VolumeUnitDto and VolumeUnitEnum.
  */
+#[CoversClass(VolumeUnitDto::class)]
+#[CoversClass(VolumeUnitEnum::class)]
 class VolumeUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

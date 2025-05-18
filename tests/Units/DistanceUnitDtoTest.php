@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Units\DistanceUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\DistanceUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum
+ * Tests for DistanceUnitDto and DistanceUnitEnum.
  */
+#[CoversClass(DistanceUnitDto::class)]
+#[CoversClass(DistanceUnitEnum::class)]
 class DistanceUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

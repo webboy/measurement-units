@@ -2,6 +2,7 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
@@ -13,9 +14,8 @@ use Webboy\MeasurementUnits\UnitConverter;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

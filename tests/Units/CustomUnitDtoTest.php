@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
 use Webboy\MeasurementUnits\Units\CustomUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\CustomUnitDto
- * @covers \Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException
+ * Tests for CustomUnitDto and InvalidUnitIdUnitException.
  */
+#[CoversClass(CustomUnitDto::class)]
+#[CoversClass(InvalidUnitIdUnitException::class)]
 class CustomUnitDtoTest extends TestCase
 {
     /**

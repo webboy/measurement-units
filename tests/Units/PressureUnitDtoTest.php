@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
 use Webboy\MeasurementUnits\Units\PressureUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\PressureUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum
+ * Tests for PressureUnitDto and PressureUnitEnum.
  */
+#[CoversClass(PressureUnitDto::class)]
+#[CoversClass(PressureUnitEnum::class)]
 class PressureUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

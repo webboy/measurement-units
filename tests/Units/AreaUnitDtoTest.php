@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\AreaUnitEnum;
 use Webboy\MeasurementUnits\Units\AreaUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\AreaUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\AreaUnitEnum
+ * Tests for AreaUnitDto and AreaUnitEnum.
  */
+#[CoversClass(AreaUnitDto::class)]
+#[CoversClass(AreaUnitEnum::class)]
 class AreaUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

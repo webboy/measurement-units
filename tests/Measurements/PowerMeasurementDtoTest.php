@@ -2,15 +2,15 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\PowerUnitEnum;
 use Webboy\MeasurementUnits\Measurements\PowerMeasurementDto;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class PowerMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

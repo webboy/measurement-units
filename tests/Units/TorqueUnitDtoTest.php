@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\TorqueUnitEnum;
 use Webboy\MeasurementUnits\Units\TorqueUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\TorqueUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\TorqueUnitEnum
+ * Tests for TorqueUnitDto and TorqueUnitEnum.
  */
+#[CoversClass(TorqueUnitDto::class)]
+#[CoversClass(TorqueUnitEnum::class)]
 class TorqueUnitDtoTest extends AbstractUnitDtoBase
 {
     /**

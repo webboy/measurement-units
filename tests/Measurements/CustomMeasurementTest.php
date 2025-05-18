@@ -2,6 +2,7 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\MeasurementException;
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException;
@@ -13,9 +14,10 @@ use Webboy\MeasurementUnits\Measurements\CustomMeasurementDto;
 use Webboy\MeasurementUnits\Units\CustomUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Measurements\CustomMeasurementDto
- * @covers \Webboy\MeasurementUnits\Units\CustomUnitDto
+ * Tests for CustomMeasurementDto and CustomUnitDto.
  */
+#[CoversClass(CustomMeasurementDto::class)]
+#[CoversClass(CustomUnitDto::class)]
 class CustomMeasurementTest extends TestCase
 {
     /**

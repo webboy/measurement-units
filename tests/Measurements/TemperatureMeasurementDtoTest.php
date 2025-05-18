@@ -2,6 +2,7 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
@@ -14,9 +15,8 @@ use Webboy\MeasurementUnits\Measurements\TemperatureMeasurementDto;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class TemperatureMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

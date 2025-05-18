@@ -2,15 +2,15 @@
 
 namespace Tests\Measurements;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\TorqueUnitEnum;
 use Webboy\MeasurementUnits\Measurements\TorqueMeasurementDto;
 
 /**
  * @internal
- *
- * @coversNothing
  */
+#[CoversNothing]
 class TorqueMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
     /**

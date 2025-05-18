@@ -2,14 +2,16 @@
 
 namespace Tests\Units;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\SpeedUnitEnum;
 use Webboy\MeasurementUnits\Units\SpeedUnitDto;
 
 /**
- * @covers \Webboy\MeasurementUnits\Units\SpeedUnitDto
- * @covers \Webboy\MeasurementUnits\Enums\Units\SpeedUnitEnum
+ * Tests for SpeedUnitDto.
  */
+#[CoversClass(SpeedUnitDto::class)]
+#[CoversClass(SpeedUnitEnum::class)]
 class SpeedUnitDtoTest extends AbstractUnitDtoBase
 {
     /**
