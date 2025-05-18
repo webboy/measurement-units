@@ -26,7 +26,6 @@ abstract class AbstractUnitDtoBase extends TestCase
     /**
      * @return class-string The class name of the unit enum.
      */
-
     abstract protected function createUnitEnumClass(): string;
 
     protected function setUp(): void

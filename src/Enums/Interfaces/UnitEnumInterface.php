@@ -15,5 +15,4 @@ interface UnitEnumInterface
     public function toBase(): Closure;
 
     public function fromBase(): Closure;
-
 }

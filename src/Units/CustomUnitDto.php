@@ -14,12 +14,12 @@ class CustomUnitDto extends UnitDto
 {
     /**
      * CustomUnitDto constructor.
-     * @param int|string $id
-     * @param string $name
-     * @param string $symbol
-     * @param Closure $toBase
-     * @param Closure $fromBase
-     * @param bool $isBase
+     * @param integer|string               $id
+     * @param string                       $name
+     * @param string                       $symbol
+     * @param Closure                      $toBase
+     * @param Closure                      $fromBase
+     * @param boolean                      $isBase
      * @param false|array<int|string>|null $validIds
      * @throws InvalidUnitIdUnitException
      */

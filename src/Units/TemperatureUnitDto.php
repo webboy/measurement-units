@@ -16,7 +16,7 @@ class TemperatureUnitDto extends UnitDto
      * Create a new temperature unit DTO.
      *
      * @param TemperatureUnitEnum $enum
-     * @param string|null $label
+     * @param string|null         $label
      * @throws InvalidUnitIdUnitException
      */
     public function __construct(TemperatureUnitEnum $enum, ?string $label = null)

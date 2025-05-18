@@ -14,7 +14,7 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementValueExceptions\IllegalInstant
 abstract class MeasurementDto
 {
     /**
-     * @var int | string The ID of the measurement.
+     * @var integer | string The ID of the measurement.
      */
     public int | string $id;
 
@@ -24,7 +24,7 @@ abstract class MeasurementDto
     public string $name;
 
     /**
-     * @var int|string The base unit of the measurement.
+     * @var integer|string The base unit of the measurement.
      */
     protected int | string $base_unit_id;
 
@@ -41,11 +41,11 @@ abstract class MeasurementDto
     /**
      * Create a new measurement DTO.
      *
-     * @param int|string $id The ID of the measurement.
-     * @param string $name The name of the measurement.
-     * @param int|string|null $base_unit_id The ID of the base unit.
-     * @param array<int|string,UnitDto>|null $units The units of the measurement.
-     * @param array<int|string>|null $validIds The valid IDs of the measurement.
+     * @param integer|string                 $id           The ID of the measurement.
+     * @param string                         $name         The name of the measurement.
+     * @param integer|string|null            $base_unit_id The ID of the base unit.
+     * @param array<int|string,UnitDto>|null $units        The units of the measurement.
+     * @param array<int|string>|null         $validIds     The valid IDs of the measurement.
      * @throws InvalidMeasurementIdMeasurementException
      * @throws InvalidUnitDefinitionsMeasurementException
      * @throws InvalidUnitIdMeasurementException
@@ -78,8 +78,8 @@ abstract class MeasurementDto
     /**
      * Create a new measurement DTO from a factory.
      *
-     * @param int|float $value
-     * @param int|string $unitId
+     * @param integer|float  $value
+     * @param integer|string $unitId
      * @return MeasurementValueDto
      * @throws IllegalInstantiationMeasurementValueException
      * @throws InvalidUnitIdMeasurementException
@@ -102,7 +102,7 @@ abstract class MeasurementDto
     }
 
     /**
-     * @param string|int|null $unitId
+     * @param string|integer|null $unitId
      * @return void
      * @throws InvalidUnitIdMeasurementException
      */
@@ -145,7 +145,7 @@ abstract class MeasurementDto
     /**
      * Get a unit by its ID.
      *
-     * @param int|string $unitId
+     * @param integer|string $unitId
      * @return UnitDto
      * @throws InvalidUnitIdMeasurementException
      */

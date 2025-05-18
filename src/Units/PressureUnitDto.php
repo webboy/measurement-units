@@ -16,7 +16,7 @@ class PressureUnitDto extends UnitDto
      * Create a new pressure unit DTO.
      *
      * @param PressureUnitEnum $enum
-     * @param string|null $label
+     * @param string|null      $label
      * @throws InvalidUnitIdUnitException
      */
     public function __construct(PressureUnitEnum $enum, ?string $label = null)

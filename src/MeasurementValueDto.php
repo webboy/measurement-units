@@ -14,7 +14,7 @@ use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException
 class MeasurementValueDto
 {
     /**
-     * @var int | float The value of the measurement.
+     * @var integer | float The value of the measurement.
      */
     public int | float $value;
 
@@ -31,8 +31,8 @@ class MeasurementValueDto
     /**
      * Create a new measurement value DTO.
      *
-     * @param int | float $value The value of the measurement.
-     * @param UnitDto $unit The unit of the measurement.
+     * @param int | float    $value       The value of the measurement.
+     * @param UnitDto        $unit        The unit of the measurement.
      * @param MeasurementDto $measurement The measurement of the value.
      * @throws InvalidUnitIdMeasurementException
      */
@@ -46,10 +46,10 @@ class MeasurementValueDto
     /**
      * Create a new measurement value DTO from a factory.
      *
-     * @param int | float $value The value of the measurement.
-     * @param UnitDto $unit The unit of the measurement.
+     * @param int | float    $value       The value of the measurement.
+     * @param UnitDto        $unit        The unit of the measurement.
      * @param MeasurementDto $measurement The measurement of the value.
-     * @param string $caller The class that called the factory.
+     * @param string         $caller      The class that called the factory.
      * @return MeasurementValueDto The new measurement value DTO.
      * @throws IllegalInstantiationMeasurementValueException
      * @throws InvalidUnitIdMeasurementException
@@ -66,8 +66,8 @@ class MeasurementValueDto
     /**
      * Convert the measurement value to a new unit.
      *
-     * @param int|string $unit_id The ID of the target unit.
-     * @param mixed ...$args The arguments to pass to the conversion functions.
+     * @param integer|string $unit_id The ID of the target unit.
+     * @param mixed          ...$args The arguments to pass to the conversion functions.
      * @return MeasurementValueDto The new measurement value DTO.
      * @throws InvalidTargetUnitIdUnitConverterException
      * @throws IllegalInstantiationMeasurementValueException

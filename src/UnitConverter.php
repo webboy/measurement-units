@@ -16,9 +16,9 @@ class UnitConverter
     /**
      * Convert a measurement value to a different unit.
      *
-     * @param MeasurementValueDto $value The value to convert.
-     * @param int | string $target_unit_id The ID of the target unit.
-     * @param mixed ...$args The arguments to pass to the conversion functions.
+     * @param MeasurementValueDto $value          The value to convert.
+     * @param int | string        $target_unit_id The ID of the target unit.
+     * @param mixed               ...$args        The arguments to pass to the conversion functions.
      * @return MeasurementValueDto The converted value.
      * @throws InvalidTargetUnitIdUnitConverterException
      * @throws IllegalInstantiationMeasurementValueException

@@ -17,10 +17,10 @@ class CustomMeasurementDto extends MeasurementDto
     /**
      * Create a new custom measurement DTO.
      *
-     * @param int|string $id The ID of the measurement.
-     * @param string $name The name of the measurement.
-     * @param int|string|null $base_unit_id The ID of the base unit.
-     * @param UnitDto[]|null $units The units of the measurement.
+     * @param integer|string      $id           The ID of the measurement.
+     * @param string              $name         The name of the measurement.
+     * @param integer|string|null $base_unit_id The ID of the base unit.
+     * @param UnitDto[]|null      $units        The units of the measurement.
      * @throws InvalidMeasurementIdMeasurementException
      * @throws InvalidUnitDefinitionsMeasurementException
      * @throws InvalidUnitIdMeasurementException

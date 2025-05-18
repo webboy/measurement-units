@@ -69,7 +69,6 @@ abstract class AbstractMeasurementDtoBase extends TestCase
         $this->measurementDto = $this->createMeasurementDto();
         $this->unitEnumClass = $this->createUnitEnumClass();
         $this->conversionTestParameters = $this->createConversionTestParameters();
-
     }
 
     /**
@@ -97,8 +96,8 @@ abstract class AbstractMeasurementDtoBase extends TestCase
         $this->assertSame(10, $value->value);
 
         // To string assertion
-        $string = "Measurement value: " . $value->value . " " . $value->unit->symbol;
-        $this->assertSame($string, "Measurement value: " . $value);
+        $string = 'Measurement value: ' . $value->value . ' ' . $value->unit->symbol;
+        $this->assertSame($string, 'Measurement value: ' . $value);
     }
 
     /**

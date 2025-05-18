@@ -64,6 +64,5 @@ class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
             $this->measurementDto->createValue(1, BatteryCapacityUnitEnum::KILOWATT_HOUR->value),
             BatteryCapacityUnitEnum::AMPERE_HOUR->value
         );
-
     }
 }

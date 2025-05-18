@@ -12,7 +12,7 @@ use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException
 abstract class UnitDto
 {
     /**
-     * @var int|string The ID of the unit.
+     * @var integer|string The ID of the unit.
      */
     public int | string $id;
 
@@ -27,7 +27,7 @@ abstract class UnitDto
     public string $symbol;
 
     /**
-     * @var bool Whether the unit is the base unit.
+     * @var boolean Whether the unit is the base unit.
      */
     public bool $isBase = false;
 
@@ -44,12 +44,12 @@ abstract class UnitDto
     /**
      * Create a new unit DTO.
      *
-     * @param int|string $id The ID of the unit.
-     * @param string $name The name of the unit.
-     * @param string $symbol The symbol of the unit.
-     * @param Closure $toBase The closure to convert to the base unit.
-     * @param Closure $fromBase The closure to convert from the base unit.
-     * @param bool $isBase Whether the unit is the base unit.
+     * @param integer|string               $id       The ID of the unit.
+     * @param string                       $name     The name of the unit.
+     * @param string                       $symbol   The symbol of the unit.
+     * @param Closure                      $toBase   The closure to convert to the base unit.
+     * @param Closure                      $fromBase The closure to convert from the base unit.
+     * @param boolean                      $isBase   Whether the unit is the base unit.
      * @param array<int|string>|false|null $validIds The valid IDs for the unit.
      * @throws InvalidUnitIdUnitException
      */

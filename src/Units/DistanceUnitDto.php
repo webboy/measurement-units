@@ -16,7 +16,7 @@ class DistanceUnitDto extends UnitDto
      * Create a new distance unit DTO.
      *
      * @param DistanceUnitEnum $enum
-     * @param string|null $label
+     * @param string|null      $label
      * @throws InvalidUnitIdUnitException
      */
     public function __construct(DistanceUnitEnum $enum, ?string $label = null)

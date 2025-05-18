@@ -29,7 +29,6 @@ enum MassUnitEnum: int implements UnitEnumInterface
     /**
      * Provides a human-readable label for each unit.
      */
-
     public function label(): string
     {
         return match ($this) {

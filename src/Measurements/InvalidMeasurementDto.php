@@ -14,11 +14,11 @@ class InvalidMeasurementDto extends MeasurementDto
     /**
      * Create a new custom measurement DTO.
      *
-     * @param int|string $id The ID of the measurement.
-     * @param string $name The name of the measurement.
-     * @param int|string $base_unit_id The ID of the base unit.
-     * @param array<int,UnitDto>|null $units The units of the measurement.
-     * @param array<int|string> $validIds
+     * @param integer|string          $id           The ID of the measurement.
+     * @param string                  $name         The name of the measurement.
+     * @param integer|string          $base_unit_id The ID of the base unit.
+     * @param array<int,UnitDto>|null $units        The units of the measurement.
+     * @param array<int|string>       $validIds
      * @throws MeasurementException
      */
     public function __construct(

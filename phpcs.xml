@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ruleset name="Project PHPCS Rules">
+    <description>PHPCS ruleset for the project</description>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Exclude vendor directories and other non-PHP files -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/*.js</exclude-pattern>
+    <exclude-pattern>*/*.css</exclude-pattern>
+    <exclude-pattern>*/*.md</exclude-pattern>
+    <exclude-pattern>*/.git/*</exclude-pattern>
+    <exclude-pattern>*/.idea/*</exclude-pattern>
+
+
+    <!-- PHP version compatibility -->
+    <config name="php_version" value="80200"/>
+
+    <!-- Use colors in output -->
+    <arg name="colors"/>
+
+    <!-- Only report errors, ignore warnings -->
+    <arg name="warning-severity" value="0"/>
+
+    <!-- Show progress -->
+    <arg value="p"/>
+
+    <!-- Use PSR-12 as a base -->
+    <rule ref="PSR12">
+        <!-- Exclude the default line length rule to use a custom one -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+
+    <!-- Add specific Squiz rules for commenting and string usage -->
+    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.ClassComment"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
+
+    <!-- Custom line length rule -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+</ruleset> 
