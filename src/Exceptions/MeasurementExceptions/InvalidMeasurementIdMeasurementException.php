@@ -18,7 +18,8 @@ class InvalidMeasurementIdMeasurementException extends MeasurementException
      */
     public function __construct(mixed $id, ?string $message = null)
     {
-        $message = $message ?? "The measurement ID '{$id}' is invalid.";
+        $idRepresentation = is_scalar($id) ? (string) $id : gettype($id);
+        $message = $message ?? "The measurement ID '{$idRepresentation}' is invalid.";
         parent::__construct($message);
     }
 }

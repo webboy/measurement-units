@@ -28,7 +28,13 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     protected string $unitEnumClass;
 
     /**
-     * @var array<int,array<string,mixed>> The conversion test parameters.
+     * @var array<int, array{
+     *   value: \Webboy\MeasurementUnits\MeasurementValueDto,
+     *   target_unit_id: int|string,
+     *   expected_value: int|float,
+     *   args?: array<mixed>,
+     *   delta?: float
+     * }> The conversion test parameters.
      */
     protected array $conversionTestParameters;
 
@@ -49,7 +55,13 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     /**
      * Create the conversion test parameters.
      *
-     * @return array<int,array<string,mixed>> The conversion test parameters.
+     * @return array<int, array{
+     *   value: \Webboy\MeasurementUnits\MeasurementValueDto,
+     *   target_unit_id: int|string,
+     *   expected_value: int|float,
+     *   args?: array<mixed>,
+     *   delta?: float
+     * }> The conversion test parameters.
      * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
      * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
      */
@@ -129,6 +141,15 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     public function testSuccessfulConversion(): void
     {
         foreach ($this->conversionTestParameters as $conversionTestParameter) {
+            /**
+             * @var array{
+             *   value: \Webboy\MeasurementUnits\MeasurementValueDto,
+             *   target_unit_id: int|string,
+             *   expected_value: int|float,
+             *   args?: array<mixed>,
+             *   delta?: float
+             * } $conversionTestParameter
+             */
             // Assert using UnitConverter::convert
             $this->assertEqualsWithDelta(
                 $conversionTestParameter['expected_value'],

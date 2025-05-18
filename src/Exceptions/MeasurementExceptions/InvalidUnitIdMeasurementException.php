@@ -18,7 +18,8 @@ class InvalidUnitIdMeasurementException extends MeasurementException
      */
     public function __construct(mixed $id, ?string $message = null)
     {
-        $message = $message ?? "The unit ID '{$id}' is invalid.";
+        $idRepresentation = is_scalar($id) ? (string) $id : gettype($id);
+        $message = $message ?? sprintf("The unit ID '%s' is invalid.", $idRepresentation);
         parent::__construct($message);
     }
 }

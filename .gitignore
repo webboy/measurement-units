@@ -14,3 +14,4 @@ composer.lock
 
 memory-bank
 phpcsreport.txt
+phpstan-baseline.neon
