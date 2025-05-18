@@ -65,14 +65,14 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::NEWTON_METER => fn ($value) => $value,
-            self::KILONEWTON_METER => fn ($value) => $value * 1000,
-            self::NEWTON_CENTIMETER => fn ($value) => $value / 100,
-            self::POUND_FOOT => fn ($value) => $value * 1.3558179483314,
-            self::POUND_INCH => fn ($value) => $value * 0.1129848290276167,
-            self::OUNCE_INCH => fn ($value) => $value * 0.00706155183333,
-            self::KILOGRAM_FORCE_METER => fn ($value) => $value * 9.80665,
-            self::KILOGRAM_FORCE_CENTIMETER => fn ($value) => $value * 0.0980665,
+            self::NEWTON_METER => fn (float|int $value): float => (float)$value,
+            self::KILONEWTON_METER => fn (float|int $value): float => (float)$value * 1000,
+            self::NEWTON_CENTIMETER => fn (float|int $value): float => (float)$value / 100,
+            self::POUND_FOOT => fn (float|int $value): float => (float)$value * 1.3558179483314,
+            self::POUND_INCH => fn (float|int $value): float => (float)$value * 0.1129848290276167,
+            self::OUNCE_INCH => fn (float|int $value): float => (float)$value * 0.00706155183333,
+            self::KILOGRAM_FORCE_METER => fn (float|int $value): float => (float)$value * 9.80665,
+            self::KILOGRAM_FORCE_CENTIMETER => fn (float|int $value): float => (float)$value * 0.0980665,
         };
     }
 
@@ -83,14 +83,14 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::NEWTON_METER => fn ($value) => $value,
-            self::KILONEWTON_METER => fn ($value) => $value / 1000,
-            self::NEWTON_CENTIMETER => fn ($value) => $value * 100,
-            self::POUND_FOOT => fn ($value) => $value / 1.3558179483314,
-            self::POUND_INCH => fn ($value) => $value / 0.1129848290276167,
-            self::OUNCE_INCH => fn ($value) => $value / 0.00706155183333,
-            self::KILOGRAM_FORCE_METER => fn ($value) => $value / 9.80665,
-            self::KILOGRAM_FORCE_CENTIMETER => fn ($value) => $value / 0.0980665,
+            self::NEWTON_METER => fn (float|int $value): float => (float)$value,
+            self::KILONEWTON_METER => fn (float|int $value): float => (float)$value / 1000,
+            self::NEWTON_CENTIMETER => fn (float|int $value): float => (float)$value * 100,
+            self::POUND_FOOT => fn (float|int $value): float => (float)$value / 1.3558179483314,
+            self::POUND_INCH => fn (float|int $value): float => (float)$value / 0.1129848290276167,
+            self::OUNCE_INCH => fn (float|int $value): float => (float)$value / 0.00706155183333,
+            self::KILOGRAM_FORCE_METER => fn (float|int $value): float => (float)$value / 9.80665,
+            self::KILOGRAM_FORCE_CENTIMETER => fn (float|int $value): float => (float)$value / 0.0980665,
         };
     }
 

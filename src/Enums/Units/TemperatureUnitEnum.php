@@ -50,9 +50,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::KELVIN => fn ($value) => $value,
-            self::CELSIUS => fn ($value) => $value + 273.15,
-            self::FAHRENHEIT => fn ($value) => ($value - 32) * 5 / 9 + 273.15,
+            self::KELVIN => fn (float|int $value): float => (float)$value,
+            self::CELSIUS => fn (float|int $value): float => (float)$value + 273.15,
+            self::FAHRENHEIT => fn (float|int $value): float => ((float)$value - 32) * 5 / 9 + 273.15,
         };
     }
 
@@ -63,9 +63,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::KELVIN => fn ($value) => $value,
-            self::CELSIUS => fn ($value) => $value - 273.15,
-            self::FAHRENHEIT => fn ($value) => ($value - 273.15) * 9 / 5 + 32,
+            self::KELVIN => fn (float|int $value): float => (float)$value,
+            self::CELSIUS => fn (float|int $value): float => (float)$value - 273.15,
+            self::FAHRENHEIT => fn (float|int $value): float => ((float)$value - 273.15) * 9 / 5 + 32,
         };
     }
 

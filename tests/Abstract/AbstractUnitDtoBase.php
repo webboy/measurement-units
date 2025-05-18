@@ -18,7 +18,7 @@ abstract class AbstractUnitDtoBase extends TestCase
     protected string $unit_class;
 
     /**
-     * @var class-string The class name of the unit enum.
+     * @var class-string<\BackedEnum&\Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface> The class name of the unit enum.
      */
     protected string $unit_enum_class;
 
@@ -28,7 +28,7 @@ abstract class AbstractUnitDtoBase extends TestCase
     abstract protected function createUnitClass(): string;
 
     /**
-     * @return class-string The class name of the unit enum.
+     * @return class-string<\BackedEnum&\Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface> The class name of the unit enum.
      */
     abstract protected function createUnitEnumClass(): string;
 
@@ -48,7 +48,8 @@ abstract class AbstractUnitDtoBase extends TestCase
      */
     public function testSuccessfulCreation(): void
     {
-        $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0]);
+        $cases = $this->unit_enum_class::cases();
+        $unitDto = new $this->unit_class($cases[0]);
         $this->assertInstanceOf($this->unit_class, $unitDto);
     }
 
@@ -57,10 +58,11 @@ abstract class AbstractUnitDtoBase extends TestCase
      */
     public function testSuccessfulCreationWithCustomName(): void
     {
+        $cases = $this->unit_enum_class::cases();
         /**
          * @var UnitDto $unitDto
          */
-        $unitDto = new $this->unit_class($this->unit_enum_class::cases()[0], 'Custom Name');
+        $unitDto = new $this->unit_class($cases[0], 'Custom Name');
         $this->assertInstanceOf($this->unit_class, $unitDto);
         $this->assertEquals('Custom Name', $unitDto->name);
     }

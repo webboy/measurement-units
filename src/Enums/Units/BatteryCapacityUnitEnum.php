@@ -51,10 +51,10 @@ enum BatteryCapacityUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::MILLIAMPERE_HOUR => fn ($value, $voltage) => ($value / 1000) * $voltage,  // Convert mAh to Wh
-            self::AMPERE_HOUR => fn ($value, $voltage) => $value * $voltage,               // Ah to Wh
-            self::WATT_HOUR => fn ($value) => $value,                           // Wh remains Wh
-            self::KILOWATT_HOUR => fn ($value) => $value * 1000,               // kWh to Wh
+            self::MILLIAMPERE_HOUR => fn (float|int $value, float|int $voltage): float => ((float)$value / 1000) * (float)$voltage,  // Convert mAh to Wh
+            self::AMPERE_HOUR => fn (float|int $value, float|int $voltage): float => (float)$value * (float)$voltage,               // Ah to Wh
+            self::WATT_HOUR => fn (float|int $value): float => (float)$value,                           // Wh remains Wh
+            self::KILOWATT_HOUR => fn (float|int $value): float => (float)$value * 1000,               // kWh to Wh
         };
     }
 
@@ -65,10 +65,10 @@ enum BatteryCapacityUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::MILLIAMPERE_HOUR => fn ($value, $voltage) => ($value / $voltage) * 1000,  // Convert Wh to mAh
-            self::AMPERE_HOUR => fn ($value, $voltage) => $value / $voltage,               // Wh to Ah
-            self::WATT_HOUR => fn ($value) => $value,                           // Wh remains Wh
-            self::KILOWATT_HOUR => fn ($value) => $value / 1000,               // Wh to kWh
+            self::MILLIAMPERE_HOUR => fn (float|int $value, float|int $voltage): float => ((float)$value / (float)$voltage) * 1000,  // Convert Wh to mAh
+            self::AMPERE_HOUR => fn (float|int $value, float|int $voltage): float => (float)$value / (float)$voltage,               // Wh to Ah
+            self::WATT_HOUR => fn (float|int $value): float => (float)$value,                           // Wh remains Wh
+            self::KILOWATT_HOUR => fn (float|int $value): float => (float)$value / 1000,               // Wh to kWh
         };
     }
 

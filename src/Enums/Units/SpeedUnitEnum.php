@@ -60,11 +60,11 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::METER_PER_SECOND => fn ($value) => $value,
-            self::KILOMETER_PER_HOUR => fn ($value) => $value / 3.6,
-            self::MILE_PER_HOUR => fn ($value) => $value / 2.237,
-            self::FOOT_PER_SECOND => fn ($value) => $value / 3.281,
-            self::KNOT => fn ($value) => $value / 1.944,
+            self::METER_PER_SECOND => fn (float|int $value): float => (float)$value,
+            self::KILOMETER_PER_HOUR => fn (float|int $value): float => (float)$value / 3.6,
+            self::MILE_PER_HOUR => fn (float|int $value): float => (float)$value / 2.237,
+            self::FOOT_PER_SECOND => fn (float|int $value): float => (float)$value / 3.281,
+            self::KNOT => fn (float|int $value): float => (float)$value / 1.944,
         };
     }
 
@@ -75,11 +75,11 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::METER_PER_SECOND => fn ($value) => $value,
-            self::KILOMETER_PER_HOUR => fn ($value) => $value * 3.6,
-            self::MILE_PER_HOUR => fn ($value) => $value * 2.237,
-            self::FOOT_PER_SECOND => fn ($value) => $value * 3.281,
-            self::KNOT => fn ($value) => $value * 1.944,
+            self::METER_PER_SECOND => fn (float|int $value): float => (float)$value,
+            self::KILOMETER_PER_HOUR => fn (float|int $value): float => (float)$value * 3.6,
+            self::MILE_PER_HOUR => fn (float|int $value): float => (float)$value * 2.237,
+            self::FOOT_PER_SECOND => fn (float|int $value): float => (float)$value * 3.281,
+            self::KNOT => fn (float|int $value): float => (float)$value * 1.944,
         };
     }
 

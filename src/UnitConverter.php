@@ -42,7 +42,9 @@ class UnitConverter
         try {
             //Do the conversion
             $base_value = $value->unit->getToBase()($value->value, ...$args);
+            /** @var float $base_value */
             $converted_value = $target_unit->getFromBase()($base_value, ...$args);
+            /** @var float $converted_value */
         } catch (ArgumentCountError $e) {
             throw new InvalidConversionParameterConverterException($e);
         }

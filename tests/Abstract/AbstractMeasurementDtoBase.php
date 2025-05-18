@@ -10,6 +10,7 @@ use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidConversion
 use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnitIdUnitConverterException;
 use Webboy\MeasurementUnits\MeasurementDto;
 use Webboy\MeasurementUnits\UnitConverter;
+use Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface;
 
 /**
  * Class AbstractMeasurementDtoBase
@@ -23,7 +24,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     protected MeasurementDto $measurementDto;
 
     /**
-     * @var class-string The class name of the unit enum.
+     * @var class-string<\BackedEnum&\Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface> The class name of the unit enum.
      */
     protected string $unitEnumClass;
 
@@ -48,7 +49,7 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     /**
      * Create the unit enum class.
      *
-     * @return class-string The class name of the unit enum.
+     * @return class-string<\BackedEnum&\Webboy\MeasurementUnits\Enums\Interfaces\UnitEnumInterface> The class name of the unit enum.
      */
     abstract protected function createUnitEnumClass(): string;
 

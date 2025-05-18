@@ -36,15 +36,15 @@ class CustomMeasurementTest extends TestCase
                     id: 'fu',
                     name: 'Fubar',
                     symbol: 'fu',
-                    toBase: fn ($x) => $x,
-                    fromBase: fn ($x) => $x,
+                    toBase: fn (float|int $x): float => (float)$x,
+                    fromBase: fn (float|int $x): float => (float)$x,
                 ),
                 new CustomUnitDto(
                     id: 'zig',
                     name: 'Zigzag',
                     symbol: 'zig',
-                    toBase: fn ($x) => $x * 0.75,
-                    fromBase: fn ($x) => $x / 0.75,
+                    toBase: fn (float|int $x): float => (float)$x * 0.75,
+                    fromBase: fn (float|int $x): float => (float)$x / 0.75,
                 )
             ]
         );
@@ -69,16 +69,16 @@ class CustomMeasurementTest extends TestCase
                     id: 'fu',
                     name: 'Fubar',
                     symbol: 'fu',
-                    toBase: fn ($x) => $x,
-                    fromBase: fn ($x) => $x,
+                    toBase: fn (float|int $x): float => (float)$x,
+                    fromBase: fn (float|int $x): float => (float)$x,
                     isBase: true,
                 ),
                 new CustomUnitDto(
                     id: 'zig',
                     name: 'Zigzag',
                     symbol: 'zig',
-                    toBase: fn ($x) => $x * 0.75,
-                    fromBase: fn ($x) => $x / 0.75,
+                    toBase: fn (float|int $x): float => (float)$x * 0.75,
+                    fromBase: fn (float|int $x): float => (float)$x / 0.75,
                 )
             ]
         );

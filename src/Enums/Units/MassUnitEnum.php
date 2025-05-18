@@ -79,17 +79,17 @@ enum MassUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::MILLIGRAM => fn ($value) => $value / 1000000,
-            self::GRAM => fn ($value) => $value / 1000,
-            self::KILOGRAM => fn ($value) => $value,
-            self::TONNE => fn ($value) => $value * 1000,
-            self::OUNCE => fn ($value) => $value / 35.274,
-            self::POUND => fn ($value) => $value / 2.205,
-            self::STONE => fn ($value) => $value * 6.35,
-            self::SHORT_TON => fn ($value) => $value * 907.185,
-            self::LONG_TON => fn ($value) => $value * 1016.047,
-            self::CARAT => fn ($value) => $value / 5000,
-            self::GRAIN => fn ($value) => $value / 15432.358,
+            self::MILLIGRAM => fn (float|int $value): float => (float)$value / 1000000,
+            self::GRAM => fn (float|int $value): float => (float)$value / 1000,
+            self::KILOGRAM => fn (float|int $value): float => (float)$value,
+            self::TONNE => fn (float|int $value): float => (float)$value * 1000,
+            self::OUNCE => fn (float|int $value): float => (float)$value / 35.274,
+            self::POUND => fn (float|int $value): float => (float)$value / 2.205,
+            self::STONE => fn (float|int $value): float => (float)$value * 6.35,
+            self::SHORT_TON => fn (float|int $value): float => (float)$value * 907.185,
+            self::LONG_TON => fn (float|int $value): float => (float)$value * 1016.047,
+            self::CARAT => fn (float|int $value): float => (float)$value / 5000,
+            self::GRAIN => fn (float|int $value): float => (float)$value / 15432.358,
         };
     }
 
@@ -102,17 +102,17 @@ enum MassUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::MILLIGRAM => fn ($value) => $value * 1000000,
-            self::GRAM => fn ($value) => $value * 1000,
-            self::KILOGRAM => fn ($value) => $value,
-            self::TONNE => fn ($value) => $value / 1000,
-            self::OUNCE => fn ($value) => $value * 35.274,
-            self::POUND => fn ($value) => $value * 2.205,
-            self::STONE => fn ($value) => $value / 6.35,
-            self::SHORT_TON => fn ($value) => $value / 907.185,
-            self::LONG_TON => fn ($value) => $value / 1016.047,
-            self::CARAT => fn ($value) => $value * 5000,
-            self::GRAIN => fn ($value) => $value * 15432.358,
+            self::MILLIGRAM => fn (float|int $value): float => (float)$value * 1000000,
+            self::GRAM => fn (float|int $value): float => (float)$value * 1000,
+            self::KILOGRAM => fn (float|int $value): float => (float)$value,
+            self::TONNE => fn (float|int $value): float => (float)$value / 1000,
+            self::OUNCE => fn (float|int $value): float => (float)$value * 35.274,
+            self::POUND => fn (float|int $value): float => (float)$value * 2.205,
+            self::STONE => fn (float|int $value): float => (float)$value / 6.35,
+            self::SHORT_TON => fn (float|int $value): float => (float)$value / 907.185,
+            self::LONG_TON => fn (float|int $value): float => (float)$value / 1016.047,
+            self::CARAT => fn (float|int $value): float => (float)$value * 5000,
+            self::GRAIN => fn (float|int $value): float => (float)$value * 15432.358,
         };
     }
 

@@ -50,10 +50,10 @@ enum FuelConsumptionUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::LITERS_PER_100KM => fn ($value) => $value,
-            self::KILOMETERS_PER_LITER => fn ($value) => 100 / $value,
-            self::MILES_PER_GALLON_US => fn ($value) => 235.214583 / $value,
-            self::MILES_PER_GALLON_UK => fn ($value) => 282.481 / $value,
+            self::LITERS_PER_100KM => fn (float|int $value): float => (float)$value,
+            self::KILOMETERS_PER_LITER => fn (float|int $value): float => 100 / (float)$value,
+            self::MILES_PER_GALLON_US => fn (float|int $value): float => 235.214583 / (float)$value,
+            self::MILES_PER_GALLON_UK => fn (float|int $value): float => 282.481 / (float)$value,
         };
     }
 
@@ -64,10 +64,10 @@ enum FuelConsumptionUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::LITERS_PER_100KM => fn ($value) => $value,
-            self::KILOMETERS_PER_LITER => fn ($value) => 100 / $value,
-            self::MILES_PER_GALLON_US => fn ($value) => 235.214583 / $value,
-            self::MILES_PER_GALLON_UK => fn ($value) => 282.481 / $value,
+            self::LITERS_PER_100KM => fn (float|int $value): float => (float)$value,
+            self::KILOMETERS_PER_LITER => fn (float|int $value): float => 100 / (float)$value,
+            self::MILES_PER_GALLON_US => fn (float|int $value): float => 235.214583 / (float)$value,
+            self::MILES_PER_GALLON_UK => fn (float|int $value): float => 282.481 / (float)$value,
         };
     }
 

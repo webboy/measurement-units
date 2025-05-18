@@ -44,9 +44,9 @@ enum VoltageUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::VOLT => fn ($value) => $value,
-            self::MILLIVOLT => fn ($value) => $value / 1000,
-            self::KILOVOLT => fn ($value) => $value * 1000,
+            self::VOLT => fn (float|int $value): float => (float)$value,
+            self::MILLIVOLT => fn (float|int $value): float => (float)$value / 1000,
+            self::KILOVOLT => fn (float|int $value): float => (float)$value * 1000,
         };
     }
 
@@ -57,9 +57,9 @@ enum VoltageUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::VOLT => fn ($value) => $value,
-            self::MILLIVOLT => fn ($value) => $value * 1000,
-            self::KILOVOLT => fn ($value) => $value / 1000,
+            self::VOLT => fn (float|int $value): float => (float)$value,
+            self::MILLIVOLT => fn (float|int $value): float => (float)$value * 1000,
+            self::KILOVOLT => fn (float|int $value): float => (float)$value / 1000,
         };
     }
 

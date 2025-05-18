@@ -76,17 +76,17 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     public function toBase(): Closure
     {
         return match ($this) {
-            self::PASCAL => fn ($value) => $value,
-            self::KILOPASCAL => fn ($value) => $value * 1_000,
-            self::MEGAPASCAL => fn ($value) => $value * 1_000_000,
-            self::BAR => fn ($value) => $value * 100_000,
-            self::MILLIBAR => fn ($value) => $value * 100,
-            self::ATMOSPHERE => fn ($value) => $value * 101_325,
-            self::TORR => fn ($value) => $value * 133.322,
-            self::PSI => fn ($value) => $value * 6_894.76,
-            self::PSF => fn ($value) => $value * 47.8803,
-            self::INHG => fn ($value) => $value * 3_386.39,
-            self::MMHG => fn ($value) => $value * 133.322,
+            self::PASCAL => fn (float|int $value): float => (float)$value,
+            self::KILOPASCAL => fn (float|int $value): float => (float)$value * 1_000,
+            self::MEGAPASCAL => fn (float|int $value): float => (float)$value * 1_000_000,
+            self::BAR => fn (float|int $value): float => (float)$value * 100_000,
+            self::MILLIBAR => fn (float|int $value): float => (float)$value * 100,
+            self::ATMOSPHERE => fn (float|int $value): float => (float)$value * 101_325,
+            self::TORR => fn (float|int $value): float => (float)$value * 133.322,
+            self::PSI => fn (float|int $value): float => (float)$value * 6_894.76,
+            self::PSF => fn (float|int $value): float => (float)$value * 47.8803,
+            self::INHG => fn (float|int $value): float => (float)$value * 3_386.39,
+            self::MMHG => fn (float|int $value): float => (float)$value * 133.322,
         };
     }
 
@@ -97,17 +97,17 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     public function fromBase(): Closure
     {
         return match ($this) {
-            self::PASCAL => fn ($value) => $value,
-            self::KILOPASCAL => fn ($value) => $value / 1_000,
-            self::MEGAPASCAL => fn ($value) => $value / 1_000_000,
-            self::BAR => fn ($value) => $value / 100_000,
-            self::MILLIBAR => fn ($value) => $value / 100,
-            self::ATMOSPHERE => fn ($value) => $value / 101_325,
-            self::TORR => fn ($value) => $value / 133.322,
-            self::PSI => fn ($value) => $value / 6_894.76,
-            self::PSF => fn ($value) => $value / 47.8803,
-            self::INHG => fn ($value) => $value / 3_386.39,
-            self::MMHG => fn ($value) => $value / 133.322,
+            self::PASCAL => fn (float|int $value): float => (float)$value,
+            self::KILOPASCAL => fn (float|int $value): float => (float)$value / 1_000,
+            self::MEGAPASCAL => fn (float|int $value): float => (float)$value / 1_000_000,
+            self::BAR => fn (float|int $value): float => (float)$value / 100_000,
+            self::MILLIBAR => fn (float|int $value): float => (float)$value / 100,
+            self::ATMOSPHERE => fn (float|int $value): float => (float)$value / 101_325,
+            self::TORR => fn (float|int $value): float => (float)$value / 133.322,
+            self::PSI => fn (float|int $value): float => (float)$value / 6_894.76,
+            self::PSF => fn (float|int $value): float => (float)$value / 47.8803,
+            self::INHG => fn (float|int $value): float => (float)$value / 3_386.39,
+            self::MMHG => fn (float|int $value): float => (float)$value / 133.322,
         };
     }
 
