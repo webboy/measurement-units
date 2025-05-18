@@ -17,6 +17,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
     case FAHRENHEIT = 200; // Used primarily in the USA
 
     // Labels
+    /**
+     * @return string
+     */
     public function label(): string
     {
         return match ($this) {
@@ -28,6 +31,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
 
     // Symbols
 
+    /**
+     * @return string
+     */
     public function symbol(): string
     {
         return match ($this) {
@@ -38,6 +44,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
     }
 
     // To base
+    /**
+     * @return Closure
+     */
     public function toBase(): Closure
     {
         return match ($this) {
@@ -48,6 +57,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
     }
 
     // From base
+    /**
+     * @return Closure
+     */
     public function fromBase(): Closure
     {
         return match ($this) {
@@ -57,6 +69,9 @@ enum TemperatureUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;

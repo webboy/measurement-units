@@ -17,7 +17,7 @@ class VolumeUnitDto extends UnitDto
      *
      * @param VolumeUnitEnum $enum  The volume unit enum.
      * @param string|null    $label The label.
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(VolumeUnitEnum $enum, ?string $label = null)
     {

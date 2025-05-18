@@ -6,6 +6,10 @@ use PHPUnit\Framework\TestCase;
 use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
 use Webboy\MeasurementUnits\UnitDto;
 
+/**
+ * Class AbstractUnitDtoBase
+ * @package Tests\Abstract
+ */
 abstract class AbstractUnitDtoBase extends TestCase
 {
     /**
@@ -28,6 +32,9 @@ abstract class AbstractUnitDtoBase extends TestCase
      */
     abstract protected function createUnitEnumClass(): string;
 
+    /**
+     * @return void
+     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -37,6 +44,7 @@ abstract class AbstractUnitDtoBase extends TestCase
 
     /**
      * Test the successful creation of the unit DTO.
+     * @return void
      */
     public function testSuccessfulCreation(): void
     {
@@ -44,6 +52,9 @@ abstract class AbstractUnitDtoBase extends TestCase
         $this->assertInstanceOf($this->unit_class, $unitDto);
     }
 
+    /**
+     * @return void
+     */
     public function testSuccessfulCreationWithCustomName(): void
     {
         /**

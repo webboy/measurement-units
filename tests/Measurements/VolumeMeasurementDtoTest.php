@@ -14,13 +14,24 @@ use Webboy\MeasurementUnits\Measurements\SpeedMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\TemperatureMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\VolumeMeasurementDto;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class VolumeMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return VolumeMeasurementDto
+     */
     protected function createMeasurementDto(): VolumeMeasurementDto
     {
         return new VolumeMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return VolumeUnitEnum::class;

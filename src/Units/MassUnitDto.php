@@ -15,9 +15,9 @@ class MassUnitDto extends UnitDto
     /**
      * Create a new mass unit DTO.
      *
-     * @param MassUnitEnum $enum
-     * @param string|null  $label
-     * @throws InvalidUnitIdUnitException
+     * @param MassUnitEnum $enum  The mass unit enum.
+     * @param string|null  $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(MassUnitEnum $enum, ?string $label = null)
     {

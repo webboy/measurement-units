@@ -15,9 +15,9 @@ class TorqueUnitDto extends UnitDto
     /**
      * Create a new torque unit DTO.
      *
-     * @param TorqueUnitEnum $enum
-     * @param string|null    $label
-     * @throws InvalidUnitIdUnitException
+     * @param TorqueUnitEnum $enum  The torque unit enum.
+     * @param string|null    $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(TorqueUnitEnum $enum, ?string $label = null)
     {

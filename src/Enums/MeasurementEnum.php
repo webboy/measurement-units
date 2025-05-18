@@ -46,6 +46,9 @@ enum MeasurementEnum: string
     case VOLTAGE = 'voltage';
 
     // Values
+    /**
+     * @return string
+     */
     public function value(): string
     {
         return $this->value;
@@ -53,6 +56,9 @@ enum MeasurementEnum: string
 
 
     // Labels
+    /**
+     * @return string
+     */
     public function label(): string
     {
         return match ($this) {
@@ -72,6 +78,9 @@ enum MeasurementEnum: string
     }
 
     // Base Unit Ids
+    /**
+     * @return UnitEnumInterface
+     */
     public function baseUnit(): UnitEnumInterface
     {
         return match ($this) {
@@ -94,7 +103,7 @@ enum MeasurementEnum: string
 
     /**
      * @return UnitDto[]
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid when creating a UnitDto.
      */
     public function units(): array
     {

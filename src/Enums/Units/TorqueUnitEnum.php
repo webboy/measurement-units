@@ -24,6 +24,7 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
 
     /**
      * Human-readable label for each unit.
+     * @return string
      */
     public function label(): string
     {
@@ -41,6 +42,7 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
 
     /**
      * Symbol for each unit.
+     * @return string
      */
     public function symbol(): string
     {
@@ -58,6 +60,7 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
 
     /**
      * Conversion to base unit (Newton Meter).
+     * @return Closure
      */
     public function toBase(): Closure
     {
@@ -75,6 +78,7 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
 
     /**
      * Conversion from base unit (Newton Meter).
+     * @return Closure
      */
     public function fromBase(): Closure
     {
@@ -90,6 +94,9 @@ enum TorqueUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;

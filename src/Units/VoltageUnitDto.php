@@ -14,9 +14,9 @@ class VoltageUnitDto extends UnitDto
     /**
      * Create a new voltage unit DTO.
      *
-     * @param VoltageUnitEnum $enum
-     * @param string|null     $label
-     * @throws InvalidUnitIdUnitException
+     * @param VoltageUnitEnum $enum  The voltage unit enum.
+     * @param string|null     $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(VoltageUnitEnum $enum, ?string $label = null)
     {

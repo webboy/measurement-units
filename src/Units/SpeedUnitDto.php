@@ -15,9 +15,9 @@ class SpeedUnitDto extends UnitDto
     /**
      * Create a new speed unit DTO.
      *
-     * @param SpeedUnitEnum $enum
-     * @param string|null   $label
-     * @throws InvalidUnitIdUnitException
+     * @param SpeedUnitEnum $enum  The speed unit enum.
+     * @param string|null   $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(SpeedUnitEnum $enum, ?string $label = null)
     {

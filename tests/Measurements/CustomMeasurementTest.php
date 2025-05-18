@@ -12,11 +12,16 @@ use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException
 use Webboy\MeasurementUnits\Measurements\CustomMeasurementDto;
 use Webboy\MeasurementUnits\Units\CustomUnitDto;
 
+/**
+ * @covers \Webboy\MeasurementUnits\Measurements\CustomMeasurementDto
+ * @covers \Webboy\MeasurementUnits\Units\CustomUnitDto
+ */
 class CustomMeasurementTest extends TestCase
 {
     /**
-     * @throws UnitException
-     * @throws MeasurementException
+     * @throws UnitException If there is an issue with unit definitions.
+     * @throws MeasurementException If there is an issue with measurement definitions.
+     * @return void
      */
     public function testCustomMeasurement(): void
     {
@@ -46,10 +51,11 @@ class CustomMeasurementTest extends TestCase
     }
 
     /**
-     * @throws InvalidUnitDefinitionsMeasurementException
-     * @throws InvalidUnitIdMeasurementException
-     * @throws InvalidMeasurementIdMeasurementException
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitDefinitionsMeasurementException If unit definitions are invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
+     * @throws InvalidMeasurementIdMeasurementException If the measurement ID is invalid.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
+     * @return void
      */
     public function testSettingBaseUnitIdFromUnitArray(): void
     {

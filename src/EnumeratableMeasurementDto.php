@@ -8,14 +8,20 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefiniti
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Exceptions\UnitExceptions\InvalidUnitIdUnitException;
 
+/**
+ * @throws InvalidMeasurementIdMeasurementException
+ * @throws InvalidUnitDefinitionsMeasurementException
+ * @throws InvalidUnitIdMeasurementException
+ * @throws InvalidUnitIdUnitException
+ */
 class EnumeratableMeasurementDto extends MeasurementDto
 {
     /**
-     * @param MeasurementEnum $measurementEnum
-     * @throws InvalidMeasurementIdMeasurementException
-     * @throws InvalidUnitDefinitionsMeasurementException
-     * @throws InvalidUnitIdMeasurementException
-     * @throws InvalidUnitIdUnitException
+     * @param MeasurementEnum $measurementEnum The measurement enum.
+     * @throws InvalidMeasurementIdMeasurementException If the measurement ID is invalid.
+     * @throws InvalidUnitDefinitionsMeasurementException If the unit definitions are invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
+     * @throws InvalidUnitIdUnitException If the unit ID from the unit exception is invalid.
      */
     public function __construct(MeasurementEnum $measurementEnum)
     {

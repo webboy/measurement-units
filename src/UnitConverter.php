@@ -20,12 +20,12 @@ class UnitConverter
      * @param int | string        $target_unit_id The ID of the target unit.
      * @param mixed               ...$args        The arguments to pass to the conversion functions.
      * @return MeasurementValueDto The converted value.
-     * @throws InvalidTargetUnitIdUnitConverterException
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
-     * @throws InvalidConversionParameterConverterException
+     * @throws InvalidTargetUnitIdUnitConverterException If the target unit ID is invalid.
+     * @throws IllegalInstantiationMeasurementValueException If the factory is called from an invalid class.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
+     * @throws InvalidConversionParameterConverterException If the conversion parameters are invalid.
      */
-    public static function convert(MeasurementValueDto $value, int | string $target_unit_id, ...$args): MeasurementValueDto
+    public static function convert(MeasurementValueDto $value, int | string $target_unit_id, mixed ...$args): MeasurementValueDto
     {
         // Check if the $target_unit_id is in the list of measurement units.
         try {

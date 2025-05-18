@@ -15,9 +15,9 @@ class PowerUnitDto extends UnitDto
     /**
      * Create a new power unit DTO.
      *
-     * @param PowerUnitEnum $enum
-     * @param string|null   $label
-     * @throws InvalidUnitIdUnitException
+     * @param PowerUnitEnum $enum  The power unit enum.
+     * @param string|null   $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(PowerUnitEnum $enum, ?string $label = null)
     {

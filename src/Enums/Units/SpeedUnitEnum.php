@@ -24,6 +24,9 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     case KNOT = 104;                // Nautical mile per hour
 
     // Labels
+    /**
+     * @return string
+     */
     public function label(): string
     {
         return match ($this) {
@@ -36,6 +39,9 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     }
 
     // Symbols
+    /**
+     * @return string
+     */
     public function symbol(): string
     {
         return match ($this) {
@@ -48,6 +54,9 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     }
 
     // To base
+    /**
+     * @return Closure
+     */
     public function toBase(): Closure
     {
         return match ($this) {
@@ -60,6 +69,9 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
     }
 
     // From base
+    /**
+     * @return Closure
+     */
     public function fromBase(): Closure
     {
         return match ($this) {
@@ -71,6 +83,9 @@ enum SpeedUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;

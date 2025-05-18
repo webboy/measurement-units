@@ -16,9 +16,9 @@ class PressureMeasurementDto extends EnumeratableMeasurementDto
     /**
      * Create a new pressure measurement DTO.
      *
-     * @throws InvalidMeasurementIdMeasurementException
-     * @throws InvalidUnitDefinitionsMeasurementException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidMeasurementIdMeasurementException If the measurement ID is invalid.
+     * @throws InvalidUnitDefinitionsMeasurementException If the unit definitions are invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
      */
     public function __construct()
     {

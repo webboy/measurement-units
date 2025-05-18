@@ -6,10 +6,15 @@ use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum;
 use Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto;
 
+/**
+ * @covers \Webboy\MeasurementUnits\Units\BatteryCapacityUnitDto
+ * @covers \Webboy\MeasurementUnits\Enums\Units\BatteryCapacityUnitEnum
+ */
 class BatteryCapacityUnitDtoTest extends AbstractUnitDtoBase
 {
     /**
      * @inheritDoc
+     * @return string
      */
     protected function createUnitClass(): string
     {
@@ -18,6 +23,7 @@ class BatteryCapacityUnitDtoTest extends AbstractUnitDtoBase
 
     /**
      * @inheritDoc
+     * @return string
      */
     protected function createUnitEnumClass(): string
     {

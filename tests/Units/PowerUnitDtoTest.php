@@ -6,10 +6,15 @@ use Tests\Abstract\AbstractUnitDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\PowerUnitEnum;
 use Webboy\MeasurementUnits\Units\PowerUnitDto;
 
+/**
+ * @covers \Webboy\MeasurementUnits\Units\PowerUnitDto
+ * @covers \Webboy\MeasurementUnits\Enums\Units\PowerUnitEnum
+ */
 class PowerUnitDtoTest extends AbstractUnitDtoBase
 {
     /**
      * @inheritDoc
+     * @return string
      */
     protected function createUnitClass(): string
     {
@@ -18,6 +23,7 @@ class PowerUnitDtoTest extends AbstractUnitDtoBase
 
     /**
      * @inheritDoc
+     * @return string
      */
     protected function createUnitEnumClass(): string
     {

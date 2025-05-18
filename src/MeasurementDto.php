@@ -46,9 +46,9 @@ abstract class MeasurementDto
      * @param integer|string|null            $base_unit_id The ID of the base unit.
      * @param array<int|string,UnitDto>|null $units        The units of the measurement.
      * @param array<int|string>|null         $validIds     The valid IDs of the measurement.
-     * @throws InvalidMeasurementIdMeasurementException
-     * @throws InvalidUnitDefinitionsMeasurementException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidMeasurementIdMeasurementException If the measurement ID is invalid.
+     * @throws InvalidUnitDefinitionsMeasurementException If the unit definitions are invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
      */
     public function __construct(
         int | string $id,
@@ -78,11 +78,11 @@ abstract class MeasurementDto
     /**
      * Create a new measurement DTO from a factory.
      *
-     * @param integer|float  $value
-     * @param integer|string $unitId
+     * @param integer|float  $value  The value of the measurement.
+     * @param integer|string $unitId The ID of the unit.
      * @return MeasurementValueDto
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException If the factory is called from an invalid class.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
      */
     public function createValue(int | float $value, int | string $unitId): MeasurementValueDto
     {
@@ -94,7 +94,7 @@ abstract class MeasurementDto
      * Get the base unit of the measurement.
      *
      * @return UnitDto
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If the base unit ID is invalid.
      */
     public function getBaseUnit(): UnitDto
     {
@@ -102,9 +102,9 @@ abstract class MeasurementDto
     }
 
     /**
-     * @param string|integer|null $unitId
+     * @param string|integer|null $unitId The ID of the unit to set as base.
      * @return void
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
      */
     public function setBaseUnit(string|int|null $unitId = null): void
     {
@@ -117,8 +117,9 @@ abstract class MeasurementDto
     /**
      * Add a unit to the measurement.
      *
-     * @param UnitDto $unit
-     * @throws InvalidUnitIdMeasurementException
+     * @param UnitDto $unit The unit to add.
+     * @return void
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid and cannot be set as base.
      */
     private function addUnit(UnitDto $unit): void
     {
@@ -131,9 +132,9 @@ abstract class MeasurementDto
     }
 
     /**
-     * @param UnitDto[] $units
+     * @param UnitDto[] $units The units to add.
      * @return void
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If a unit ID is invalid and cannot be set as base.
      */
     private function addUnits(array $units): void
     {
@@ -145,9 +146,9 @@ abstract class MeasurementDto
     /**
      * Get a unit by its ID.
      *
-     * @param integer|string $unitId
+     * @param integer|string $unitId The ID of the unit.
      * @return UnitDto
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If the unit ID is not found.
      */
     public function getUnit(int|string $unitId): UnitDto
     {

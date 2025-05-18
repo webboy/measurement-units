@@ -15,9 +15,9 @@ class AreaUnitDto extends UnitDto
     /**
      * Create a new area unit DTO.
      *
-     * @param AreaUnitEnum $enum
-     * @param string|null  $label
-     * @throws InvalidUnitIdUnitException
+     * @param AreaUnitEnum $enum  The area unit enum.
+     * @param string|null  $label The label for the unit, or null to use the enum's label.
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(AreaUnitEnum $enum, ?string $label = null)
     {

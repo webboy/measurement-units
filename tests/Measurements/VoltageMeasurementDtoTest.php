@@ -16,13 +16,22 @@ use Webboy\MeasurementUnits\Measurements\TemperatureMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\VoltageMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\VolumeMeasurementDto;
 
+/**
+ * @covers \Webboy\MeasurementUnits\Measurements\VoltageMeasurementDto
+ */
 class VoltageMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return VoltageMeasurementDto
+     */
     protected function createMeasurementDto(): VoltageMeasurementDto
     {
         return new VoltageMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return VoltageUnitEnum::class;

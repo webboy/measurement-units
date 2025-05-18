@@ -21,9 +21,9 @@ class CustomMeasurementDto extends MeasurementDto
      * @param string              $name         The name of the measurement.
      * @param integer|string|null $base_unit_id The ID of the base unit.
      * @param UnitDto[]|null      $units        The units of the measurement.
-     * @throws InvalidMeasurementIdMeasurementException
-     * @throws InvalidUnitDefinitionsMeasurementException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidMeasurementIdMeasurementException If the measurement ID is invalid.
+     * @throws InvalidUnitDefinitionsMeasurementException If the unit definitions are invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid.
      */
     public function __construct(
         int | string $id,

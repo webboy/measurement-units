@@ -34,7 +34,7 @@ class MeasurementValueDto
      * @param int | float    $value       The value of the measurement.
      * @param UnitDto        $unit        The unit of the measurement.
      * @param MeasurementDto $measurement The measurement of the value.
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
      */
     protected function __construct(int | float $value, UnitDto $unit, MeasurementDto $measurement)
     {
@@ -51,8 +51,8 @@ class MeasurementValueDto
      * @param MeasurementDto $measurement The measurement of the value.
      * @param string         $caller      The class that called the factory.
      * @return MeasurementValueDto The new measurement value DTO.
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException If the factory is called from an invalid class.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
      */
     public static function createFromFactory(int | float $value, UnitDto $unit, MeasurementDto $measurement, string $caller): MeasurementValueDto
     {
@@ -69,12 +69,12 @@ class MeasurementValueDto
      * @param integer|string $unit_id The ID of the target unit.
      * @param mixed          ...$args The arguments to pass to the conversion functions.
      * @return MeasurementValueDto The new measurement value DTO.
-     * @throws InvalidTargetUnitIdUnitConverterException
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
-     * @throws InvalidConversionParameterConverterException
+     * @throws InvalidTargetUnitIdUnitConverterException If the target unit ID is invalid.
+     * @throws IllegalInstantiationMeasurementValueException If the factory is called from an invalid class.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
+     * @throws InvalidConversionParameterConverterException If the conversion parameters are invalid.
      */
-    public function to(int | string $unit_id, ...$args): MeasurementValueDto
+    public function to(int | string $unit_id, mixed ...$args): MeasurementValueDto
     {
         return UnitConverter::convert($this, $unit_id, ...$args);
     }

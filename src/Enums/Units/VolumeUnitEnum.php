@@ -36,6 +36,7 @@ enum VolumeUnitEnum: int implements UnitEnumInterface
 
     /**
      * Provides a human-readable label for each unit.
+     * @return string
      */
     public function label(): string
     {
@@ -64,6 +65,7 @@ enum VolumeUnitEnum: int implements UnitEnumInterface
 
     /**
      * Provides the symbol for each unit.
+     * @return string
      */
     public function symbol(): string
     {
@@ -93,6 +95,7 @@ enum VolumeUnitEnum: int implements UnitEnumInterface
 
     /**
      * Converts a given value to the base unit (Litre).
+     * @return Closure
      */
     public function toBase(): Closure
     {
@@ -121,6 +124,7 @@ enum VolumeUnitEnum: int implements UnitEnumInterface
 
     /**
      * Converts a value from the base unit (Litre) to the target unit.
+     * @return Closure
      */
     public function fromBase(): Closure
     {
@@ -147,6 +151,9 @@ enum VolumeUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;

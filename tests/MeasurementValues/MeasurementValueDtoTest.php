@@ -11,10 +11,15 @@ use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 use Webboy\MeasurementUnits\MeasurementValueDto;
 use Webboy\MeasurementUnits\Units\DistanceUnitDto;
 
+/**
+ * Class MeasurementValueDtoTest
+ * @package Tests\MeasurementValues
+ */
 class MeasurementValueDtoTest extends TestCase
 {
     /**
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is provided.
+     * @return void
      */
     public function testThrowsExceptionWhenInstantiatedOutsideOfMeasurementDto(): void
     {

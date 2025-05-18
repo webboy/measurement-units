@@ -11,13 +11,24 @@ use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnit
 use Webboy\MeasurementUnits\Measurements\BatteryCapacityMeasurementDto;
 use Webboy\MeasurementUnits\UnitConverter;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return BatteryCapacityMeasurementDto
+     */
     protected function createMeasurementDto(): BatteryCapacityMeasurementDto
     {
         return new BatteryCapacityMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return BatteryCapacityUnitEnum::class;
@@ -49,10 +60,11 @@ class BatteryCapacityMeasurementDtoTest extends AbstractMeasurementDtoBase
 
     /**
      * @return void
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidConversionParameterConverterException
-     * @throws InvalidTargetUnitIdUnitConverterException
-     * @throws InvalidUnitIdMeasurementException
+     *
+     * @throws IllegalInstantiationMeasurementValueException If the value cannot be instantiated.
+     * @throws InvalidConversionParameterConverterException If the conversion parameters are invalid.
+     * @throws InvalidTargetUnitIdUnitConverterException If the target unit ID is invalid.
+     * @throws InvalidUnitIdMeasurementException If the unit ID is invalid for the measurement.
      */
     public function testFailConversionInvalidConversionCalculation()
     {

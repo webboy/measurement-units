@@ -8,13 +8,24 @@ use Webboy\MeasurementUnits\Enums\Units\PressureUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 use Webboy\MeasurementUnits\Measurements\PressureMeasurementDto;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class PressureMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return PressureMeasurementDto
+     */
     protected function createMeasurementDto(): PressureMeasurementDto
     {
         return new PressureMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return PressureUnitEnum::class;

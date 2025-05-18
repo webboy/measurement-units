@@ -18,8 +18,8 @@ class InvalidMeasurementDto extends MeasurementDto
      * @param string                  $name         The name of the measurement.
      * @param integer|string          $base_unit_id The ID of the base unit.
      * @param array<int,UnitDto>|null $units        The units of the measurement.
-     * @param array<int|string>       $validIds
-     * @throws MeasurementException
+     * @param array<int|string>       $validIds     The valid IDs for the measurement.
+     * @throws MeasurementException If there is an issue with the measurement setup.
      */
     public function __construct(
         int | string $id = 'invalid',

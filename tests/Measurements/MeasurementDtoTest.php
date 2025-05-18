@@ -9,8 +9,18 @@ use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefiniti
 use Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException;
 use Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto;
 
+/**
+ * @covers \Webboy\MeasurementUnits\Measurements\MeasurementDto
+ * @covers \Webboy\MeasurementUnits\Measurements\InvalidMeasurementDto
+ * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidMeasurementIdMeasurementException
+ * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitIdMeasurementException
+ * @covers \Webboy\MeasurementUnits\Exceptions\MeasurementExceptions\InvalidUnitDefinitionsMeasurementException
+ */
 class MeasurementDtoTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testInvalidMeasurementDtoInvalidMeasurementId(): void
     {
         //Expect an exception
@@ -21,7 +31,8 @@ class MeasurementDtoTest extends TestCase
     }
 
     /**
-     * @throws MeasurementException
+     * @throws MeasurementException If there is an issue with measurement definitions.
+     * @return void
      */
     public function testInvalidMeasurementDtoInvalidBaseUnitIdMeasurementException(): void
     {
@@ -39,7 +50,8 @@ class MeasurementDtoTest extends TestCase
     }
 
     /**
-     * @throws MeasurementException
+     * @throws MeasurementException If there is an issue with measurement definitions.
+     * @return void
      */
     public function testInvalidMeasurementDtoInvalidUnitDefinitionsMeasurementException(): void
     {

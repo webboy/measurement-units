@@ -51,7 +51,7 @@ abstract class UnitDto
      * @param Closure                      $fromBase The closure to convert from the base unit.
      * @param boolean                      $isBase   Whether the unit is the base unit.
      * @param array<int|string>|false|null $validIds The valid IDs for the unit.
-     * @throws InvalidUnitIdUnitException
+     * @throws InvalidUnitIdUnitException If the unit ID is invalid.
      */
     public function __construct(
         int | string $id,

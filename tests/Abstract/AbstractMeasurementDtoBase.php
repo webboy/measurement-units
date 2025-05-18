@@ -11,6 +11,10 @@ use Webboy\MeasurementUnits\Exceptions\UnitConverterExceptions\InvalidTargetUnit
 use Webboy\MeasurementUnits\MeasurementDto;
 use Webboy\MeasurementUnits\UnitConverter;
 
+/**
+ * Class AbstractMeasurementDtoBase
+ * @package Tests\Abstract
+ */
 abstract class AbstractMeasurementDtoBase extends TestCase
 {
     /**
@@ -46,7 +50,8 @@ abstract class AbstractMeasurementDtoBase extends TestCase
      * Create the conversion test parameters.
      *
      * @return array<int,array<string,mixed>> The conversion test parameters.
-     * @throws InvalidUnitIdMeasurementException|IllegalInstantiationMeasurementValueException
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
      */
     protected function createConversionTestParameters(): array
     {
@@ -60,8 +65,9 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @return void
      */
     protected function setUp(): void
     {
@@ -72,7 +78,8 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws InvalidUnitIdMeasurementException
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is provided.
+     * @return void
      */
     public function testSuccessfulDefaultConstruction(): void
     {
@@ -87,8 +94,9 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @return void
      */
     public function testSuccessfulValueCreation(): void
     {
@@ -101,8 +109,9 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @return void
      */
     public function testFailValueCreation(): void
     {
@@ -111,9 +120,11 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidTargetUnitIdUnitConverterException
-     * @throws InvalidUnitIdMeasurementException|InvalidConversionParameterConverterException
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
+     * @throws InvalidTargetUnitIdUnitConverterException If the target unit ID for conversion is invalid.
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @throws InvalidConversionParameterConverterException If conversion parameters are invalid.
+     * @return void
      */
     public function testSuccessfulConversion(): void
     {
@@ -142,8 +153,10 @@ abstract class AbstractMeasurementDtoBase extends TestCase
     }
 
     /**
-     * @throws IllegalInstantiationMeasurementValueException
-     * @throws InvalidUnitIdMeasurementException|InvalidConversionParameterConverterException
+     * @throws IllegalInstantiationMeasurementValueException If there's an issue with value DTO instantiation.
+     * @throws InvalidUnitIdMeasurementException If an invalid unit ID is used during value creation.
+     * @throws InvalidConversionParameterConverterException If conversion parameters are invalid.
+     * @return void
      */
     public function testFailConversion(): void
     {

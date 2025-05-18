@@ -28,6 +28,9 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     case MMHG = 110;            // Millimeters of mercury (medical/meteorology)
 
     // Labels
+    /**
+     * @return string
+     */
     public function label(): string
     {
         return match ($this) {
@@ -46,6 +49,9 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     }
 
     // Symbols
+    /**
+     * @return string
+     */
     public function symbol(): string
     {
         return match ($this) {
@@ -64,6 +70,9 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     }
 
     // To base
+    /**
+     * @return Closure
+     */
     public function toBase(): Closure
     {
         return match ($this) {
@@ -82,6 +91,9 @@ enum PressureUnitEnum: int implements UnitEnumInterface
     }
 
     // From base
+    /**
+     * @return Closure
+     */
     public function fromBase(): Closure
     {
         return match ($this) {
@@ -99,6 +111,9 @@ enum PressureUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;

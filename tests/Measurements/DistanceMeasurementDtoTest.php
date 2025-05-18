@@ -6,13 +6,24 @@ use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\DistanceUnitEnum;
 use Webboy\MeasurementUnits\Measurements\DistanceMeasurementDto;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class DistanceMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return DistanceMeasurementDto
+     */
     protected function createMeasurementDto(): DistanceMeasurementDto
     {
         return new DistanceMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return DistanceUnitEnum::class;

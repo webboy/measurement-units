@@ -6,13 +6,24 @@ use Tests\Abstract\AbstractMeasurementDtoBase;
 use Webboy\MeasurementUnits\Enums\Units\FuelConsumptionUnitEnum;
 use Webboy\MeasurementUnits\Measurements\FuelConsumptionMeasurementDto;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class FuelConsumptionMeasurementDtoTest extends AbstractMeasurementDtoBase
 {
+    /**
+     * @return FuelConsumptionMeasurementDto
+     */
     protected function createMeasurementDto(): FuelConsumptionMeasurementDto
     {
         return new FuelConsumptionMeasurementDto();
     }
 
+    /**
+     * @return string
+     */
     protected function createUnitEnumClass(): string
     {
         return FuelConsumptionUnitEnum::class;

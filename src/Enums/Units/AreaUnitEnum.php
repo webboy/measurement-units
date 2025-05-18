@@ -29,6 +29,7 @@ enum AreaUnitEnum: int implements UnitEnumInterface
     // Labels
     /**
      * Provides a human-readable label for each unit.
+     * @return string
      */
     public function label(): string
     {
@@ -50,6 +51,7 @@ enum AreaUnitEnum: int implements UnitEnumInterface
     // Symbols
     /**
      * Provides a symbol for each unit.
+     * @return string
      */
     public function symbol(): string
     {
@@ -71,6 +73,7 @@ enum AreaUnitEnum: int implements UnitEnumInterface
     // To base
     /**
      * Provides a closure to convert a value from this unit to the base unit.
+     * @return Closure
      */
     public function toBase(): Closure
     {
@@ -93,6 +96,7 @@ enum AreaUnitEnum: int implements UnitEnumInterface
 
     /**
      * Provides a closure to convert a value from the base unit to this unit.
+     * @return Closure
      */
     public function fromBase(): Closure
     {
@@ -111,6 +115,9 @@ enum AreaUnitEnum: int implements UnitEnumInterface
         };
     }
 
+    /**
+     * @return integer
+     */
     public function value(): int
     {
         return $this->value;
